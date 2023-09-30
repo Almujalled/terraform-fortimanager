@@ -5,14 +5,6 @@ terraform {
       version = "1.8.0"
     }
   }
-  backend "remote" {
-  # The name of your Terraform Cloud organization.
-  organization = "Verja"
-  # The name of the Terraform Cloud workspace to store Terraform state files in.
-  workspaces {
-    name = "verja-lab"
-  }
- }
 }
 
 provider "fortimanager" {
