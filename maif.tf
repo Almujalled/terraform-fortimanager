@@ -1,4 +1,3 @@
-# This a test between Terraform and fm at Verja.no
 terraform {
   required_providers {
     fortimanager = {
