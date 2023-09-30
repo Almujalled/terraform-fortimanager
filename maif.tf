@@ -47,4 +47,4 @@ resource "fortimanager_exec_workspace_action" "unlockres" { # save change and un
   force_recreate = uuid()
   comment        = ""
   depends_on     = [fortimanager_object_firewall_vip.trname]
-} 
+}
