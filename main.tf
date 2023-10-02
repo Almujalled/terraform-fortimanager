@@ -34,7 +34,7 @@ resource "fortimanager_object_firewall_vip" "trname" { # object resource
   extintf    = "any"
   extip      = "1.1.1.1-2.1.1.1"
   mappedip   = ["12.1.1.1-13.1.1.1"]
-  name       = "STIAN"
+  name       = "CELINlA"
   depends_on = [fortimanager_exec_workspace_action.lockres]
 }
 
