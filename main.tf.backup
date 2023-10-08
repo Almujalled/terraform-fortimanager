@@ -1,0 +1,171 @@
+terraform {
+  required_providers {
+    fortimanager = {
+      source = "fortinetdev/fortimanager"
+      version = "1.8.0"
+    }
+  }
+}
+
+provider "fortimanager" {
+  hostname     = "fm01.verja.no"
+  username     = "api_user"
+  token        = "n8ru5gqzddqsypogz9g3ax87fg3j4sjz"
+  insecure     = "true"
+  scopetype    = "adom"
+  adom         = "root"
+}
+
+resource "fortimanager_system_global" "trname" {
+  workspace_mode = "normal"
+}
+
+resource "fortimanager_exec_workspace_action" "lockres" { # lock root ADOM
+  scopetype      = "inherit"
+  action         = "lockbegin"
+  target         = ""
+  param          = ""
+  force_recreate = uuid()
+  comment        = ""
+}
+
+resource "fortimanager_object_firewall_vip" "trname" { # object resource
+  scopetype  = "inherit"
+  extintf    = "any"
+  extip      = "1.1.1.1-2.1.1.1"
+  mappedip   = ["12.1.1.1-13.1.1.1"]
+  name       = "TERRA-RESOURCE"
+  depends_on = [fortimanager_exec_workspace_action.lockres]
+}
+
+resource "fortimanager_json_generic_api" "test1" {
+  json_content = <<JSON
+{
+  "method": "get",
+  "params": [
+    {
+      "fields": [
+        [
+          "terrr"
+        ]
+      ],
+      "url": "/pm/pkg/adom/root"
+    }
+  ],
+  "session": "string",
+  "id": 1
+}
+JSON
+}
+
+
+
+resource "fortimanager_json_generic_api" "test2" {
+  json_content = <<JSON
+{
+    "method": "get",
+    "params": [
+        {
+            "url": "/pm/config/global/pkg/default/global/footer/consolidated/policy"
+        }
+    ]
+}
+JSON
+}
+
+
+
+resource "fortimanager_json_generic_api" "test3" {
+  json_content = <<JSON
+{
+  "method": "get",
+  "params": [
+    {
+      "option": "",
+      "url": "/dvmdb/adom/Ghaith-Home-Lab"
+    }
+  ]
+}
+JSON
+}
+
+resource "fortimanager_json_generic_api" "test4" {
+  json_content = <<JSON
+{
+    "method": "add",
+    "params": [
+        {
+            "url": "/pm/config/adom/root/pkg/default/firewall/policy",
+            "data": {
+                "srcintf": [
+                    "any"
+                ],
+                "dstintf": [
+                    "any"
+                ],
+                "srcaddr": [
+                    "all"
+                ],
+                "dstaddr": [
+                    "all"
+                ],
+                "action": "accept",
+                "status": "enable",
+                "schedule": [
+                    "always"
+                ],
+                "service": [
+                    "ALL"
+                ],
+                "name": "TERRA_API"
+            }
+        }
+    ]
+}
+JSON
+}
+
+resource "fortimanager_json_generic_api" "test5" {
+  json_content = <<JSON
+{
+  "method": "add",
+  "params": [
+    {
+      "current_adom": 3,
+      "data": {
+        "create_time": 0,
+        "desc": "",
+        "flags": 2056,
+        "log_db_retention_hours": 1440,
+        "log_disk_quota": 0,
+        "log_disk_quota_alert_thres": 90,
+        "log_disk_quota_split_ratio": 70,
+        "log_file_retention_hours": 8760,
+        "mig_mr": 0,
+        "mig_os_ver": 0,
+        "mode": 1,
+        "mr": 2,
+        "name": "TERRATEST",
+        "os_ver": 7,
+        "restricted_prds": 1,
+        "state": 1,
+        "uuid": "",
+        "workspace_mode": 0
+      },
+      "target start": 1,
+      "url": "adom"
+    }
+  ]
+}
+JSON
+}
+
+resource "fortimanager_exec_workspace_action" "unlockres" { # save change and unlock root ADOM
+  scopetype      = "inherit"
+  action         = "lockend"
+  target         = ""
+  param          = ""
+  force_recreate = uuid()
+  comment        = ""
+  depends_on     = [fortimanager_object_firewall_vip.trname]
+}

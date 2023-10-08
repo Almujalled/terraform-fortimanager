@@ -13,10 +13,10 @@ provider "fortimanager" {
   token        = "n8ru5gqzddqsypogz9g3ax87fg3j4sjz"
   insecure     = "true"
   scopetype    = "adom"
-  adom         = "root"
+  adom         = "GNS3"
 }
 
-resource "fortimanager_system_global" "trname" {
+resource "fortimanager_system_global" "workspace" {
   workspace_mode = "normal"
 }
 
@@ -29,12 +29,11 @@ resource "fortimanager_exec_workspace_action" "lockres" { # lock root ADOM
   comment        = ""
 }
 
-resource "fortimanager_object_firewall_vip" "trname" { # object resource
-  scopetype  = "inherit"
-  extintf    = "any"
-  extip      = "1.1.1.1-2.1.1.1"
-  mappedip   = ["12.1.1.1-13.1.1.1"]
-  name       = "GHAITH"
+resource "fortimanager_object_cli_template" "project" {
+  description = "This is a Terraform example to build a project"
+  name        = "Project"
+  script      = var.cli-template-project
+  type        = "jinja"
   depends_on = [fortimanager_exec_workspace_action.lockres]
 }
 
@@ -45,5 +44,5 @@ resource "fortimanager_exec_workspace_action" "unlockres" { # save change and un
   param          = ""
   force_recreate = uuid()
   comment        = ""
-  depends_on     = [fortimanager_object_firewall_vip.trname]
+  depends_on     = [fortimanager_object_cli_template.project]
 }
