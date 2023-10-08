@@ -32,9 +32,18 @@ resource "fortimanager_exec_workspace_action" "lockres" { # lock root ADOM
 resource "fortimanager_object_cli_template" "project" {
   description = "This is a Terraform example to build a project"
   name        = "Project"
-  script      = var.cli-template-project
+  script      = file("projects/Project.dualreg.nocert.j2")
   type        = "jinja"
-  depends_on = [fortimanager_exec_workspace_action.lockres]
+  variables   = var.cli-template-project-variables
+  depends_on  = [fortimanager_exec_workspace_action.lockres]
+}
+
+resource "fortimanager_object_cli_template" "Edge-Underlay" {
+  description = "This is a Terraform example to build a CLI Template"
+  name        = "01-Edge-Underlay.j2"
+  script      = file("cli-templates/01-Edge-Underlay.j2")
+  type        = "jinja"
+  depends_on  = [fortimanager_object_cli_template.project]
 }
 
 resource "fortimanager_exec_workspace_action" "unlockres" { # save change and unlock root ADOM
@@ -44,5 +53,5 @@ resource "fortimanager_exec_workspace_action" "unlockres" { # save change and un
   param          = ""
   force_recreate = uuid()
   comment        = ""
-  depends_on     = [fortimanager_object_cli_template.project]
+  depends_on     = [fortimanager_object_cli_template.Edge-Underlay]
 }

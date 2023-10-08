@@ -4,4 +4,4 @@ resource_tags = {
   owner       = "ghaith.almujalled@eviny.no"
 }
 
-cli-template-project = "Project.j2"
+#cli-template-project = file("/Project.dualreg.nocert.j2")

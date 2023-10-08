@@ -7,11 +7,11 @@ variable "resource_tags" {
   }
 }
 
-variable "cli-template-project" {
-  description = "Project CLI Template - Jinja"
-  type        = string
-  default     = "Project Template goes here!"
-}
+#variable "cli-template-project" {
+#  description = "Project CLI Template - Jinja"
+#  type        = string
+#  default     = "Project Template goes here!"
+#}
 
 variable "cli-template-project-variables" {
   description = "Project Variables"

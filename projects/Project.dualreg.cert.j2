@@ -1,4 +1,4 @@
-["{#                            Project Template                                #}
+{#                            Project Template                                #}
 {# -------------------------------------------------------------------------- #}
 {# This file describes the project: its Regions, Hubs and Device Profiles     #}
 {# Normally, this is the only file that needs to be edited between            #}
@@ -26,7 +26,6 @@
 
 {# Optional Settings #}
 {% set multireg_advpn = true %}
-{% set cert_auth = false %}
 
 {#  Mandatory Global Definitions #}
 {% set lo_summary = '10.200.0.0/14' %}
@@ -83,7 +82,7 @@
           'dia': true
         },
         {
-          'name': 'port2',
+          'name': 'port4',
           'role': 'wan',
           'ol_type': 'MPLS',
           'ip': mpls_wan_ip,
@@ -92,14 +91,14 @@
           'shaping_profile': shaping_profile
         },
         {
-          'name': 'port3',
+          'name': 'port5',
           'role': 'lan',
           'vrf': 11,
           'allow_dia': true,
           'ip': lan_ip_edu
         },
         {
-          'name': 'port4',
+          'name': 'port6',
           'role': 'lan',
           'vrf': 12,
           'ip': lan_ip_fin
@@ -128,7 +127,7 @@
           'dia': true
         },
         {
-          'name': 'port3',
+          'name': 'port4',
           'role': 'wan',
           'ol_type': 'MPLS',
           'ip': mpls_wan_ip,
@@ -136,14 +135,14 @@
           'inbandwidth': inbandwidth
         },
         {
-          'name': 'port4',
+          'name': 'port5',
           'role': 'lan',
           'vrf': 11,
           'allow_dia': true,
           'ip': lan_ip_edu
         },
         {
-          'name': 'port5',
+          'name': 'port6',
           'role': 'lan',
           'vrf': 12,
           'ip': lan_ip_fin
@@ -208,4 +207,4 @@
     }
 
   }
-%}"]
+%}
