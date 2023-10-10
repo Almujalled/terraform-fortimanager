@@ -1,0 +1,49 @@
+{
+    "client": "gui DVM:26864",
+    "id": 1,
+    "method": "exec",
+    "params": [
+      {
+        "data": {
+          "add-dev-list": [
+            {
+              "adm_usr": "admin",
+              "beta": -1,
+              "branch_pt": 1517,
+              "build": 1517,
+              "conf_status": 2,
+              "conn_mode": 0,
+              "dev_status": 0,
+              "faz.perm": 15,
+              "flags": 2097217,
+              "hostname": "FortiGate-VM64-KVM",
+              "ip": "10.1.10.241",
+              "ips_ver": "6.00741(2015-12-01 02:30)",
+              "last_checked": 1696938717,
+              "maxvdom": 2,
+              "mgmt_uuid": "2beb7c98-6763-51ee-d2e4-1019089b96bc",
+              "mr": 2,
+              "name": "test-auth-gui",
+              "oid": 769,
+              "os_type": 0,
+              "os_ver": 7,
+              "patch": 5,
+              "platform_id": 157,
+              "platform_str": "FortiGate-VM64-KVM",
+              "sn": "FGVMEV4FGC4MPN99",
+              "source": 1,
+              "tab_status": "<unknown>",
+              "version": 700
+            }
+          ],
+          "adom": 394,
+          "del-dev-list": null,
+          "flags": 3
+        },
+        "target start": 2,
+        "url": "dvm\\/cmd\\/promote\\/dev-list"
+      }
+    ],
+    "session": 28963
+  }
+  

@@ -1,0 +1,241 @@
+fm01 # 2023-10-10 05:05:22 Request [/bin/fgfmsd:937:3606]:
+2023-10-10 05:05:22 { "client": "\/bin\/fgfmsd:937", "id": 3606, "method": "exec", "params": [{ "data": { "create_unreg": 1, "device": { "beta": -1, "branch_pt": 2000, "build": 2000, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "FortiGate-60F", "ip": "85.200.214.130", "maxvdom": 10, "mgmt_mode": 1, "mgmt_uuid": "422376362", "mr": 4, "name": "FortiGate-60F", "os_type": 0, "os_ver": -1, "patch": 10, "platform_id": -1, "platform_str": "FortiGate-60F", "sn": "FGT60FTK2109CVKE", "source": 1, "tab_status": "<unknown>", "version": 600}, "from": 1}, "target start": 2, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:05:22 Chkperm Response [/bin/fgfmsd:937:3606]:
+2023-10-10 05:05:22 { "id": 3606, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:05:22 Request [dvm/cmd:dvm/cmd/manage/device ...:28395:1]:
+2023-10-10 05:05:22 { "client": "dvm\/cmd:dvm\/cmd\/manage\/device ...:28395", "id": 1, "method": "exec", "params": [{ "data": { "clear_flags": 4, "device": 756, "set_flags": 0}, "target start": 2, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:05:22 Chkperm Response [dvm/cmd:dvm/cmd/manage/device ...:28395:1]:
+2023-10-10 05:05:22 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:05:22 Response [dvm/cmd:dvm/cmd/manage/device ...:28395:1]:
+2023-10-10 05:05:22 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}]}2023-10-10 05:05:22 
+2023-10-10 05:05:22 'dvm/cmd/manage/device' response: 0 [OK]
+2023-10-10 05:05:22 Response [/bin/fgfmsd:937:3606]:
+2023-10-10 05:05:22 { "id": 3606, "result": [{ "data": { "device": { "beta": -1, "branch_pt": 2000, "build": 2000, "conf_status": 2, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "FortiGate-60F", "ip": "85.200.214.130", "ips_ver": "6.00741(2015-12-01 02:30)", "last_checked": 1696936855, "maxvdom": 10, "mgmt_uuid": "1366317750", "mr": 4, "name": "FortiGate-60F", "oid": 756, "os_type": 0, "os_ver": 6, "patch": 10, "platform_id": 19, "platform_str": "FortiGate-60F", "sn": "FGT60FTK2109CVKE", "source": 1, "tab_status": "<unknown>", "version": 600}}, "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}]}
+2023-10-10 05:05:44 Request [/bin/fgfmsd:937:3611]:
+2023-10-10 05:05:44 { "client": "\/bin\/fgfmsd:937", "id": 3611, "method": "exec", "params": [{ "data": { "create_unreg": 1, "device": { "beta": -1, "branch_pt": 523, "build": 523, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "Lab-Hub-FW", "ip": "85.200.214.146", "maxvdom": 10, "mgmt_mode": 1, "mgmt_uuid": "1488910090", "mr": 0, "name": "Lab-Hub-FW", "os_type": 0, "os_ver": -1, "patch": 12, "platform_id": -1, "platform_str": "FortiGate-60F", "sn": "FGT60FTK20040426", "source": 1, "tab_status": "<unknown>", "version": 700}, "from": 1}, "target start": 2, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:05:44 Chkperm Response [/bin/fgfmsd:937:3611]:
+2023-10-10 05:05:44 { "id": 3611, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:05:44 Request [dvm/cmd:dvm/cmd/manage/device ...:28424:1]:
+2023-10-10 05:05:44 { "client": "dvm\/cmd:dvm\/cmd\/manage\/device ...:28424", "id": 1, "method": "exec", "params": [{ "data": { "clear_flags": 4, "device": 381, "set_flags": 0}, "target start": 2, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:05:44 Chkperm Response [dvm/cmd:dvm/cmd/manage/device ...:28424:1]:
+2023-10-10 05:05:44 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:05:44 Response [dvm/cmd:dvm/cmd/manage/device ...:28424:1]:
+2023-10-10 05:05:44 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}]}2023-10-10 05:05:44 
+2023-10-10 05:05:44 'dvm/cmd/manage/device' response: 0 [OK]
+2023-10-10 05:05:44 Response [/bin/fgfmsd:937:3611]:
+2023-10-10 05:05:44 { "id": 3611, "result": [{ "data": { "device": { "adm_usr": "admin", "av_ver": "1.00000(2018-04-09 18:07)", "beta": -1, "branch_pt": 523, "build": 523, "checksum": "ed 28 41 91 3f 82 d9 d9 11 b7 83 45 88 f4 19 3c", "conf_status": 1, "conn_mode": 1, "conn_status": 1, "db_status": 1, "dev_status": 4, "faz.perm": 15, "first_tunnel_up": 1696451998, "flags": 440, "hostname": "Lab-Hub-FW", "hw_rev_major": 24286, "hw_rev_minor": 3, "ip": "85.200.214.146", "ips_ver": "6.00741(2015-12-01 02:30)", "last_checked": 1696939424, "latitude": 60.391258, "location_from": "diag", "longitude": 5.322050, "maxvdom": 10, "mgmt.__data[0]": 2690466, "mgmt.__data[4]": 2011123712, "mgmt.__data[6]": 1, "mgmt_if": "wan1", "mgmt_mode": 3, "mgmt_uuid": "1488910090", "mgt_vdom": "root", "mr": 0, "name": "Lab-Hub-FW", "oid": 381, "opts": 256, "os_type": 0, "os_ver": 7, "patch": 12, "platform_id": 19, "platform_str": "FortiGate-60F", "prio": 128, "sn": "FGT60FTK20040426", "source": 1, "tab_status": "<unknown>", "tunnel_ip": "169.254.1.70", "version": 700, "vm_cpu": 8, "vm_mem": 1917}}, "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}]}
+
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 2023-10-10 05:05:56 Request [/bin/fgfmsd:937:3620]:
+2023-10-10 05:05:56 { "client": "\/bin\/fgfmsd:937", "id": 3620, "method": "exec", "params": [{ "data": { "create_unreg": 1, "device": { "beta": -1, "branch_pt": 1262, "build": 1262, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "flags": 1, "hostname": "FortiGate-VM64-KVM", "ip": "10.1.10.242", "maxvdom": 2, "mgmt_mode": 1, "mgmt_uuid": "00000000-0000-0000-0000-000000000000", "mr": 2, "name": "FortiGate-VM64-KVM", "os_type": 0, "os_ver": -1, "patch": 3, "platform_id": -1, "platform_str": "FortiGate-VM64-KVM", "sn": "FGVMEVZEPRYPYQ02", "source": 1, "tab_status": "<unknown>", "version": 700}, "from": 1}, "target start": 2, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:05:56 Chkperm Response [/bin/fgfmsd:937:3620]:
+2023-10-10 05:05:56 { "id": 3620, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:05:56 Request [dvm/cmd:dvm/cmd/manage/device ...:28460:1]:
+2023-10-10 05:05:56 { "client": "dvm\/cmd:dvm\/cmd\/manage\/device ...:28460", "id": 1, "method": "exec", "params": [{ "data": { "clear_flags": 4, "device": 769, "set_flags": 0}, "target start": 2, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:05:56 Chkperm Response [dvm/cmd:dvm/cmd/manage/device ...:28460:1]:
+2023-10-10 05:05:56 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:05:56 Response [dvm/cmd:dvm/cmd/manage/device ...:28460:1]:
+2023-10-10 05:05:56 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}]}2023-10-10 05:05:56 
+2023-10-10 05:05:56 'dvm/cmd/manage/device' response: 0 [OK]
+2023-10-10 05:05:56 Response [/bin/fgfmsd:937:3620]:
+2023-10-10 05:05:56 { "id": 3620, "result": [{ "data": { "device": { "beta": -1, "branch_pt": 1262, "build": 1262, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "flags": 2097153, "hostname": "FortiGate-VM64-KVM", "ip": "10.1.10.242", "ips_ver": "6.00741(2015-12-01 02:30)", "last_checked": 1696939472, "maxvdom": 2, "mgmt_uuid": "f0d68a88-6764-51ee-e28c-d5559489da5d", "mr": 2, "name": "FortiGate-VM64-KVM", "oid": 769, "os_type": 0, "os_ver": 7, "patch": 3, "platform_id": 157, "platform_str": "FortiGate-VM64-KVM", "sn": "FGVMEVZEPRYPYQ02", "source": 1, "tab_status": "<unknown>", "version": 700}}, "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}]}
+
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 
+fm01 # 2023-10-10 05:06:27 Request [/bin/fgfmsd:937:3625]:
+2023-10-10 05:06:27 { "client": "\/bin\/fgfmsd:937", "id": 3625, "method": "exec", "params": [{ "data": { "create_unreg": 1, "device": { "beta": -1, "branch_pt": 523, "build": 523, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "Lab-Spoke-1-FW", "ip": "85.200.214.154", "maxvdom": 10, "mgmt_mode": 1, "mgmt_uuid": "1256455119", "mr": 0, "name": "Lab-Spoke-1-FW", "os_type": 0, "os_ver": -1, "patch": 12, "platform_id": -1, "platform_str": "FortiGate-40F-3G4G", "sn": "FG40FITK21028434", "source": 1, "tab_status": "<unknown>", "version": 700}, "from": 1}, "target start": 2, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:06:27 Chkperm Response [/bin/fgfmsd:937:3625]:
+2023-10-10 05:06:27 { "id": 3625, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:06:27 Request [dvm/cmd:dvm/cmd/manage/device ...:28507:1]:
+2023-10-10 05:06:27 { "client": "dvm\/cmd:dvm\/cmd\/manage\/device ...:28507", "id": 1, "method": "exec", "params": [{ "data": { "clear_flags": 4, "device": 363, "set_flags": 0}, "target start": 2, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:06:27 Chkperm Response [dvm/cmd:dvm/cmd/manage/device ...:28507:1]:
+2023-10-10 05:06:27 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:06:27 Response [dvm/cmd:dvm/cmd/manage/device ...:28507:1]:
+2023-10-10 05:06:27 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}]}2023-10-10 05:06:27 
+2023-10-10 05:06:27 'dvm/cmd/manage/device' response: 0 [OK]
+2023-10-10 05:06:27 Response [/bin/fgfmsd:937:3625]:
+2023-10-10 05:06:27 { "id": 3625, "result": [{ "data": { "device": { "adm_usr": "admin", "av_ver": "1.00000(2018-04-09 18:07)", "beta": -1, "branch_pt": 523, "build": 523, "checksum": "50 9a 54 2e 86 bc cc 35 a7 6d 5f 8e 46 e4 3d 6d", "conf_status": 1, "conn_mode": 1, "conn_status": 1, "db_status": 1, "dev_status": 4, "faz.perm": 15, "first_tunnel_up": 1696432744, "flags": 440, "hostname": "Lab-Spoke-1-FW", "hw_rev_major": 24695, "hw_rev_minor": 3, "ip": "85.200.214.154", "ips_ver": "6.00741(2015-12-01 02:30)", "last_checked": 1696939466, "latitude": 60.391258, "location_from": "diag", "longitude": 5.322050, "maxvdom": 10, "mgmt.__data[0]": 2690466, "mgmt.__data[4]": 2011418624, "mgmt.__data[6]": 1, "mgmt_if": "wan", "mgmt_mode": 3, "mgmt_uuid": "1256455119", "mgt_vdom": "root", "mr": 0, "name": "Lab-Spoke-1-FW", "oid": 363, "opts": 256, "os_type": 0, "os_ver": 7, "patch": 12, "platform_id": 7, "platform_str": "FortiGate-40F-3G4G", "prio": 128, "sn": "FG40FITK21028434", "source": 1, "tab_status": "<unknown>", "tunnel_ip": "169.254.1.71", "version": 700, "vm_cpu": 4, "vm_mem": 1918}}, "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}]}
+2023-10-10 05:06:37 Request [/bin/fgfmsd:937:3632]:
+2023-10-10 05:06:37 { "client": "\/bin\/fgfmsd:937", "id": 3632, "method": "exec", "params": [{ "data": { "create_unreg": 1, "device": { "beta": -1, "branch_pt": 523, "build": 523, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "Lab-Spoke-2-FW", "ip": "85.200.214.158", "maxvdom": 10, "mgmt_mode": 1, "mgmt_uuid": "841168127", "mr": 0, "name": "Lab-Spoke-2-FW", "os_type": 0, "os_ver": -1, "patch": 12, "platform_id": -1, "platform_str": "FortiGate-40F-3G4G", "sn": "FG40FITK21027443", "source": 1, "tab_status": "<unknown>", "version": 700}, "from": 1}, "target start": 2, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:06:37 Chkperm Response [/bin/fgfmsd:937:3632]:
+2023-10-10 05:06:37 { "id": 3632, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:06:37 Request [dvm/cmd:dvm/cmd/manage/device ...:28522:1]:
+2023-10-10 05:06:37 { "client": "dvm\/cmd:dvm\/cmd\/manage\/device ...:28522", "id": 1, "method": "exec", "params": [{ "data": { "clear_flags": 4, "device": 372, "set_flags": 0}, "target start": 2, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:06:37 Chkperm Response [dvm/cmd:dvm/cmd/manage/device ...:28522:1]:
+2023-10-10 05:06:37 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:06:37 Response [dvm/cmd:dvm/cmd/manage/device ...:28522:1]:
+2023-10-10 05:06:37 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}]}2023-10-10 05:06:37 
+2023-10-10 05:06:37 'dvm/cmd/manage/device' response: 0 [OK]
+2023-10-10 05:06:37 Response [/bin/fgfmsd:937:3632]:
+2023-10-10 05:06:37 { "id": 3632, "result": [{ "data": { "device": { "adm_usr": "admin", "av_ver": "1.00000(2018-04-09 18:07)", "beta": -1, "branch_pt": 523, "build": 523, "checksum": "46 3a 97 15 f5 a0 e7 99 6d 4d ec 5c 0c 40 a5 7c", "conf_status": 1, "conn_mode": 1, "conn_status": 1, "db_status": 1, "dev_status": 4, "faz.perm": 15, "first_tunnel_up": 1696449788, "flags": 440, "hostname": "Lab-Spoke-2-FW", "hw_rev_major": 24695, "hw_rev_minor": 3, "ip": "85.200.214.158", "ips_ver": "6.00741(2015-12-01 02:30)", "last_checked": 1696939476, "latitude": 60.391258, "location_from": "diag", "longitude": 5.322050, "maxvdom": 10, "mgmt.__data[0]": 2690466, "mgmt.__data[4]": 2011418624, "mgmt.__data[6]": 1, "mgmt_if": "wan", "mgmt_mode": 3, "mgmt_uuid": "841168127", "mgt_vdom": "root", "mr": 0, "name": "Lab-Spoke-2-FW", "oid": 372, "opts": 256, "os_type": 0, "os_ver": 7, "patch": 12, "platform_id": 7, "platform_str": "FortiGate-40F-3G4G", "prio": 128, "sn": "FG40FITK21027443", "source": 1, "tab_status": "<unknown>", "tunnel_ip": "169.254.1.72", "version": 700, "vm_cpu": 4, "vm_mem": 1918}}, "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}]}
+2023-10-10 05:06:37 Request [/bin/fgfmsd:937:3638]:
+2023-10-10 05:06:37 { "client": "\/bin\/fgfmsd:937", "id": 3638, "method": "exec", "params": [{ "data": { "create_unreg": 1, "device": { "beta": -1, "branch_pt": 2000, "build": 2000, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "FortiGate-60F", "ip": "85.200.214.130", "maxvdom": 10, "mgmt_mode": 1, "mgmt_uuid": "422376362", "mr": 4, "name": "FortiGate-60F", "os_type": 0, "os_ver": -1, "patch": 10, "platform_id": -1, "platform_str": "FortiGate-60F", "sn": "FGT60FTK2109CVKE", "source": 1, "tab_status": "<unknown>", "version": 600}, "from": 1}, "target start": 2, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:06:37 Chkperm Response [/bin/fgfmsd:937:3638]:
+2023-10-10 05:06:37 { "id": 3638, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:06:37 Request [dvm/cmd:dvm/cmd/manage/device ...:28525:1]:
+2023-10-10 05:06:37 { "client": "dvm\/cmd:dvm\/cmd\/manage\/device ...:28525", "id": 1, "method": "exec", "params": [{ "data": { "clear_flags": 4, "device": 756, "set_flags": 0}, "target start": 2, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:06:37 Chkperm Response [dvm/cmd:dvm/cmd/manage/device ...:28525:1]:
+2023-10-10 05:06:37 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:06:37 Response [dvm/cmd:dvm/cmd/manage/device ...:28525:1]:
+2023-10-10 05:06:37 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}]}2023-10-10 05:06:37 
+2023-10-10 05:06:37 'dvm/cmd/manage/device' response: 0 [OK]
+2023-10-10 05:06:37 Response [/bin/fgfmsd:937:3638]:
+2023-10-10 05:06:37 { "id": 3638, "result": [{ "data": { "device": { "beta": -1, "branch_pt": 2000, "build": 2000, "conf_status": 2, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "FortiGate-60F", "ip": "85.200.214.130", "ips_ver": "6.00741(2015-12-01 02:30)", "last_checked": 1696936855, "maxvdom": 10, "mgmt_uuid": "1366317750", "mr": 4, "name": "FortiGate-60F", "oid": 756, "os_type": 0, "os_ver": 6, "patch": 10, "platform_id": 19, "platform_str": "FortiGate-60F", "sn": "FGT60FTK2109CVKE", "source": 1, "tab_status": "<unknown>", "version": 600}}, "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}]}
+
+fm01 # 2023-10-10 05:06:44 Request [/usr/local/apache2/bin/httpd:27579:4]:
+2023-10-10 05:06:44 { "client": "\/usr\/local\/apache2\/bin\/httpd:27579", "id": 4, "method": "exec", "params": [{ "data": null, "target start": 1, "url": "\/dvmdb\/adom\/GNS3\/workspace\/commit"}], "session": "tOsSgmnpGhfQMxu9xUmX12iPEa6jWy6Feo+ppMjzl9zO4WrdZ92T+PWz17e7pPz0CYttIeZ\/TZtikf\/yrylurw==", "src": "10.1.10.16", "verbose": 1}
+2023-10-10 05:06:44 Chkperm Response [/usr/local/apache2/bin/httpd:27579:4]:
+2023-10-10 05:06:44 { "id": 4, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/commit"}], "session": 16833}
+2023-10-10 05:06:44 Request [/usr/local/apache2/bin/httpd:28178:5]:
+2023-10-10 05:06:44 { "client": "\/usr\/local\/apache2\/bin\/httpd:28178", "id": 5, "method": "exec", "params": [{ "data": null, "target start": 1, "url": "\/dvmdb\/adom\/root\/workspace\/lock"}], "session": "tOsSgmnpGhfQMxu9xUmX12iPEa6jWy6Feo+ppMjzl9zO4WrdZ92T+PWz17e7pPz0CYttIeZ\/TZtikf\/yrylurw==", "src": "10.1.10.16", "verbose": 1}
+2023-10-10 05:06:44 Chkperm Response [/usr/local/apache2/bin/httpd:28178:5]:
+2023-10-10 05:06:44 __workspace_lock_sem: create semaphore failed
+2023-10-10 05:06:44 { "id": 5, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root\/workspace\/lock"}], "session": 16833}
+2023-10-10 05:06:44 __send_gui_notify: {"msg":"notify", "from":"backend","collection":"workspace","method":"lock","params":{"adom_oid":3,"dev_oid":3,"obj_oid":0}}
+2023-10-10 05:06:44 Response [/usr/local/apache2/bin/httpd:28178:5]:
+2023-10-10 05:06:44 { "id": 5, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root\/workspace\/lock"}]}2023-10-10 05:06:44 
+2023-10-10 05:06:44 Response [/usr/local/apache2/bin/httpd:27579:4]:
+2023-10-10 05:06:44 { "id": 4, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/commit"}]}2023-10-10 05:06:44 
+2023-10-10 05:06:44 Request [/usr/local/apache2/bin/httpd:28178:7]:
+2023-10-10 05:06:44 { "client": "\/usr\/local\/apache2\/bin\/httpd:28178", "id": 7, "method": "exec", "params": [{ "data": { "adom": "GNS3", "device": { "device action": "promote_unreg", "ip": "10.1.10.242", "name": "TEST-AUTH-TERRA", "sn": "FGVMEVZEPRYPYQ02"}}, "target start": 2, "url": "\/dvm\/cmd\/add\/device"}], "session": "tOsSgmnpGhfQMxu9xUmX12iPEa6jWy6Feo+ppMjzl9zO4WrdZ92T+PWz17e7pPz0CYttIeZ\/TZtikf\/yrylurw==", "src": "10.1.10.16", "verbose": 1}
+2023-10-10 05:06:44 Chkperm Response [/usr/local/apache2/bin/httpd:28178:7]:
+2023-10-10 05:06:44 Request [/usr/local/apache2/bin/httpd:27579:5]:
+2023-10-10 05:06:44 { "client": "\/usr\/local\/apache2\/bin\/httpd:27579", "id": 5, "method": "exec", "params": [{ "data": null, "target start": 1, "url": "\/dvmdb\/adom\/GNS3\/workspace\/unlock"}], "session": "tOsSgmnpGhfQMxu9xUmX12iPEa6jWy6Feo+ppMjzl9zO4WrdZ92T+PWz17e7pPz0CYttIeZ\/TZtikf\/yrylurw==", "src": "10.1.10.16", "verbose": 1}
+2023-10-10 05:06:44 { "id": 7, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvm\/cmd\/add\/device"}], "session": 16833}
+2023-10-10 05:06:44 Chkperm Response [/usr/local/apache2/bin/httpd:27579:5]:
+2023-10-10 05:06:44 { "id": 5, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/unlock"}], "session": 16833}
+2023-10-10 05:06:44 __workspace_lock_sem: create semaphore failed
+2023-10-10 05:06:44 __send_gui_notify: {"msg":"notify", "from":"backend","collection":"workspace","method":"unlock","params":{"adom_oid":394,"dev_oid":394,"obj_oid":0}}
+2023-10-10 05:06:44 Response [/usr/local/apache2/bin/httpd:27579:5]:
+2023-10-10 05:06:44 '/dvm/cmd/add/device' response: 0 [OK], task_id: 0, pid: 0
+2023-10-10 05:06:44 Response [/usr/local/apache2/bin/httpd:28178:7]:
+2023-10-10 05:06:44 { "id": 5, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/unlock"}]}2023-10-10 05:06:44 { "id": 7, "result": [{ "data": { "device": { "beta": -1, "conn_mode": 1, "dev_status": 1, "flags": 2097152, "ip": "10.1.10.242", "maxvdom": 10, "mr": -1, "name": "TEST-AUTH-TERRA", "os_type": 0, "os_ver": -1, "patch": -1, "platform_id": 146, "platform_str": "FortiGate-VM64", "sn": "FGVMEVZEPRYPYQ02", "source": 1, "tab_status": "<unknown>"}}, "status": { "code": 0, "message": "OK"}, "url": "\/dvm\/cmd\/add\/device"}]}
+2023-10-10 05:06:44 
+
+fm01 # 2023-10-10 05:06:45 Request [/usr/local/apache2/bin/httpd:27579:6]:
+2023-10-10 05:06:45 { "client": "\/usr\/local\/apache2\/bin\/httpd:27579", "id": 6, "method": "exec", "params": [{ "data": null, "target start": 1, "url": "\/dvmdb\/adom\/root\/workspace\/commit"}], "session": "tOsSgmnpGhfQMxu9xUmX12iPEa6jWy6Feo+ppMjzl9zO4WrdZ92T+PWz17e7pPz0CYttIeZ\/TZtikf\/yrylurw==", "src": "10.1.10.16", "verbose": 1}
+2023-10-10 05:06:45 Chkperm Response [/usr/local/apache2/bin/httpd:27579:6]:
+2023-10-10 05:06:45 { "id": 6, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root\/workspace\/commit"}], "session": 16833}
+2023-10-10 05:06:45 Request [/usr/local/apache2/bin/httpd:28178:8]:
+2023-10-10 05:06:45 { "client": "\/usr\/local\/apache2\/bin\/httpd:28178", "id": 8, "method": "exec", "params": [{ "data": null, "target start": 1, "url": "\/dvmdb\/adom\/GNS3\/workspace\/lock"}], "session": "tOsSgmnpGhfQMxu9xUmX12iPEa6jWy6Feo+ppMjzl9zO4WrdZ92T+PWz17e7pPz0CYttIeZ\/TZtikf\/yrylurw==", "src": "10.1.10.16", "verbose": 1}
+2023-10-10 05:06:45 Chkperm Response [/usr/local/apache2/bin/httpd:28178:8]:
+2023-10-10 05:06:45 __workspace_lock_sem: create semaphore failed
+2023-10-10 05:06:45 Response [/usr/local/apache2/bin/httpd:27579:6]:
+2023-10-10 05:06:45 { "id": 8, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/lock"}], "session": 16833}
+2023-10-10 05:06:45 { "id": 6, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root\/workspace\/commit"}]}2023-10-10 05:06:45 
+2023-10-10 05:06:45 Request [/usr/local/apache2/bin/httpd:25457:6]:
+2023-10-10 05:06:45 __send_gui_notify: {"msg":"notify", "from":"backend","collection":"workspace","method":"lock","params":{"adom_oid":394,"dev_oid":394,"obj_oid":0}}
+2023-10-10 05:06:45 { "client": "\/usr\/local\/apache2\/bin\/httpd:25457", "id": 6, "method": "exec", "params": [{ "data": null, "target start": 1, "url": "\/dvmdb\/adom\/GNS3\/workspace\/commit"}], "session": "tOsSgmnpGhdAOyzXnLn4avjBKRzcCU4BB5Cyfb+RqJKsHvrttaofuvEcIZ5PloBN1Xvx+VQsr9xfg97vaIJSMA==", "src": "10.1.10.16", "verbose": 1}
+2023-10-10 05:06:45 Chkperm Response [/usr/local/apache2/bin/httpd:25457:6]:
+2023-10-10 05:06:45 { "id": 6, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/commit"}], "session": 16833}
+2023-10-10 05:06:45 __workspace_lock_sem: create semaphore failed
+2023-10-10 05:06:45 Response [/usr/local/apache2/bin/httpd:25457:6]:
+2023-10-10 05:06:45 { "id": 6, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/commit"}]}2023-10-10 05:06:45 
+2023-10-10 05:06:45 Request [/usr/local/apache2/bin/httpd:27579:7]:
+2023-10-10 05:06:45 { "client": "\/usr\/local\/apache2\/bin\/httpd:27579", "id": 7, "method": "exec", "params": [{ "data": null, "target start": 1, "url": "\/dvmdb\/adom\/root\/workspace\/unlock"}], "session": "tOsSgmnpGhdAOyzXnLn4avjBKRzcCU4BB5Cyfb+RqJKsHvrttaofuvEcIZ5PloBN1Xvx+VQsr9xfg97vaIJSMA==", "src": "10.1.10.16", "verbose": 1}
+2023-10-10 05:06:45 Chkperm Response [/usr/local/apache2/bin/httpd:27579:7]:
+2023-10-10 05:06:45 { "id": 7, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root\/workspace\/unlock"}], "session": 16833}
+2023-10-10 05:06:45 __workspace_lock_sem: create semaphore failed
+2023-10-10 05:06:45 Request [/usr/local/apache2/bin/httpd:25457:7]:
+2023-10-10 05:06:45 { "client": "\/usr\/local\/apache2\/bin\/httpd:25457", "id": 7, "method": "exec", "params": [{ "data": null, "target start": 1, "url": "\/dvmdb\/adom\/GNS3\/workspace\/unlock"}], "session": "tOsSgmnpGhdAOyzXnLn4avjBKRzcCU4BB5Cyfb+RqJKsHvrttaofuvEcIZ5PloBN1Xvx+VQsr9xfg97vaIJSMA==", "src": "10.1.10.16", "verbose": 1}
+
+fm01 # 2023-10-10 05:06:45 Chkperm Response [/usr/local/apache2/bin/httpd:25457:7]:
+2023-10-10 05:06:45 { "id": 7, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/unlock"}], "session": 16833}
+2023-10-10 05:06:45 __workspace_lock_sem: create semaphore failed
+2023-10-10 05:06:45 __send_gui_notify: {"msg":"notify", "from":"backend","collection":"workspace","method":"unlock","params":{"adom_oid":3,"dev_oid":3,"obj_oid":0}}
+2023-10-10 05:06:45 Response [/usr/local/apache2/bin/httpd:28178:8]:
+2023-10-10 05:06:45 { "id": 8, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/lock"}]}2023-10-10 05:06:45 Response [/usr/local/apache2/bin/httpd:27579:7]:
+2023-10-10 05:06:45 
+2023-10-10 05:06:45 { "id": 7, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root\/workspace\/unlock"}]}2023-10-10 05:06:45 
+
+fm01 # 2023-10-10 05:06:45 __send_gui_notify: {"msg":"notify", "from":"backend","collection":"workspace","method":"unlock","params":{"adom_oid":394,"dev_oid":394,"obj_oid":0}}
+2023-10-10 05:06:45 Response [/usr/local/apache2/bin/httpd:25457:7]:
+2023-10-10 05:06:45 { "id": 7, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/workspace\/unlock"}]}2023-10-10 05:06:45 
+2023-10-10 05:07:20 Request [gui forward:28696:d2c1b88c-da7e-4cd1-95c9-f74d9217cece]:
+2023-10-10 05:07:20 { "client": "gui forward:28696", "id": "d2c1b88c-da7e-4cd1-95c9-f74d9217cece", "keep_session_idle": 1, "method": "get", "params": [{ "fields": ["uuid"], "target start": 1, "url": "\/dvmdb\/adom\/GNS3"}], "session": 28963}
+2023-10-10 05:07:20 Chkperm Response [gui forward:28696:d2c1b88c-da7e-4cd1-95c9-f74d9217cece]:
+2023-10-10 05:07:20 { "id": "d2c1b88c-da7e-4cd1-95c9-f74d9217cece", "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3"}], "session": 28963}
+2023-10-10 05:07:20 Response [gui forward:28696:d2c1b88c-da7e-4cd1-95c9-f74d9217cece]:
+2023-10-10 05:07:20 { "id": "d2c1b88c-da7e-4cd1-95c9-f74d9217cece", "result": [{ "data": { "name": "GNS3", "oid": 394, "uuid": "dac7d6e4-6763-51ee-06f4-e1a0d37c90db"}, "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3"}]}2023-10-10 05:07:20 
+2023-10-10 05:07:20 Request [gui forward:28715:6e7008bd-8ff7-49a1-a7ce-02bd0720eb5a]:
+2023-10-10 05:07:20 { "client": "gui forward:28715", "id": "6e7008bd-8ff7-49a1-a7ce-02bd0720eb5a", "keep_session_idle": 1, "method": "get", "params": [{ "fields": ["uuid"], "target start": 1, "url": "\/dvmdb\/adom\/GNS3"}], "session": 28963}
+2023-10-10 05:07:20 Chkperm Response [gui forward:28715:6e7008bd-8ff7-49a1-a7ce-02bd0720eb5a]:
+2023-10-10 05:07:20 { "id": "6e7008bd-8ff7-49a1-a7ce-02bd0720eb5a", "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3"}], "session": 28963}
+2023-10-10 05:07:20 Response [gui forward:28715:6e7008bd-8ff7-49a1-a7ce-02bd0720eb5a]:
+2023-10-10 05:07:20 { "id": "6e7008bd-8ff7-49a1-a7ce-02bd0720eb5a", "result": [{ "data": { "name": "GNS3", "oid": 394, "uuid": "dac7d6e4-6763-51ee-06f4-e1a0d37c90db"}, "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3"}]}2023-10-10 05:07:20 
+2023-10-10 05:07:22 Request [gui forward:28792:19fac1b1-f882-4856-b72d-af2805e40f4a]:
+2023-10-10 05:07:22 { "client": "gui forward:28792", "id": "19fac1b1-f882-4856-b72d-af2805e40f4a", "keep_session_idle": 1, "method": "get", "params": [{ "fields": ["uuid"], "target start": 1, "url": "\/dvmdb\/adom\/GNS3"}], "session": 28963}
+2023-10-10 05:07:22 Chkperm Response [gui forward:28792:19fac1b1-f882-4856-b72d-af2805e40f4a]:
+2023-10-10 05:07:22 { "id": "19fac1b1-f882-4856-b72d-af2805e40f4a", "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3"}], "session": 28963}
+2023-10-10 05:07:22 Response [gui forward:28792:19fac1b1-f882-4856-b72d-af2805e40f4a]:
+2023-10-10 05:07:22 { "id": "19fac1b1-f882-4856-b72d-af2805e40f4a", "result": [{ "data": { "name": "GNS3", "oid": 394, "uuid": "dac7d6e4-6763-51ee-06f4-e1a0d37c90db"}, "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3"}]}2023-10-10 05:07:22 
+2023-10-10 05:07:26 Request [gui forward:28946:01460946-1119-4ccf-944c-e602d2ef9920]:
+2023-10-10 05:07:26 { "client": "gui forward:28946", "id": "01460946-1119-4ccf-944c-e602d2ef9920", "keep_session_idle": 1, "method": "get", "params": [{ "fields": ["uuid"], "target start": 1, "url": "\/dvmdb\/adom\/root"}], "session": 28963}
+2023-10-10 05:07:26 Chkperm Response [gui forward:28946:01460946-1119-4ccf-944c-e602d2ef9920]:
+2023-10-10 05:07:26 { "id": "01460946-1119-4ccf-944c-e602d2ef9920", "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root"}], "session": 28963}
+2023-10-10 05:07:26 Response [gui forward:28946:01460946-1119-4ccf-944c-e602d2ef9920]:
+2023-10-10 05:07:26 { "id": "01460946-1119-4ccf-944c-e602d2ef9920", "result": [{ "data": { "name": "root", "oid": 3, "uuid": "f84cae32-6764-51ee-0584-b900a71fb52b"}, "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root"}]}2023-10-10 05:07:26 
+2023-10-10 05:07:26 Request [gui forward:28965:5cd8f26c-f56a-4ad4-9cd2-c18c33ead46e]:
+2023-10-10 05:07:26 { "client": "gui forward:28965", "id": "5cd8f26c-f56a-4ad4-9cd2-c18c33ead46e", "keep_session_idle": 1, "method": "get", "params": [{ "fields": ["uuid"], "target start": 1, "url": "\/dvmdb\/adom\/root"}], "session": 28963}
+2023-10-10 05:07:26 Chkperm Response [gui forward:28965:5cd8f26c-f56a-4ad4-9cd2-c18c33ead46e]:
+2023-10-10 05:07:26 { "id": "5cd8f26c-f56a-4ad4-9cd2-c18c33ead46e", "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root"}], "session": 28963}
+2023-10-10 05:07:26 Response [gui forward:28965:5cd8f26c-f56a-4ad4-9cd2-c18c33ead46e]:
+2023-10-10 05:07:26 { "id": "5cd8f26c-f56a-4ad4-9cd2-c18c33ead46e", "result": [{ "data": { "name": "root", "oid": 3, "uuid": "f84cae32-6764-51ee-0584-b900a71fb52b"}, "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/root"}]}2023-10-10 05:07:26 
+2023-10-10 05:07:44 Request [/bin/fgfmsd:937:3647]:
+2023-10-10 05:07:44 { "client": "\/bin\/fgfmsd:937", "id": 3647, "method": "exec", "params": [{ "data": { "create_unreg": 1, "device": { "beta": -1, "branch_pt": 523, "build": 523, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "Lab-Hub-FW", "ip": "85.200.214.146", "maxvdom": 10, "mgmt_mode": 1, "mgmt_uuid": "1488910090", "mr": 0, "name": "Lab-Hub-FW", "os_type": 0, "os_ver": -1, "patch": 12, "platform_id": -1, "platform_str": "FortiGate-60F", "sn": "FGT60FTK20040426", "source": 1, "tab_status": "<unknown>", "version": 700}, "from": 1}, "target start": 2, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:07:44 Chkperm Response [/bin/fgfmsd:937:3647]:
+2023-10-10 05:07:44 { "id": 3647, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:07:44 Request [dvm/cmd:dvm/cmd/manage/device ...:29051:1]:
+2023-10-10 05:07:44 { "client": "dvm\/cmd:dvm\/cmd\/manage\/device ...:29051", "id": 1, "method": "exec", "params": [{ "data": { "clear_flags": 4, "device": 381, "set_flags": 0}, "target start": 2, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:07:44 Chkperm Response [dvm/cmd:dvm/cmd/manage/device ...:29051:1]:
+2023-10-10 05:07:44 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:07:44 Response [dvm/cmd:dvm/cmd/manage/device ...:29051:1]:
+2023-10-10 05:07:44 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}]}2023-10-10 05:07:44 
+2023-10-10 05:07:44 'dvm/cmd/manage/device' response: 0 [OK]
+2023-10-10 05:07:44 Response [/bin/fgfmsd:937:3647]:
+2023-10-10 05:07:44 { "id": 3647, "result": [{ "data": { "device": { "adm_usr": "admin", "av_ver": "1.00000(2018-04-09 18:07)", "beta": -1, "branch_pt": 523, "build": 523, "checksum": "ed 28 41 91 3f 82 d9 d9 11 b7 83 45 88 f4 19 3c", "conf_status": 1, "conn_mode": 1, "conn_status": 1, "db_status": 1, "dev_status": 4, "faz.perm": 15, "first_tunnel_up": 1696451998, "flags": 440, "hostname": "Lab-Hub-FW", "hw_rev_major": 24286, "hw_rev_minor": 3, "ip": "85.200.214.146", "ips_ver": "6.00741(2015-12-01 02:30)", "last_checked": 1696939544, "latitude": 60.391258, "location_from": "diag", "longitude": 5.322050, "maxvdom": 10, "mgmt.__data[0]": 2690466, "mgmt.__data[4]": 2011123712, "mgmt.__data[6]": 1, "mgmt_if": "wan1", "mgmt_mode": 3, "mgmt_uuid": "1488910090", "mgt_vdom": "root", "mr": 0, "name": "Lab-Hub-FW", "oid": 381, "opts": 256, "os_type": 0, "os_ver": 7, "patch": 12, "platform_id": 19, "platform_str": "FortiGate-60F", "prio": 128, "sn": "FGT60FTK20040426", "source": 1, "tab_status": "<unknown>", "tunnel_ip": "169.254.1.73", "version": 700, "vm_cpu": 8, "vm_mem": 1917}}, "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}]}
+2023-10-10 05:07:52 Request [/bin/fgfmsd:937:3650]:
+2023-10-10 05:07:52 { "client": "\/bin\/fgfmsd:937", "id": 3650, "method": "exec", "params": [{ "data": { "create_unreg": 1, "device": { "beta": -1, "branch_pt": 2000, "build": 2000, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "FortiGate-60F", "ip": "85.200.214.130", "maxvdom": 10, "mgmt_mode": 1, "mgmt_uuid": "422376362", "mr": 4, "name": "FortiGate-60F", "os_type": 0, "os_ver": -1, "patch": 10, "platform_id": -1, "platform_str": "FortiGate-60F", "sn": "FGT60FTK2109CVKE", "source": 1, "tab_status": "<unknown>", "version": 600}, "from": 1}, "target start": 2, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:07:52 Chkperm Response [/bin/fgfmsd:937:3650]:
+2023-10-10 05:07:52 { "id": 3650, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}], "session": -1}
+2023-10-10 05:07:52 Request [dvm/cmd:dvm/cmd/manage/device ...:29063:1]:
+2023-10-10 05:07:52 { "client": "dvm\/cmd:dvm\/cmd\/manage\/device ...:29063", "id": 1, "method": "exec", "params": [{ "data": { "clear_flags": 4, "device": 756, "set_flags": 0}, "target start": 2, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:07:52 Chkperm Response [dvm/cmd:dvm/cmd/manage/device ...:29063:1]:
+2023-10-10 05:07:52 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}], "session": -1}
+2023-10-10 05:07:52 Response [dvm/cmd:dvm/cmd/manage/device ...:29063:1]:
+2023-10-10 05:07:52 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/set\/devdata"}]}2023-10-10 05:07:52 
+2023-10-10 05:07:52 'dvm/cmd/manage/device' response: 0 [OK]
+2023-10-10 05:07:52 Response [/bin/fgfmsd:937:3650]:
+2023-10-10 05:07:52 { "id": 3650, "result": [{ "data": { "device": { "beta": -1, "branch_pt": 2000, "build": 2000, "conf_status": 2, "conn_mode": 0, "dev_status": 0, "faz.perm": 15, "hostname": "FortiGate-60F", "ip": "85.200.214.130", "ips_ver": "6.00741(2015-12-01 02:30)", "last_checked": 1696936855, "maxvdom": 10, "mgmt_uuid": "1366317750", "mr": 4, "name": "FortiGate-60F", "oid": 756, "os_type": 0, "os_ver": 6, "patch": 10, "platform_id": 19, "platform_str": "FortiGate-60F", "sn": "FGT60FTK2109CVKE", "source": 1, "tab_status": "<unknown>", "version": 600}}, "status": { "code": 0, "message": "OK"}, "url": "dvm\/cmd\/manage\/device"}]}

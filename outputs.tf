@@ -1,5 +1,5 @@
 #output test1 {
-#  value       = jsondecode(fortimanager_json_generic_api.test1.response)
+#  value       = jsondecode(fortimanager_json_generic_api.authDevice.response)
 #}
 #
 #output test2 {
