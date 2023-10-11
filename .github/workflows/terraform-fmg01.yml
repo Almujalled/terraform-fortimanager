@@ -6,6 +6,9 @@ on:
 defaults: 
     run: 
         working-directory: /home/gal/terraform-fortimanager
+        
+env:
+    TERRAFORM_CLI_PATH: /home/gal/terraform-fortimanager
 
 jobs: 
     deploy:
