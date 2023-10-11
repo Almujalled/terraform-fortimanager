@@ -1,15 +1,8 @@
 name: FMG01 Deploy
-
 on:
     push:
         branches:
             - main
-
 jobs: 
     deploy:
         runs-on: "auto01"
-    
-steps:
-    # Checkout the repository to the GitHub Actions runner
-    - name: Checkout
-      uses: actions/checkout@v3
