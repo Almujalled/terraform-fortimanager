@@ -1,0 +1,14 @@
+name: FMG01 Deploy
+
+on:
+    push:
+        branches:
+            - main
+
+jobs: 
+    deploy:
+        run-on: "self-hosted"
+    
+steps: 
+    - name: Checkout
+      uses: actions/checkout@v2
