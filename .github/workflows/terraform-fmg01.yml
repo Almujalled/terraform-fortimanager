@@ -6,6 +6,7 @@ on:
 defaults: 
     run: 
         working-directory: /home/gal/terraform-fortimanager
+
 jobs: 
     deploy:
         runs-on: "auto01"
