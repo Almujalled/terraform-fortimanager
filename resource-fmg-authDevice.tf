@@ -8,7 +8,7 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
   #  ip           = "10.1.10.243"
     name         = "FortiGate-VM64-KVM"
     platform_str = "FortiGate-VM64-KVM"
-    sn           = "FGVMEVDKLNYAKA01"
+    sn           = "FGVMEVKZQU851F62"
   }
  depends_on     = [
    fortimanager_exec_workspace_action.lockROOT
