@@ -1,35 +1,85 @@
-name: FMG01 Deploy
+name: "Terraform action"
 on:
-    push:
-        branches:
-            - main
-defaults: 
-    run: 
+  push:
+    branches:
+      - main
+  pull_request:
+jobs:
+  deploy:
+    runs-on: "auto01"
+    defaults:
+      run:
+        shell: bash
         working-directory: /home/gal/terraform-fortimanager
-        
-env:
-    TERRAFORM_CLI_PATH: /home/gal/terraform-fortimanager
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v3
 
-jobs: 
-    deploy:
-        runs-on: "auto01"
-        steps: 
-            - name: Checkout
-              uses: actions/checkout@v2
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.2.5
 
-    terraform:
-        name: terraform CI
-        runs-on: "auto01"
-        steps:
-            - uses: actions/checkout@v2
-            - uses: hashicorp/setup-terraform@v1  
-            - name: terraform plan
-              id: plan
-              run: |
-                terraform init && terraform plan -out=plan.out && terraform show -json plan.out > plan.out.json
-            
-            - name: terraform-compliance
-              uses: terraform-compliance/github_action@main
-              with:
-                plan: plan.out.json
-                features: ssh://git@github.com/terraform-compliance/user-friendly-features.git
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color
+        if: github.event_name == 'pull_request'
+        continue-on-error: true
+
+      - uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
+        env:
+          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
+            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
+            #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
+            <details><summary>Validation Output</summary>
+
+            \`\`\`\n
+            ${{ steps.validate.outputs.stdout }}
+            \`\`\`
+
+            </details>
+
+            #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+
+            <details><summary>Show Plan</summary>
+
+            \`\`\`\n
+            ${process.env.PLAN}
+            \`\`\`
+
+            </details>
+
+            *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
+
+      - name: Terraform Plan Status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: terraform apply -auto-approve -input=false
