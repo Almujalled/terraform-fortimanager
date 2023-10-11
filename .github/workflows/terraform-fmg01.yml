@@ -3,6 +3,8 @@ on:
     push:
         branches:
             - main
+env:
+    
 jobs: 
     deploy:
         runs-on: "auto01"
