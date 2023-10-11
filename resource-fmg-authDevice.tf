@@ -13,7 +13,7 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
    fortimanager_exec_workspace_action.lockROOT
    ]
 }
-### AUTHORIZE A DEVICE VIA API!!! #####
+### AUTHORIZE A DEVICE VIA API!!! ######
 #resource "fortimanager_json_generic_api" "authDevice" {
 #  json_content = <<JSON
 #{
