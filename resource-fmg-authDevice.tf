@@ -20,20 +20,8 @@ resource "fortimanager_json_generic_api" "changeName" {
   "params": [
     {
       "data": {
-        "adm_pass": "",
-        "adm_usr": "admin",
-        "desc": "THIS IS A TEST",
-        "latitude": 60.37,
-        "longitude": 5.33,
-        "meta fields": {
-          "Address": "Fjøsangerveien 65, 5054 Bergen",
-          "Company/Organization": "Eviny Digital",
-          "Contact Email": "ghaith.almujalled@verja.no",
-          "Contact Phone Number": "+4745402619"
-        },
         "name": "TEST-CHANGE-TERRAFORM"
       },
-      "target start": 1,
       "url": "/dvmdb/adom/GNS3/device/FortiGate-VM64-KVM"
     }
   ]
