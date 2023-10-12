@@ -20,9 +20,9 @@ resource "fortimanager_json_generic_api" "changeName" {
   "params": [
     {
       "data": {
-        "name": "TEST-CHANGE-TERRAFORM"
+        "name": "NameChangedFromTerra"
       },
-      "url": "/dvmdb/adom/GNS3/device/FortiGate-VM64-KVM"
+      "url": "/dvmdb/adom/GNS3/device/TEST-CHANGE-TERRAFORM"
     }
   ]
 }
