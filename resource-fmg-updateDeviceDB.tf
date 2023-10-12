@@ -1,6 +1,6 @@
 resource "fortimanager_dvm_cmd_update_device" "refreshDevice" {
   fmgadom = "GNS3"
-  device  = "NameChangedFromTerra"
+  device  = "UpdatedFromTerra"
   flags   = ["create_task", "nonblocking"]
   depends_on = [
     fortimanager_exec_workspace_action.lockGNS3
