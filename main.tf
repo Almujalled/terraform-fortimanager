@@ -69,6 +69,7 @@ resource "fortimanager_exec_workspace_action" "unlockGNS3" { # save change and u
   comment        = ""
   depends_on = [
     fortimanager_object_cli_templategroup.Hub-Template,
-    fortimanager_object_cli_templategroup.Edge-Template
+    fortimanager_object_cli_templategroup.Edge-Template,
+    fortimanager_json_generic_api.changeName
   ]
 }

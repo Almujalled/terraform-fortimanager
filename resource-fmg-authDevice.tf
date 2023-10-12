@@ -28,6 +28,7 @@ resource "fortimanager_json_generic_api" "changeName" {
 }
 JSON
   depends_on = [
+    fortimanager_exec_workspace_action.lockGNS3,
     fortimanager_dvm_cmd_add_device.authDevice
   ]
 }
