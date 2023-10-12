@@ -5,7 +5,7 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
     deviceaction = "promote_unreg"
     adm_usr      = "admin"
     adm_pass     = ""
-    name         = "FGVMEVXBBRNCNREF"
+    name         = "FortiGate-VM64-KVM"
     platform_str = "FortiGate-VM64-KVM"      # Needed for VM type FGTs! 
     sn           = "FGVMEVXBBRNCNREF"
   }
