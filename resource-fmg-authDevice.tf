@@ -13,6 +13,40 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
     fortimanager_exec_workspace_action.lockROOT
   ]
 }
+resource "fortimanager_json_generic_api" "changeName" {
+  json_content = <<JSON
+{
+  "method": "update",
+  "params": [
+    {
+      "data": {
+        "adm_pass": "",
+        "adm_usr": "admin",
+        "desc": "THIS IS A TEST",
+      #  "ip": "10.1.10.245",  , 
+        "latitude": 60.37301823149358,
+        "longitude": 5.339173949622222,
+        "meta fields": {
+          "Address": "Fjøsangerveien 65, 5054 Bergen",
+          "Company\\/Organization": "Eviny Digital",
+          "Contact Email": "ghaith.almujalled@verja.no",
+          "Contact Phone Number": "+4745402619"
+        },
+        "name": "TEST-CHANGE-TERRAFORM"
+      },
+      "target start": 1,
+      "url": "\\/dvmdb\\/adom\\/GNS3\\/device\\/TEST-CHANGE-GUI"
+    }
+  ]
+}
+JSON
+  depends_on = [
+    fortimanager_dvm_cmd_add_device.authDevice
+  ]
+}
+
+
+
 ### AUTHORIZE A DEVICE VIA API!!! ######
 #resource "fortimanager_json_generic_api" "authDevice" {
 #  json_content = <<JSON
