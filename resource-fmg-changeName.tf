@@ -14,13 +14,11 @@ resource "fortimanager_json_generic_api" "changeName" {
   "params": [
     {
       "data": {
-        "adm_pass": "",
-        "adm_usr": "admin",
         "desc": "This is updated from Terrafrom using an API!",
-        "latitude": 0,
-        "longitude": 0,
+        "latitude": 10,
+        "longitude": 10,
         "meta fields": {
-          "Address": "",
+          "Address": "Damascus",
           "Company/Organization": "Eviny Digital AS",
           "Contact Email": "ghaith.almujalled@eviny.no",
           "Contact Phone Number": "+4745402619"
