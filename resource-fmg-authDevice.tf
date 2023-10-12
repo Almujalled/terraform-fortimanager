@@ -34,7 +34,7 @@ resource "fortimanager_json_generic_api" "changeName" {
         "name": "TEST-CHANGE-TERRAFORM"
       },
       "target start": 1,
-      "url": "\\/dvmdb\\/adom\\/GNS3\\/device\\/FortiGate-VM64-KVM"
+      "url": "/dvmdb/adom/GNS3/device/FortiGate-VM64-KVM"
     }
   ]
 }
