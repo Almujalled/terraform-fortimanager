@@ -27,7 +27,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
         },
         "name": "UpdatedFromTerra"
       },
-      "url": "/dvmdb/adom/GNS3/device/UpdateDeviceFromTerra"
+      "url": "/dvmdb/adom/GNS3/device/UpdatedFromTerra"
     }
   ]
 }
