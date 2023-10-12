@@ -53,10 +53,9 @@ resource "fortimanager_exec_workspace_action" "unlockROOT" { # save change and u
   param          = ""
   force_recreate = uuid()
   comment        = ""
-  depends_on = [
-    fortimanager_dvm_cmd_add_device.authDevice,
-    fortimanager_json_generic_api.changeName
-  ]
+#  depends_on = [
+#    fortimanager_dvm_cmd_add_device.authDevice
+#  ]
 }
 
 resource "fortimanager_exec_workspace_action" "unlockGNS3" { # save change and unlock root GNS3
@@ -67,9 +66,9 @@ resource "fortimanager_exec_workspace_action" "unlockGNS3" { # save change and u
   param          = ""
   force_recreate = uuid()
   comment        = ""
-  depends_on = [
-    fortimanager_object_cli_templategroup.Hub-Template,
-    fortimanager_object_cli_templategroup.Edge-Template,
-    fortimanager_json_generic_api.changeName
-  ]
+# depends_on = [
+#   fortimanager_object_cli_templategroup.Hub-Template,
+#   fortimanager_object_cli_templategroup.Edge-Template,
+#   fortimanager_json_generic_api.updateDeviceDB
+# ]
 }

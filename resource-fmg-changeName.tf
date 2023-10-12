@@ -7,7 +7,7 @@ resource "fortimanager_dvm_cmd_update_device" "refreshDevice" {
   ]
 }
 
-resource "fortimanager_json_generic_api" "changeName" {
+resource "fortimanager_json_generic_api" "updateDeviceDB" {
   json_content = <<JSON
 {
   "method": "update",
@@ -20,14 +20,14 @@ resource "fortimanager_json_generic_api" "changeName" {
         "latitude": 60.37309404359674,
         "longitude": 5.33920881412722,
         "meta fields": {
-          "Address": "Damascus",
+          "Address": "Fjøsangerveien 65",
           "Company/Organization": "Eviny Digital AS",
           "Contact Email": "ghaith.almujalled@eviny.no",
           "Contact Phone Number": "+4745402619"
         },
         "name": "UpdatedFromTerra"
       },
-      "url": "/dvmdb/adom/GNS3/device/NewNameFromTerra"
+      "url": "/dvmdb/adom/GNS3/device/UpdateDeviceFromTerra"
     }
   ]
 }
