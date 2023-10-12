@@ -23,11 +23,11 @@ resource "fortimanager_json_generic_api" "changeName" {
         "adm_pass": "",
         "adm_usr": "admin",
         "desc": "THIS IS A TEST",
-        "latitude": 60.37301823149358,
-        "longitude": 5.339173949622222,
+        "latitude": 60.37,
+        "longitude": 5.33,
         "meta fields": {
           "Address": "Fjøsangerveien 65, 5054 Bergen",
-          "Company\\/Organization": "Eviny Digital",
+          "Company/Organization": "Eviny Digital",
           "Contact Email": "ghaith.almujalled@verja.no",
           "Contact Phone Number": "+4745402619"
         },
