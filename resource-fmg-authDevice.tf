@@ -23,7 +23,6 @@ resource "fortimanager_json_generic_api" "changeName" {
         "adm_pass": "",
         "adm_usr": "admin",
         "desc": "THIS IS A TEST",
-      #  "ip": "10.1.10.245",  , 
         "latitude": 60.37301823149358,
         "longitude": 5.339173949622222,
         "meta fields": {
