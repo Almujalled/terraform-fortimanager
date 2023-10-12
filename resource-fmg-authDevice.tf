@@ -1,6 +1,6 @@
 resource "fortimanager_dvm_cmd_add_device" "authDevice" {
-  fmgadom        = "GNS3"
-  flags = [ "create_task" ]
+  fmgadom = "GNS3"
+  flags   = ["create_task"]
   device {
     deviceaction = "promote_unreg"
     adm_usr      = "admin"
@@ -9,9 +9,9 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
     platform_str = "FortiGate-VM64-KVM"
     sn           = "FGVMEVKZQU851F62"
   }
- depends_on     = [
-   fortimanager_exec_workspace_action.lockROOT
-   ]
+  depends_on = [
+    fortimanager_exec_workspace_action.lockROOT
+  ]
 }
 ### AUTHORIZE A DEVICE VIA API!!! ######
 #resource "fortimanager_json_generic_api" "authDevice" {

@@ -1,7 +1,7 @@
 variable "resource_tags" {
   description = "Tags to set for all resources"
   type        = map(string)
-  default     = {
+  default = {
     project     = "project-alpha",
     environment = "dev"
   }
@@ -16,7 +16,7 @@ variable "resource_tags" {
 variable "cli-template-project-variables" {
   description = "Project Variables"
   type        = list(string)
-  default     = [
+  default = [
     "inbandwidth",
     "lan_ip_edu",
     "lan_ip_fin",
