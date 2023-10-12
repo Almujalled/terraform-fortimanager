@@ -5,9 +5,9 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
     deviceaction = "promote_unreg"
     adm_usr      = "admin"
     adm_pass     = ""
-    name         = "FGVMEVKZQU851F62"
-    platform_str = "FortiGate-VM64-KVM"
-    sn           = "FGVMEVKZQU851F62"
+    name         = "FGVMEVXBBRNCNREF"
+    platform_str = "FortiGate-VM64-KVM"      # Needed for VM type FGTs! 
+    sn           = "FGVMEVXBBRNCNREF"
   }
   depends_on = [
     fortimanager_exec_workspace_action.lockROOT
@@ -34,7 +34,7 @@ resource "fortimanager_json_generic_api" "changeName" {
         "name": "TEST-CHANGE-TERRAFORM"
       },
       "target start": 1,
-      "url": "\\/dvmdb\\/adom\\/GNS3\\/device\\/TEST-CHANGE-GUI"
+      "url": "\\/dvmdb\\/adom\\/GNS3\\/device\\/FGVMEVXBBRNCNREF"
     }
   ]
 }
