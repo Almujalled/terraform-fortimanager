@@ -22,7 +22,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
         "meta fields": {
           "Address": "Fjøsangerveien 65",
           "Company/Organization": "Eviny Digital AS",
-          "Contact Email": "ghaith.almujalled@eviny.no",
+          "Contact Email": "ghaith.almujalled@verja.no",
           "Contact Phone Number": "+4745402619"
         },
         "name": "UpdatedFromTerra"
