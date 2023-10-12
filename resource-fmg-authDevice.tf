@@ -13,25 +13,7 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
     fortimanager_exec_workspace_action.lockROOT
   ]
 }
-resource "fortimanager_json_generic_api" "changeName" {
-  json_content = <<JSON
-{
-  "method": "update",
-  "params": [
-    {
-      "data": {
-        "name": "NameChangedFromTerra"
-      },
-      "url": "/dvmdb/adom/GNS3/device/TEST-CHANGE-TERRAFORM"
-    }
-  ]
-}
-JSON
-  depends_on = [
-    fortimanager_exec_workspace_action.lockGNS3,
-    fortimanager_dvm_cmd_add_device.authDevice
-  ]
-}
+
 
 
 
