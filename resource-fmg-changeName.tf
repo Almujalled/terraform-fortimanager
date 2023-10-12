@@ -14,9 +14,19 @@ resource "fortimanager_json_generic_api" "changeName" {
   "params": [
     {
       "data": {
-        "name": "NewNameFromTerra"
+        "adm_pass": "",
+        "adm_usr": "admin",
+        "desc": "This is updated from Terrafrom using an API!",
+        "latitude": 0,
+        "longitude": 0,
+        "meta fields": {
+          "Address": "",
+          "Company/Organization": "Eviny Digital AS",
+          "Contact Email": "ghaith.almujalled@eviny.no",
+          "Contact Phone Number": "+4745402619"
+        "name": "UpdateDeviceFromTerra"
       },
-      "url": "/dvmdb/adom/GNS3/device/NameChangedFromTerra"
+      "url": "/dvmdb/adom/GNS3/device/NewNameFromTerra"
     }
   ]
 }
