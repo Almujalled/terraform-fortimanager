@@ -2,6 +2,8 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   flags = [
     "no_vpn_console",
   ]
+  metafields = [
+  ]
   create_time                = 0
   log_db_retention_hours     = 1440
   log_disk_quota             = 51200
@@ -9,17 +11,17 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   log_disk_quota_split_ratio = 70
   log_file_retention_hours   = 8760
   desc                       = "Created by Terraform resource fortimanager_dvmdb_adom"
-#  mig_mr                     = 4
-  mig_os_ver                 = "7.2"
+  mig_mr                     = 0
+  mig_os_ver                 = "7.0"
   mode                       = "gms"
-#  mr                         = 4
+  mr                         = 2
   name                       = "createdByTerrafrom"
-  os_ver                     = "7.2"
+  os_ver                     = "7.0"
   restricted_prds = [
     "fos",
   ]
   state          = 1
-#  uuid           = ""
+  uuid           = ""
   workspace_mode = 0
 }
 
