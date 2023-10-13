@@ -2,6 +2,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   flags = [
     "no_vpn_console",
   ]
+  create_time                = 0
   log_db_retention_hours     = 1440
   log_disk_quota             = 51200
   log_disk_quota_alert_thres = 90
@@ -18,6 +19,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
     "fos",
   ]
   state          = 1
+  uuid           = ""
   workspace_mode = 0
 }
 
