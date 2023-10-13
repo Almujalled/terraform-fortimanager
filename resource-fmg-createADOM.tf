@@ -21,10 +21,10 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   tz             = 0
   uuid           = ""
   workspace_mode = 1
-  depends_on = [
-  fortimanager_exec_workspace_action.lockWorkingADOM
-  ]
-}
+#  depends_on = [
+#  fortimanager_exec_workspace_action.lockWorkingADOM
+#  ]
+#}
 
 
 #resource "fortimanager_json_generic_api" "createADOM" {
