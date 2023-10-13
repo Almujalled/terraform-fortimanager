@@ -19,9 +19,9 @@ resource "fortimanager_system_global" "workspace" {
   workspace_mode = "normal"
 }
 
-resource "fortimanager_exec_workspace_action" "lockGNS3" { # lock root GNS3
+resource "fortimanager_exec_workspace_action" "lockWorkingADOM" { # lock root GNS3
   scopetype      = "adom"
-  adom           = "GNS3"
+  adom           = var.workingADOM
   action         = "lockbegin"
   target         = ""
   param          = ""
@@ -34,7 +34,7 @@ resource "fortimanager_exec_workspace_action" "lockGNS3" { # lock root GNS3
 
 resource "fortimanager_exec_workspace_action" "lockROOT" { # lock root ADOM
   scopetype      = "adom"
-  adom           = "root"
+  adom           = var.rootADOM
   action         = "lockbegin"
   target         = ""
   param          = ""
@@ -47,7 +47,7 @@ resource "fortimanager_exec_workspace_action" "lockROOT" { # lock root ADOM
 
 resource "fortimanager_exec_workspace_action" "unlockROOT" { # save change and unlock root ADOM
   scopetype      = "adom"
-  adom           = "root"
+  adom           = var.rootADOM
   action         = "lockend"
   target         = ""
   param          = ""
@@ -59,9 +59,9 @@ resource "fortimanager_exec_workspace_action" "unlockROOT" { # save change and u
   ]
 }
 
-resource "fortimanager_exec_workspace_action" "unlockGNS3" { # save change and unlock root GNS3
+resource "fortimanager_exec_workspace_action" "unlockWorkingADOM" { # save change and unlock root GNS3
   scopetype      = "adom"
-  adom           = "GNS3"
+  adom           = var.workingADOM
   action         = "lockend"
   target         = ""
   param          = ""

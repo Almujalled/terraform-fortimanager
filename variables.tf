@@ -25,3 +25,19 @@ variable "cli-template-project-variables" {
     "shaping_profile",
   ]
 }
+
+variable "workingADOM" {
+  description = "ADOMs"
+  type        = string
+  default = [
+    "createdByTerrafrom",
+  ]
+}
+
+variable "rootADOM" {
+  description = "ADOMs"
+  type        = string
+  default = [
+    "root",
+  ]
+}
