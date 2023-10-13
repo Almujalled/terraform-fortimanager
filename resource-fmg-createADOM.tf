@@ -1,7 +1,7 @@
 resource "fortimanager_dvmdb_adom" "createADOM" {
-  create_time                = 0
-  flags                      = [
-  - "no_vpn_console",
+  create_time = 0
+  flags = [
+    -"no_vpn_console",
   ]
   id                         = "createdbyterraform"
   log_db_retention_hours     = 1440
@@ -15,13 +15,13 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   mr                         = 2
   name                       = "createdbyterraform"
   os_ver                     = "7.0"
-  restricted_prds            = [
-  - "fos",
+  restricted_prds = [
+    -"fos",
   ]
-  state                      = 1
-  tz                         = 0
-  uuid                       = ""
-  workspace_mode             = 1
+  state          = 1
+  tz             = 0
+  uuid           = ""
+  workspace_mode = 1
   depends_on = [
   fortimanager_exec_workspace_action.lockROOT]
 }
