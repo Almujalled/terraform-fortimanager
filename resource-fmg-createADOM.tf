@@ -9,17 +9,17 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   log_disk_quota_split_ratio = 70
   log_file_retention_hours   = 8760
   desc                       = "Created by Terraform resource fortimanager_dvmdb_adom"
-  mig_mr                     = 4
-  mig_os_ver                 = "0.0"
+#  mig_mr                     = 4
+#  mig_os_ver                 = "0.0"
   mode                       = "gms"
-  mr                         = 4
+#  mr                         = 4
   name                       = "createdByTerrafrom"
-  os_ver                     = "7.0"
+  os_ver                     = "7.2"
   restricted_prds = [
     "fos",
   ]
   state          = 1
-  uuid           = ""
+#  uuid           = ""
   workspace_mode = 0
 }
 
