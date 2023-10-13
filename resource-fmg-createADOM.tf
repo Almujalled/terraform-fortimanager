@@ -60,7 +60,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
 #   fortimanager_exec_workspace_action.lockGNS3,
 #   fortimanager_dvm_cmd_update_device.refreshDevice
 # ]
-}
+#}
 
 ## Reverse Engineering the creation of an ADOM:
 #{
