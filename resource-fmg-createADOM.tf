@@ -1,34 +1,36 @@
 resource "fortimanager_json_generic_api" "createADOM" {
   json_content = <<JSON
 {
-    "method": "add",
-    "params": [
-      {
-        "current_adom": 3,
-        "data": {
+  "method": "add",
+  "params": [
+    {
+      "data": [
+        {
           "create_time": 0,
-          "desc": "CREATION OF AN ADOM FROM TERRAFROM",
-          "flags": 2056,
+          "desc": "CREATING FROM TERRAFORM",
+          "flags": [
+            "{no_vpn_console}"
+          ],
           "log_db_retention_hours": 1440,
           "log_disk_quota": 0,
           "log_disk_quota_alert_thres": 90,
           "log_disk_quota_split_ratio": 70,
           "log_file_retention_hours": 8760,
-          "mig_mr": 0,
-          "mig_os_ver": 0,
-          "mode": 1,
+          "mig_mr": 2,
+          "mig_os_ver": "7.0",
+          "mode": "gms",
           "mr": 2,
-          "name": "TEST-FROM-TERRAFORM",
-          "os_ver": 7,
-          "restricted_prds": 1,
+          "name": "string",
+          "os_ver": "7.0",
+          "restricted_prds": "fos",
           "state": 1,
-          "uuid": "",
+          "uuid": "string",
           "workspace_mode": 0
-        },
-        "target start": 1,
-        "url": "/dvmdb/adom"
-      }
-    ]
+        }
+      ],
+      "url": "/dvmdb/adom"
+    }
+  ]
 }
 JSON
 # depends_on = [
