@@ -1,6 +1,7 @@
 resource "fortimanager_object_fmg_variable" "createMetadata" {
   description = ""
-  name        = "inbandwidth"
+  for_each = var.cli-template-project-variables
+  name = each.value
   scopetype   = "adom"
   adom        = var.workingADOM
   depends_on  = [
