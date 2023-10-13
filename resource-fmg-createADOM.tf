@@ -20,7 +20,7 @@ resource "fortimanager_json_generic_api" "createADOM" {
           "mig_os_ver": "7.0",
           "mode": "gms",
           "mr": 2,
-          "name": "string",
+          "name": "createdByTerrafrom",
           "os_ver": "7.0",
           "restricted_prds": "fos",
           "state": 1,
