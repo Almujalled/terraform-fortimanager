@@ -16,15 +16,13 @@ resource "fortimanager_json_generic_api" "createADOM" {
           "log_disk_quota_alert_thres": 90,
           "log_disk_quota_split_ratio": 70,
           "log_file_retention_hours": 8760,
-          "mig_mr": 2,
           "mig_os_ver": "7.0",
           "mode": "gms",
-          "mr": 2,
           "name": "createdByTerrafrom",
           "os_ver": "7.0",
           "restricted_prds": "fos",
           "state": 1,
-          "uuid": "string",
+          "uuid": "",
           "workspace_mode": 0
         }
       ],
