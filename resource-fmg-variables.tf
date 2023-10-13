@@ -1,14 +1,9 @@
 resource "fortimanager_object_fmg_variable" "createMetadata" {
   description = ""
-  for_each = [ 
-    "inbandwidth",
-    "lan_ip_edu",
-    "lan_ip_fin",
-    "mpls_wan_ip",
-    "outbandwidth",
-    "shaping_profile"
-    ]
-  name = each.value
+  #for_each = toset( ["Todd", "James", "Alice", "Dottie"] )
+  #name     = each.key
+  for_each = toset( var.cli-template-project-variables )
+  name = each.key
   scopetype   = "adom"
   adom        = var.workingADOM
   depends_on  = [
