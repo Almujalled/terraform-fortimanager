@@ -28,6 +28,10 @@ variable "cli-template-project-variables" {
     "region",
     "loopback",
     "lan_ip_edu",
+    "lan_ip_fin",
+    "mpls_wan_ip",
+    "mpls_wan_gateway",
+    "outbandwidth",
   ]
 }
 
