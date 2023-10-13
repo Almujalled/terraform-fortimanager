@@ -26,7 +26,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   ]
 }
 
-resource "fortimanager_dvmdb_adom" "createADOM" {
+resource "fortimanager_dvmdb_adom" "createADOMGNS3" {
   create_time = 0
   flags = [
     "no_vpn_console",
@@ -49,9 +49,6 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   tz             = 0
   uuid           = ""
   workspace_mode = 1
-  depends_on = [
-  fortimanager_exec_workspace_action.lockROOT
-  ]
 }
 
 #resource "fortimanager_json_generic_api" "createADOM" {
