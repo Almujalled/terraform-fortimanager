@@ -6,7 +6,7 @@ resource "fortimanager_object_cli_template" "Project" {
   script      = file("projects/Project.dualreg.nocert.j2")
   type        = "jinja"
   variables   = var.cli-template-project-variables
-  depends_on  = [fortimanager_exec_workspace_action.lockGNS3]
+  depends_on  = [fortimanager_exec_workspace_action.lockWorkingADOM]
 }
 
 resource "fortimanager_object_cli_template" "Edge-Underlay" {
