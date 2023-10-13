@@ -10,6 +10,8 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   restricted_prds = [
     "fos",
   ]
+  depends_on = [
+  fortimanager_exec_workspace_action.lockROOT]
 }
 
 #resource "fortimanager_json_generic_api" "createADOM" {
