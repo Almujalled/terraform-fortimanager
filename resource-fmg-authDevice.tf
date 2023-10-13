@@ -10,7 +10,8 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
     sn           = "FGVMEVCORH8NE2AB"
   }
   depends_on = [
-    fortimanager_exec_workspace_action.lockROOT
+    fortimanager_exec_workspace_action.lockROOT,
+    fortimanager_dvmdb_adom.createADOM
   ]
 }
 
