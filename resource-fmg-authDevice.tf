@@ -1,5 +1,5 @@
 resource "fortimanager_dvm_cmd_add_device" "authDevice" {
-  fmgadom = "GNS3"
+  fmgadom = var.workingADOM
   flags   = ["create_task"]
   device {
     deviceaction = "promote_unreg"
@@ -25,7 +25,7 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
 #  "params": [
 #    {
 #      "data": {
-#        "adom": "GNS3",
+#        "adom": var.workingADOM,
 #        "device": {
 #          "adm_pass": "",
 #          "adm_usr": "admin",

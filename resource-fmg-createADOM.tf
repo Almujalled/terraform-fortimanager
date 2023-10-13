@@ -12,7 +12,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   mig_os_ver                 = "0.0"
   mode                       = "gms"
   mr                         = 2
-  name                       = "createdbyterraform"
+  name                       = var.workingADOM
   os_ver                     = "7.0"
   restricted_prds = [
     "fos",
