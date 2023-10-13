@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.2.5",
-  "serial": 1634,
+  "serial": 1641,
   "lineage": "11bc1d59-a8af-6a0b-912b-36b0d7ee8fee",
   "outputs": {
     "test1": {
@@ -117,7 +117,7 @@
             ],
             "state": 1,
             "tz": 0,
-            "uuid": "58e89718-69b5-51ee-ec8d-aa1f4cdb9b7e",
+            "uuid": "38b1dfa0-69b9-51ee-7d7e-e1f5e30874f7",
             "workspace_mode": 1
           },
           "sensitive_attributes": [],
@@ -141,7 +141,7 @@
             "action": "lockbegin",
             "adom": "GNS3",
             "comment": "",
-            "force_recreate": "43ef4285-3f74-a21d-0827-0ba343663acc",
+            "force_recreate": "d2e6840e-ffed-65c5-8f0c-f5a9d2db95f6",
             "id": "workspaceactionadom.GNS3lock",
             "param": "",
             "scopetype": "adom",
@@ -193,7 +193,7 @@
             "action": "lockend",
             "adom": "GNS3",
             "comment": "",
-            "force_recreate": "6ca9533a-5328-c088-4476-66e5ef31230d",
+            "force_recreate": "11fe762d-4ae4-9256-8df5-80074df7606e",
             "id": "workspaceactionadom.GNS3unlock",
             "param": "",
             "scopetype": "adom",
@@ -202,20 +202,9 @@
           "sensitive_attributes": [],
           "private": "bnVsbA==",
           "dependencies": [
-            "fortimanager_dvm_cmd_update_device.refreshDevice",
-            "fortimanager_exec_workspace_action.lockGNS3",
             "fortimanager_json_generic_api.updateDeviceDB",
-            "fortimanager_object_cli_template.Edge-Overlay",
-            "fortimanager_object_cli_template.Edge-Routing",
-            "fortimanager_object_cli_template.Edge-Underlay",
-            "fortimanager_object_cli_template.Hub-MultiRegion",
-            "fortimanager_object_cli_template.Hub-Overlay",
-            "fortimanager_object_cli_template.Hub-Routing",
-            "fortimanager_object_cli_template.Hub-Underlay",
-            "fortimanager_object_cli_template.Project",
             "fortimanager_object_cli_templategroup.Edge-Template",
-            "fortimanager_object_cli_templategroup.Hub-Template",
-            "fortimanager_system_global.workspace"
+            "fortimanager_object_cli_templategroup.Hub-Template"
           ]
         }
       ]
