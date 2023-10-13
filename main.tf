@@ -28,7 +28,8 @@ resource "fortimanager_exec_workspace_action" "lockWorkingADOM" { # lock root GN
   force_recreate = uuid()
   comment        = ""
   depends_on = [
-    fortimanager_system_global.workspace
+    fortimanager_system_global.workspace,
+    fortimanager_dvmdb_adom.createADOM
   ]
 }
 
