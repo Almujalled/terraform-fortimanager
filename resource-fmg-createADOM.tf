@@ -24,7 +24,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
 #  depends_on = [
 #  fortimanager_exec_workspace_action.lockWorkingADOM
 #  ]
-#}
+}
 
 
 #resource "fortimanager_json_generic_api" "createADOM" {
