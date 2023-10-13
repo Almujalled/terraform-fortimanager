@@ -29,11 +29,11 @@ variable "cli-template-project-variables" {
 variable "workingADOM" {
   description = "ADOMs"
   type        = string
-  default = "createdByTerrafrom"
+  default     = "createdByTerrafrom"
 }
 
 variable "rootADOM" {
   description = "ADOMs"
   type        = string
-  default = "root"
+  default     = "root"
 }

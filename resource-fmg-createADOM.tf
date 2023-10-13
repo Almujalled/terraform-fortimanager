@@ -22,7 +22,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   uuid           = ""
   workspace_mode = 1
   depends_on = [
-  fortimanager_exec_workspace_action.lockROOT
+    fortimanager_exec_workspace_action.lockROOT
   ]
 }
 
