@@ -1,0 +1,135 @@
+fm01 login: 2023-10-13 01:18:49 Request [gui webworker:20523:1]:
+2023-10-13 01:18:49 { "client": "gui webworker:20523", "id": 1, "method": "add", "params": [{ "current_adom": 3, "data": { "create_time": 0, "desc": "REVERSE ENGINEER THE CREATION OF AN ADOM", "flags": 2056, "log_db_retention_hours": 1440, "log_disk_quota": 0, "log_disk_quota_alert_thres": 90, "log_disk_quota_split_ratio": 70, "log_file_retention_hours": 8760, "mig_mr": 0, "mig_os_ver": 0, "mode": 1, "mr": 2, "name": "TEST-FROM-GUI", "os_ver": 7, "restricted_prds": 1, "state": 1, "uuid": "", "workspace_mode": 0}, "target start": 1, "url": "adom"}], "root": "dvmdb", "session": 43125}
+2023-10-13 01:18:49 Chkperm Response [gui webworker:20523:1]:
+2023-10-13 01:18:49 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "adom"}], "session": 43125}
+2023-10-13 01:18:49 Response [gui webworker:20523:1]:
+2023-10-13 01:18:49 { "id": 1, "result": [{ "data": { "name": "TEST-FROM-GUI"}, "status": { "code": 0, "message": "OK"}, "url": "adom"}]}2023-10-13 01:18:49 
+2023-10-13 01:18:49 Request [gui webworker:20523:1]:
+2023-10-13 01:18:49 { "client": "gui webworker:20523", "create task": { "adom": "TEST-FROM-GUI"}, "id": 1, "method": "set", "params": [{ "data": [{ "name": "UpdatedFromTerra", "vdom": "root"}], "target start": 1, "url": "\/dvmdb\/adom\/TEST-FROM-GUI\/object member"}], "session": 43125}
+2023-10-13 01:18:49 Chkperm Response [gui webworker:20523:1]:
+2023-10-13 01:18:49 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/TEST-FROM-GUI\/object member"}], "session": 43125}
+2023-10-13 01:18:49 Response [gui webworker:20523:1]:
+2023-10-13 01:18:49 { "id": 1, "result": [{ "data": { "task": 457}, "status": { "code": 0, "message": "OK"}}]}2023-10-13 01:18:49 
+2023-10-13 01:18:49 pm3_fex_sync_,1156: adom 778, dev 771, sync_all=1
+2023-10-13 01:18:49 __get_fextobj,89: not found fextobj by dev 771.3
+2023-10-13 01:18:49 __get_fextobj,100: add fextobj 771-3 for dev 771.3
+2023-10-13 01:18:49 __get_fextobj,89: found fextobj by dev 771.3
+2023-10-13 01:18:49 Response [gui webworker:20523:1]:
+2023-10-13 01:18:49 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/TEST-FROM-GUI\/object member"}]}
+2023-10-13 01:18:50 Request [gui flatui_proxy:20538:unknown]:
+2023-10-13 01:18:50 { "client": "gui flatui_proxy:20538", "method": "get", "params": [{ "keep_session_idle": 0, "option": ["scope member"], "target start": 2, "url": "\/pm\/config\/adom\/TEST-FROM-GUI\/obj\/cli\/template"}], "session": 43125}
+2023-10-13 01:18:50 Chkperm Response [gui flatui_proxy:20538:unknown]:
+2023-10-13 01:18:50 { "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/pm\/config\/adom\/TEST-FROM-GUI\/obj\/cli\/template"}], "session": 43125}
+2023-10-13 01:18:50 Response [gui flatui_proxy:20538:unknown]:
+2023-10-13 01:18:50 { "result": [{ "data": [{ "oid": 5243, "name": "provision_interfaces_on_vm", "description": "predefined script for FGT-VM", "type": 1, "script": "config system interface\n{%- for i in range(0, vm_interface_number|int) %}\n    edit port{{i+1}}\n        set vdom root\n        set type physical\n    next\n{%- endfor %}\nend", "variables": ["vm_interface_number"], "provision": 1}, { "oid": 5245, "name": "split_hardware_switch_ports_40_80_100", "description": "predefined script for FGT 40F\/80E\/100E\/100F", "type": 0, "script": "config firewall policy\ndelete 1\nend\nconfig system interface\nedit lan\nunset role\nnext\nend\nconfig firewall address\ndelete lan\nend\nconfig system dhcp server\ndelete 1\nend\nconfig system virtual-switch\ndelete lan\nend", "variables": [], "provision": 1}, { "oid": 5244, "name": "split_hardware_switch_ports_60_90", "description": "predefined script for FGT 60F\/90E", "type": 0, "script": "config firewall policy\ndelete 1\nend\nconfig system interface\nedit internal\nunset role\nnext\nend\nconfig firewall address\ndelete internal\nend\nconfig system dhcp server\ndelete 1\nend\nconfig system virtual-switch\ndelete internal\nend", "variables": [], "provision": 1}], "status": { "code": 0, "message": "OK"}, "url": "\/pm\/config\/adom\/TEST-FROM-GUI\/obj\/cli\/template"}]}2023-10-13 01:18:50 
+
+
+
+
+
+{
+    "client": "gui webworker:20523",
+    "id": 1,
+    "method": "add",
+    "params": [
+      {
+        "current_adom": 3,
+        "data": {
+          "create_time": 0,
+          "desc": "REVERSE ENGINEER THE CREATION OF AN ADOM",
+          "flags": 2056,
+          "log_db_retention_hours": 1440,
+          "log_disk_quota": 0,
+          "log_disk_quota_alert_thres": 90,
+          "log_disk_quota_split_ratio": 70,
+          "log_file_retention_hours": 8760,
+          "mig_mr": 0,
+          "mig_os_ver": 0,
+          "mode": 1,
+          "mr": 2,
+          "name": "TEST-FROM-GUI",
+          "os_ver": 7,
+          "restricted_prds": 1,
+          "state": 1,
+          "uuid": "",
+          "workspace_mode": 0
+        },
+        "target start": 1,
+        "url": "adom"
+      }
+    ],
+    "root": "dvmdb",
+    "session": 43125
+  }
+
+  {
+    "client": "gui webworker:20523",
+    "create task": {
+      "adom": "TEST-FROM-GUI"
+    },
+    "id": 1,
+    "method": "set",
+    "params": [
+      {
+        "data": [
+          {
+            "name": "UpdatedFromTerra",
+            "vdom": "root"
+          }
+        ],
+        "target start": 1,
+        "url": "\\/dvmdb\\/adom\\/TEST-FROM-GUI\\/object member"
+      }
+    ],
+    "session": 43125
+  }
+
+
+
+
+2023-10-13 01:24:33 Request [gui webworker:21046:1]:
+2023-10-13 01:24:33 { "client": "gui webworker:21046", "create task": { "adom": "GNS3"}, "id": 1, "method": "set", "params": [{ "data": [{ "name": "UpdatedFromTerra", "vdom": "root"}], "target start": 1, "url": "\/dvmdb\/adom\/GNS3\/object member"}], "session": 43125}
+2023-10-13 01:24:33 Chkperm Response [gui webworker:21046:1]:
+2023-10-13 01:24:33 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/object member"}], "session": 43125}
+2023-10-13 01:24:33 Response [gui webworker:21046:1]:
+2023-10-13 01:24:33 { "id": 1, "result": [{ "data": { "task": 458}, "status": { "code": 0, "message": "OK"}}]}2023-10-13 01:24:33 
+2023-10-13 01:24:34 pm3_fex_sync_,1156: adom 394, dev 771, sync_all=1
+2023-10-13 01:24:34 __get_fextobj,89: not found fextobj by dev 771.3
+2023-10-13 01:24:34 __get_fextobj,100: add fextobj 771-3 for dev 771.3
+2023-10-13 01:24:34 __get_fextobj,89: found fextobj by dev 771.3
+2023-10-13 01:24:34 pm3_fex_sync_,1156: adom 394, dev 771, sync_all=1
+2023-10-13 01:24:34 __get_fextobj,89: not found fextobj by dev 771.3
+2023-10-13 01:24:34 __get_fextobj,100: add fextobj 771-3 for dev 771.3
+2023-10-13 01:24:34 __get_fextobj,89: found fextobj by dev 771.3
+2023-10-13 01:24:34 Response [gui webworker:21046:1]:
+2023-10-13 01:24:34 { "id": 1, "result": [{ "status": { "code": 0, "message": "OK"}, "url": "\/dvmdb\/adom\/GNS3\/object member"}]}
+2023-10-13 01:24:36 Request [gui forward:21083:unknown]:
+2023-10-13 01:24:36 { "client": "gui forward:21083", "keep_session_idle": 1, "method": "get", "params": [{ "option": "syntax", "target start": 2, "url": "pm\/config\/adom\/TEST-FROM-GUI\/obj"}], "session": 43125}
+2023-10-13 01:24:36 Chkperm Response [gui forward:21083:unknown]:
+2023-10-13 01:24:36 { "result": [{ "status": { "code": 0, "message": "OK"}, "url": "pm\/config\/adom\/TEST-FROM-GUI\/obj"}], "session": 43125}
+2023-10-13 01:24:36 Response [gui forward:21083:unknown]:
+2023-10-13 01:24:36 { "result": [{ "data": { "adom options": { "attr": { "assign_excluded": { "excluded": true, "opts": { "disable": 0, "enable": 1}, "sz": 1, "type": "uint8"}, "assign_name": { "type": "string"}, "specify_assign_pkg_list": { "excluded": true, "opts": { "disable": 0, "enable": 1}, "sz": 1, "type": "uint8"}}, "category": 1104, "domain": 2, "support_mode": 48, "type": "obj"}, "antivirus profile": { "alimit": 1000, "attr": { "analytics-accept-filetype": { "help": "Only submit files matching this DLP file-pattern to FortiSandbox (post-transfer scan only).", "max_argv": 1, "ref": [{ "category": "dlp filepattern", "mkey": "id"}], "type": "datasrc"}, "analytics-db": { "default": "disable", "excluded": true, "help": "Enable\/disable using the FortiSandbox signature database to supplement the AV signature databases.", "opts": { "disable": 0, "enable": 1}, "sz": 4, "type": "uint32"}, "analytics-ignore-filetype": { "help": "Do not submit files matching this DLP file-pattern to FortiSandbox (post-transfer scan only).", "max_argv": 1, "ref": [{ "category": "dlp filepattern", "mkey": "id"}], "type": "datasrc"}, "av-block-log": { "default": "enable", "excluded": true, "help": "Enable\/disable logging for AntiVirus file blocking.", "opts": { "disable": 0, "enable": 1}, "sz": 1, "type": "uint8"}, "av-virus-log": { "default": "enable", "excluded": true, "help": "Enable\/disable AntiVirus logging.", "opts": { "disable": 0, "enable": 1}, "sz": 1, "type": "uint8"}, "comment": { "help": "Comment.", "max": 255, "type": "string"}, "ems-threat-feed": { "default": "disable", "excluded": true, "help": "Enable\/disable use of EMS threat feed when performing AntiVirus scan. Analyzes files including the content of archives.", "opts": { "disable": 0, "enable": 1}, "sz": 4, "type": "uint32"}, "extended-log": { "default": "disable", "excluded": true, "help": "Enable\/disable extended logging for antivirus.", "opts": { "disable": 0, "enable": 1}, "sz": 4, "type": "uint32"}, "external-blocklist": { "help": "One or more external malware block lists.", "max_argv": -1, "ref": [{ "category": "system external-resource", "mkey": "name"}], "type": "datasrc"}, "external-blocklist-enable-all": { "default": "disable", "excluded": true, "help": "Enable\/disable all external blocklists.", "opts": { "disable": 0, "enable": 1}, "sz": 4, "type": "uint32"}, "feature-set": { "default": "flow", "excluded": true, "help": "Flow\/proxy feature set.", "opts": { "flow": 1, "proxy": 0}, "sz": 4, "type": "uint32"}, "fortindr-error-action": { "default": "log-only", "excluded": true, "help": "Action to take if FortiNDR encounters an error.", "opts": { "block": 2, "ignore": 3, "log-only": 1}, "sz": 4, "type": "uint32"}, "fortindr-timeout-action": { "default": "log-only", "excluded": true, "help": "Action to take if FortiNDR encounters a scan timeout.", "opts": { "block": 2, "ignore": 3, "log-only": 1}, "sz": 4, "type": "uint32"}, "fortisandbox-error-action": { "default": "log-only", "excluded": true, "help": "Action to take if FortiSandbox inline scan encounters an error.", "opts": { "block": 2, "ignore": 3, "log-only": 1}, "sz": 4, "type": "uint32"}, "fortisandbox-max-upload": { "default": 10, "help": "Maximum size of files that can be uploaded to FortiSandbox.", "sz": 4, "type": "uint32"}, "fortisandbox-mode": { "default": "analytics-everything", "excluded": true, "help": "FortiSandbox scan modes.", "opts": { "analytics-everything": 3, "analytics-suspicious": 2, "inline": 1}, "sz": 4, "type": "uint32"}, "fortisandbox-timeout-action": { "default": "log-only", "excluded": true, "help": "Action to take if FortiSandbox inline scan encounters a scan timeout.", "opts": { "block": 2, "ignore": 3, "log-only": 1}, "sz": 4, "type": "uint32"}, "mobile-malware-db": { "default": "enable", "excluded": true, "help": "Enable\/disable using the mobile malware signature database.", "opts": { "disable": 0, "enable": 1}, "sz": 4, "type": "uint32"}, "name": { "help": "Profile name.", "max": 35, "type": "string"}, "outbreak-prevention-archive-scan": { "default": "enable", "excluded": true, "help": "Enable2023-10-13 01:24:36 
+
+
+
+{
+  "client": "gui webworker:21046",
+  "create task": {
+    "adom": "GNS3"
+  },
+  "id": 1,
+  "method": "set",
+  "params": [
+    {
+      "data": [
+        {
+          "name": "UpdatedFromTerra",
+          "vdom": "root"
+        }
+      ],
+      "target start": 1,
+      "url": "\\/dvmdb\\/adom\\/GNS3\\/object member"
+    }
+  ],
+  "session": 43125
+}

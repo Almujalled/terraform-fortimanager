@@ -54,7 +54,8 @@ resource "fortimanager_exec_workspace_action" "unlockROOT" { # save change and u
   force_recreate = uuid()
   comment        = ""
   depends_on = [
-    fortimanager_dvm_cmd_add_device.authDevice
+    fortimanager_dvm_cmd_add_device.authDevice,
+    fortimanager_json_generic_api.createADOM
   ]
 }
 
