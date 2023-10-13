@@ -12,7 +12,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   mig_os_ver                 = "0.0"
   mode                       = "gms"
   mr                         = 2
-  name                       = "createdbyterraform"
+  name                       = var.workingADOM
   os_ver                     = "7.0"
   restricted_prds = [
     "fos",
@@ -22,7 +22,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   uuid           = ""
   workspace_mode = 1
   depends_on = [
-  fortimanager_exec_workspace_action.lockROOT
+    fortimanager_exec_workspace_action.lockROOT
   ]
 }
 

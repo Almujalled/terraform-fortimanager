@@ -1,9 +1,9 @@
 resource "fortimanager_dvm_cmd_update_device" "refreshDevice" {
-  fmgadom = "GNS3"
+  fmgadom = var.workingADOM
   device  = "UpdatedFromTerra"
   flags   = ["create_task", "nonblocking"]
   depends_on = [
-    fortimanager_exec_workspace_action.lockGNS3
+    fortimanager_exec_workspace_action.lockWorkingADOM
   ]
 }
 
@@ -33,7 +33,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
 }
 JSON
   depends_on = [
-    fortimanager_exec_workspace_action.lockGNS3,
+    fortimanager_exec_workspace_action.lockWorkingADOM,
     fortimanager_dvm_cmd_update_device.refreshDevice
   ]
 }
