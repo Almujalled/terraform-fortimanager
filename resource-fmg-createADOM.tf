@@ -11,7 +11,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   mig_mr                     = 4
   mig_os_ver                 = "0.0"
   mode                       = "gms"
-#  mr                         = 4
+  mr                         = 4
   name                       = "createdByTerrafrom"
   os_ver                     = "7.0"
   restricted_prds = [
