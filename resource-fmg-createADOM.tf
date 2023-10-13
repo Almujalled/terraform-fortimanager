@@ -10,7 +10,7 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   log_file_retention_hours   = 8760
   desc                       = "Created by Terraform resource fortimanager_dvmdb_adom"
 #  mig_mr                     = 4
-#  mig_os_ver                 = "0.0"
+  mig_os_ver                 = "7.2"
   mode                       = "gms"
 #  mr                         = 4
   name                       = "createdByTerrafrom"
