@@ -7,7 +7,7 @@ resource "fortimanager_dvm_cmd_add_device" "authDevice" {
     adm_pass     = ""
     name         = "FortiGate-VM64-KVM"
     platform_str = "FortiGate-VM64-KVM" # Needed for VM type FGTs! 
-    sn           = "FGVMEVXBBRNCNREF"
+    sn           = "FGVMEVCORH8NE2AB"
   }
   depends_on = [
     fortimanager_exec_workspace_action.lockROOT
