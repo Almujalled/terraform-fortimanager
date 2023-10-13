@@ -8,7 +8,8 @@ resource "fortimanager_object_cli_template" "Project" {
   variables   = var.cli-template-project-variables
   depends_on  = [
     fortimanager_dvmdb_adom.createADOM,
-    fortimanager_exec_workspace_action.lockWorkingADOM
+    fortimanager_exec_workspace_action.lockWorkingADOM,
+    fortimanager_object_fmg_variable.createMetadata
     ]
 }
 
