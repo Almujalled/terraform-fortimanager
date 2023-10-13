@@ -23,6 +23,9 @@ variable "cli-template-project-variables" {
     "mpls_wan_ip",
     "outbandwidth",
     "shaping_profile",
+    "hostname",
+    "profile",
+    "region",
   ]
 }
 
