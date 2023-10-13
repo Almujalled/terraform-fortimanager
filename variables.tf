@@ -26,6 +26,8 @@ variable "cli-template-project-variables" {
     "hostname",
     "profile",
     "region",
+    "loopback",
+    "lan_ip_edu",
   ]
 }
 
