@@ -26,10 +26,9 @@ resource "fortimanager_json_generic_api" "createADOM" {
           "workspace_mode": 0
         },
         "target start": 1,
-        "url": "adom"
+        "url": "/dvmdb/adom"
       }
-    ],
-    "root": "dvmdb"
+    ]
 }
 JSON
 # depends_on = [
