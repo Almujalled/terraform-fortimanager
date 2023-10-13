@@ -1,6 +1,6 @@
-output "test1" {
-  value = jsondecode(fortimanager_json_generic_api.updateDeviceDB.response)
-}
+#output "test1" {
+#  value = jsondecode(fortimanager_json_generic_api.updateDeviceDB.response)
+#}
 #
 #output test2 {
 #  value       = jsondecode(fortimanager_json_generic_api.test2.response)

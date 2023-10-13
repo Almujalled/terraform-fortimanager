@@ -1,7 +1,5 @@
 resource "fortimanager_object_fmg_variable" "createMetadata" {
   description = ""
-  #for_each = toset( ["Todd", "James", "Alice", "Dottie"] )
-  #name     = each.key
   for_each = toset( var.cli-template-project-variables )
   name = each.key
   scopetype   = "adom"

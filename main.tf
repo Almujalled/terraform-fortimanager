@@ -29,7 +29,7 @@ resource "fortimanager_exec_workspace_action" "lockWorkingADOM" { # lock root GN
   comment        = ""
   depends_on = [
     fortimanager_system_global.workspace,
-    fortimanager_dvmdb_adom.createADOM
+#    fortimanager_dvmdb_adom.createADOM
   ]
 }
 
@@ -72,6 +72,6 @@ resource "fortimanager_exec_workspace_action" "unlockWorkingADOM" { # save chang
     fortimanager_dvmdb_adom.createADOM,
     fortimanager_object_cli_templategroup.Hub-Template,
     fortimanager_object_cli_templategroup.Edge-Template,
-    fortimanager_json_generic_api.updateDeviceDB
+#    fortimanager_json_generic_api.updateDeviceDB
   ]
 }
