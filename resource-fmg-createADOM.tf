@@ -1,3 +1,16 @@
+resource "fortimanager_exec_workspace_action" "lock2modifyWorkingADOM" {
+  scopetype      = "adom"
+  adom           = var.workingADOM
+  action         = "lockbegin"
+  target         = ""
+  param          = ""
+  force_recreate = uuid()
+  comment        = ""
+  depends_on = [
+    fortimanager_system_global.workspace,
+    fortimanager_dvmdb_adom.createADOM
+  ]
+}
 resource "fortimanager_dvmdb_adom" "createADOM" {
   create_time = 0
   flags = [
@@ -22,7 +35,20 @@ resource "fortimanager_dvmdb_adom" "createADOM" {
   uuid           = ""
   workspace_mode = 1
   depends_on = [
-  fortimanager_exec_workspace_action.lockROOT
+  fortimanager_exec_workspace_action.lock2modifyWorkingADOM
+  ]
+}
+
+resource "fortimanager_exec_workspace_action" "unlock2modifyWorkingADOM" {
+  scopetype      = "adom"
+  adom           = var.workingADOM
+  action         = "lockend"
+  target         = ""
+  param          = ""
+  force_recreate = uuid()
+  comment        = ""
+  depends_on = [
+    fortimanager_dvmdb_adom.createADOM
   ]
 }
 

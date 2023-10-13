@@ -46,7 +46,7 @@ resource "fortimanager_exec_workspace_action" "lockROOT" { # lock root ADOM
   ]
 }
 
-resource "fortimanager_exec_workspace_action" "unlockROOT" { # save change and unlock root ADOM
+resource "fortimanager_exec_workspace_action" "unlockROOT" {
   scopetype      = "adom"
   adom           = var.rootADOM
   action         = "lockend"
