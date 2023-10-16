@@ -30,24 +30,24 @@ resource "fortimanager_system_global" "workspace" {
 }
 resource "fortimanager_exec_workspace_action" "lockADOM" {
   #count     = var.createADOM ? 0 : 1
-  scopetype = "adom"
-  adom      = var.provADOM
-  action    = "lockbegin"
-  target    = ""
-  param     = ""
+  scopetype      = "adom"
+  adom           = var.provADOM
+  action         = "lockbegin"
+  target         = ""
+  param          = ""
   force_recreate = uuid()
-  comment = ""
-  depends_on = [ fortimanager_json_generic_api.getADOM ]
+  comment        = ""
+  depends_on     = [fortimanager_json_generic_api.getADOM]
 }
 
 resource "fortimanager_exec_workspace_action" "unlockADOM" {
-  scopetype = "adom"
-  adom      = var.provADOM
-  action    = "lockend"
-  target    = ""
-  param     = ""
+  scopetype      = "adom"
+  adom           = var.provADOM
+  action         = "lockend"
+  target         = ""
+  param          = ""
   force_recreate = uuid()
-  comment = ""
+  comment        = ""
   depends_on = [
     fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,

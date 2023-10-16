@@ -2,8 +2,8 @@ output "getADOM" {
   value = jsondecode(fortimanager_json_generic_api.getADOM.response)
 }
 #
-output DeviceDB {
-  value       = jsondecode(fortimanager_json_generic_api.updateDeviceDB.response)
+output "DeviceDB" {
+  value = jsondecode(fortimanager_json_generic_api.updateDeviceDB.response)
 }
 #
 #output test3 {

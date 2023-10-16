@@ -33,7 +33,7 @@ resource "fortimanager_json_generic_api" "createADOM" {
   ]
 }
 JSON
- depends_on = [
-   fortimanager_system_global.workspace
- ]
+  depends_on = [
+    fortimanager_system_global.workspace
+  ]
 }

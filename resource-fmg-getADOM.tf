@@ -10,7 +10,7 @@ resource "fortimanager_json_generic_api" "getADOM" {
   ]
 }
 JSON
- depends_on = [
-   fortimanager_json_generic_api.createADOM
- ]
+  depends_on = [
+    fortimanager_json_generic_api.createADOM
+  ]
 }
