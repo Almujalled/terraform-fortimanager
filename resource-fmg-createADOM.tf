@@ -24,7 +24,7 @@
 #  mig_mr                     = 0
 #  mig_os_ver                 = "0.0"
 #  mode                       = "gms"
-#  mr                         = 2
+##  mr                         = 2
 #  name                       = var.workingADOM
 #  os_ver                     = "7.0"
 #  restricted_prds = [
@@ -34,24 +34,12 @@
 #  tz             = 0
 #  uuid           = ""
 #  workspace_mode = 1
-##  depends_on = [
-##  fortimanager_exec_workspace_action.lock2modifyWorkingADOM
-##  ]
+#  #  depends_on = [
+#  #  fortimanager_exec_workspace_action.lock2modifyWorkingADOM
+#  #  ]
 #}
-
-#resource "fortimanager_exec_workspace_action" "unlock2modifyWorkingADOM" {
-#  scopetype      = "adom"
-#  adom           = var.workingADOM
-#  action         = "lockend"
-#  target         = ""
-#  param          = ""
-#  force_recreate = uuid()
-#  comment        = ""
-#  #depends_on = [
-#  #  fortimanager_dvmdb_adom.createADOM
-#  #]
-#}
-
+#
+#
 
 #resource "fortimanager_json_generic_api" "createADOM" {
 #  json_content = <<JSON

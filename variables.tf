@@ -13,36 +13,28 @@ variable "resource_tags" {
 #  default     = "Project Template goes here!"
 #}
 
+
+
 variable "cli-template-project-variables" {
   description = "Project Variables"
   type        = list(string)
   default = [
-    "inbandwidth",
     "lan_ip_edu",
     "lan_ip_fin",
     "mpls_wan_ip",
-    "outbandwidth",
-    "shaping_profile",
     "hostname",
     "profile",
     "region",
     "loopback",
-    "lan_ip_edu",
-    "lan_ip_fin",
-    "mpls_wan_ip",
     "mpls_wan_gateway",
-    "outbandwidth",
   ]
 }
 
 variable "workingADOM" {
   description = "ADOMs"
-  type        = string
-  default     = "createdByTerrafrom"
-}
-
-variable "rootADOM" {
-  description = "ADOMs"
-  type        = string
-  default     = "root"
+  type        = list(string)
+  default     = [
+    "createdByTerraform",
+    "root",
+  ]
 }
