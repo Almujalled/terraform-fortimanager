@@ -18,31 +18,34 @@
 
 
 
-### AUTHORIZE A DEVICE VIA API!!! ######
-#resource "fortimanager_json_generic_api" "authDevice" {
-#  json_content = <<JSON
-#{
-#  "method": "exec",
-#  "params": [
-#    {
-#      "data": {
-#        "adom": var.workingADOM,
-#        "device": {
-#          "adm_pass": "",
-#          "adm_usr": "admin",
-#          "device action": "promote_unreg",
-#          "name": "FortiGate-60F"
-#        },
-#        "flags": [
-#          "create_task"
-#        ]
-#      },
-#      "url": "/dvm/cmd/add/device"
-#    }
-#  ]
-#}
-#JSON
-#}
+## AUTHORIZE A DEVICE VIA API!!! ######
+resource "fortimanager_json_generic_api" "authDevice" {
+  json_content = <<JSON
+{
+  "method": "exec",
+  "params": [
+    {
+      "data": {
+        "adom": "${var.provADOM}",
+        "device": {
+          "device action": "promote_unreg",
+          "name": "${var.deviceInfo.platform_str}",
+          "platform_str": "${var.deviceInfo.platform_str}",
+          "sn": "${var.deviceInfo.sn}",
+          "adm_usr": "${var.deviceInfo.adm_usr}",
+          "adm_pass": "${var.deviceInfo.adm_pass}"
+        },
+        "flags": [
+          "create_task"
+        ]
+      },
+      "url": "/dvm/cmd/add/device"
+    }
+  ]
+}
+JSON
+depends_on = [ fortimanager_json_generic_api.createADOM ] # Add a dep to check if there are unauth devices in root ADOM
+}
 
 #output authDevice {
 #  value       = jsondecode(fortimanager_json_generic_api.authDevice.response)
