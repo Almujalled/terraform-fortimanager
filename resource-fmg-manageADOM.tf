@@ -11,7 +11,9 @@
 #  #  fortimanager_dvmdb_adom.createADOM
 #  #]
 #}
-#resource "fortimanager_dvmdb_adom" "createADOM" {
+
+#resource "fortimanager_dvmdb_adom" "manageADOM" {
+##  count       = var.createADOM ? 1 : 0
 #  create_time = 0
 #  flags = [
 #    "no_vpn_console",
@@ -24,22 +26,20 @@
 #  mig_mr                     = 0
 #  mig_os_ver                 = "0.0"
 #  mode                       = "gms"
-##  mr                         = 2
+#  mr                         = 2
 #  name                       = var.workingADOM
-#  os_ver                     = "7.0"
+#  os_ver                     = "7.2"
 #  restricted_prds = [
 #    "fos",
 #  ]
-#  state          = 1
+#  state          = 0
 #  tz             = 0
 #  uuid           = ""
 #  workspace_mode = 1
-#  #  depends_on = [
-#  #  fortimanager_exec_workspace_action.lock2modifyWorkingADOM
-#  #  ]
+#  depends_on = [ fortimanager_exec_workspace_action.lockADOM ]
 #}
-#
-#
+
+
 
 #resource "fortimanager_json_generic_api" "createADOM" {
 #  json_content = <<JSON

@@ -3,14 +3,12 @@ resource "fortimanager_object_cli_template" "Project" {
   name        = "Project"
   scopetype   = "adom"
   adom        = var.workingADOM
-#  adom        = var.workingADOM
   script      = file("projects/Project.dualreg.nocert.j2")
   type        = "jinja"
   variables   = var.cli-template-project-variables
   depends_on = [
-    #fortimanager_object_fmg_variable.createMetadata
-    #fortimanager_dvmdb_adom.createADOM,
-    fortimanager_exec_workspace_action.lockWorkingADOM
+    fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata
   ]
 }
 

@@ -1,20 +1,19 @@
-resource "fortimanager_dvm_cmd_add_device" "authDevice" {
-  fmgadom = var.workingADOM
-#  fmgadom = fortimanager_dvmdb_adom.createADOM.name
-  flags   = ["create_task"]
-  device {
-    deviceaction = "promote_unreg"
-    adm_usr      = "admin"
-    adm_pass     = ""
-    name         = "FortiGate-VM64-KVM"
-    platform_str = "FortiGate-VM64-KVM" # Needed for VM type FGTs! 
-    sn           = "FGVMEVDNB1HFA86B"
-  }
-  #depends_on = [
-  #  fortimanager_exec_workspace_action.lockROOT,
-  #d#    fortimanager_dvmdb_adom.createADOM
-  #]
-}
+#resource "fortimanager_dvm_cmd_add_device" "authDevice" {
+#  count   = var.createDevice ? 1 : 0
+#  fmgadom = var.workingADOM
+#  flags   = ["create_task"]
+#  device {
+#    deviceaction = "promote_unreg"
+#    adm_usr      = var.deviceInfo.adm_usr
+#    adm_pass     = var.deviceInfo.adm_pass
+#    name         = var.deviceInfo.name
+#    platform_str = var.deviceInfo.platform_str # Needed for VM type FGTs! 
+#    sn           = var.deviceInfo.sn
+#  }
+#  depends_on = [
+#    fortimanager_exec_workspace_action.lockDevice
+#  ]
+#}
 
 
 

@@ -1,11 +1,12 @@
-resource "fortimanager_dvm_cmd_update_device" "refreshDevice" {
-  fmgadom = var.workingADOM
-  device  = "UpdatedFromTerra"
-  flags   = ["create_task", "nonblocking"]
-  #depends_on = [
-  #  fortimanager_exec_workspace_action.lockWorkingADOM
-  #]
-}
+#resource "fortimanager_dvm_cmd_update_device" "refreshDevice" {
+#  fmgadom = var.workingADOM
+#  device  = var.deviceInfo.name
+#  flags   = ["create_task", "nonblocking"]
+#  depends_on = [
+#    fortimanager_exec_workspace_action.lockDevice,
+#    fortimanager_dvmdb_adom.manageADOM
+#  ]
+#}
 
 #resource "fortimanager_json_generic_api" "updateDeviceDB" {
 #  json_content = <<JSON
