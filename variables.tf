@@ -7,30 +7,20 @@ variable "resource_tags" {
   }
 }
 
-#variable "cli-template-project" {
-#  description = "Project CLI Template - Jinja"
-#  type        = string
-#  default     = "Project Template goes here!"
-#}
-
 variable "cli-template-project-variables" {
   description = "Project Variables"
   type        = list(string)
   default = [
-    "inbandwidth",
     "lan_ip_edu",
     "lan_ip_fin",
     "mpls_wan_ip",
-    "outbandwidth",
-    "shaping_profile",
     "hostname",
     "profile",
     "region",
     "loopback",
-    "lan_ip_edu",
-    "lan_ip_fin",
-    "mpls_wan_ip",
     "mpls_wan_gateway",
+    "inbandwidth",
+    "shaping_profile",
     "outbandwidth",
   ]
 }
@@ -38,11 +28,36 @@ variable "cli-template-project-variables" {
 variable "workingADOM" {
   description = "ADOMs"
   type        = string
-  default     = "createdByTerrafrom"
+  default     = "root"
 }
 
-variable "rootADOM" {
-  description = "ADOMs"
+variable "provADOM" {
+  description = "Provision ADOMs"
   type        = string
-  default     = "root"
+  default     = "createdByTerraform"
+}
+
+variable "deviceInfo" {
+  type = object({
+    name         = string
+    adm_usr      = string
+    adm_pass     = string
+    platform_str = string
+    sn           = string
+  })
+  sensitive = false
+}
+
+variable "pkg" {
+  description = "Package Details"
+  type        = string
+  default     = "managedByTerraform"
+}
+
+variable "createADOM" {
+  type = bool
+}
+
+variable "createDevice" {
+  type = bool
 }
