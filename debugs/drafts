@@ -1,0 +1,13 @@
+resource "github_repository" "sd_wan_fortinet-templates" {
+  name         = "fortinet-templates"
+  visibility   = "private"
+  has_issues   = false
+  has_projects = false
+  has_wiki     = false
+  topics       = concat(local.deko_topics)
+}
+
+locals {
+  dev_push_repos = [
+    github_repository.bkk_helloworld.name,
+    github_repository.<team-name>_<repo-name>.name, 
