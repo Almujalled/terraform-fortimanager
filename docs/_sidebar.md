@@ -1,6 +1,3 @@
-* [Home](/)
-* [Guide](guide.md "The greatest guide in the world")
-
 - Terraformian Things
 
   - [Terraform Deplpyment](terraform-docs.md)
