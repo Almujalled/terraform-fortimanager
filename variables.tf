@@ -31,11 +31,6 @@ variable "workingADOM" {
   default     = "root"
 }
 
-variable "provADOM" {
-  description = "Provision ADOMs"
-  type        = string
-  default     = "createdByTerraform"
-}
 
 variable "deviceInfo" {
   type = object({

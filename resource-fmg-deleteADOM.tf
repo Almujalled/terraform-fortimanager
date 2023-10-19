@@ -10,6 +10,6 @@
 #}
 #JSON
 # depends_on = [
-#   fortimanager_system_global.workspace
+#   fortimanager_exec_workspace_action.lockADOM
 # ]
 #}

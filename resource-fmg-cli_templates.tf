@@ -112,7 +112,8 @@ resource "fortimanager_object_cli_templategroup" "Edge-Template" {
   depends_on = [
     fortimanager_object_cli_template.Edge-Overlay,
     fortimanager_object_cli_template.Edge-Routing,
-    fortimanager_object_cli_template.Edge-Underlay
+    fortimanager_object_cli_template.Edge-Underlay,
+    fortimanager_exec_workspace_action.lockADOM
   ]
 }
 
@@ -126,6 +127,7 @@ resource "fortimanager_object_cli_templategroup" "Hub-Template" {
     fortimanager_object_cli_template.Hub-Overlay,
     fortimanager_object_cli_template.Hub-Routing,
     fortimanager_object_cli_template.Hub-Underlay,
-    fortimanager_object_cli_template.Hub-MultiRegion
+    fortimanager_object_cli_template.Hub-MultiRegion,
+    fortimanager_exec_workspace_action.lockADOM,
   ]
 }
