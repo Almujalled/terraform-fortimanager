@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
+  <meta name="description" content="Docs Website">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
@@ -22,7 +22,7 @@
       coverpage: true,
       onlyCover: false,
       auto2top: true,
-      autoHeader: false,
+      autoHeader: true,
       hideSidebar: false,
       loadNavbar: true,
       disqus: 'shortname'
@@ -52,5 +52,21 @@
       distractionFreeMode: false,
     });
   </script>
+  <style type="text/css">
+    .sidebar li {
+      margin: 0;
+      line-height: 1.7em;
+    }
+    .sidebar ul li ul {
+      padding-bottom: 10px;
+    }
+    .sidebar-nav>ul>li>p {
+      font-size: 17px;
+      text-transform: uppercase;
+    }
+    .content {
+      overflow: auto;
+    }
+  </style>
 </body>
 </html>
