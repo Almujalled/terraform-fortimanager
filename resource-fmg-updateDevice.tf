@@ -33,9 +33,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
 }
 JSON
   depends_on = [
-    fortimanager_dvm_cmd_update_device.refreshDevice,
-    fortimanager_object_cli_templategroup.Edge-Template,
-    fortimanager_object_cli_templategroup.Hub-Template 
+    fortimanager_dvm_cmd_update_device.refreshDevice
   ]
 }
 

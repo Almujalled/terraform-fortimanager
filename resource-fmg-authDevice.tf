@@ -24,6 +24,10 @@ resource "fortimanager_json_generic_api" "authDevice" {
   ]
 }
 JSON
+  depends_on = [
+  fortimanager_object_cli_templategroup.Edge-Template,
+  fortimanager_object_cli_templategroup.Hub-Template
+  ]
 }
 
 

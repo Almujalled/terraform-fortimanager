@@ -34,24 +34,24 @@ resource "fortimanager_exec_workspace_action" "unlockADOM" {
   ]
 }
 resource "fortimanager_exec_workspace_action" "lockDevice" {
-  count = var.createDevice ? 0 : 1
-  scopetype = "adom"
-  adom      = var.workingADOM
-  action    = "lockbegin"
-  target    = "dev"
-  param     = var.deviceInfo.name
+  count          = var.createDevice ? 0 : 1
+  scopetype      = "adom"
+  adom           = var.workingADOM
+  action         = "lockbegin"
+  target         = "dev"
+  param          = var.deviceInfo.name
   force_recreate = uuid()
-  comment = ""
+  comment        = ""
 }
 #
 resource "fortimanager_exec_workspace_action" "unlockDevice" {
-  scopetype = "adom"
-  adom      = var.workingADOM
-  action    = "lockend"
-  target    = "dev"
-  param     = var.deviceInfo.name
+  scopetype      = "adom"
+  adom           = var.workingADOM
+  action         = "lockend"
+  target         = "dev"
+  param          = var.deviceInfo.name
   force_recreate = uuid()
-  comment = ""
+  comment        = ""
   depends_on = [
     fortimanager_json_generic_api.updateDeviceDB
   ]
@@ -95,9 +95,9 @@ resource "fortimanager_exec_workspace_action" "unlockProVars" {
   param          = each.value
   force_recreate = uuid()
   comment        = ""
-  depends_on = [ 
-#    # fortimanager_object_fmg_variable.createMetadata
-   ]
+  depends_on = [
+    #    # fortimanager_object_fmg_variable.createMetadata
+  ]
 }
 
 
