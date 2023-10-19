@@ -8,9 +8,9 @@ resource "fortimanager_exec_workspace_action" "lockADOM" {
   action         = "lockbegin"
   target         = ""
   param          = ""
-  force_recreate = uuid()
+#  force_recreate = uuid()
   comment        = ""
-#  depends_on     = [fortimanager_json_generic_api.getADOM]
+  depends_on     = [fortimanager_json_generic_api.createADOM]
 }
 
 resource "fortimanager_exec_workspace_action" "unlockADOM" {
@@ -19,7 +19,7 @@ resource "fortimanager_exec_workspace_action" "unlockADOM" {
   action         = "lockend"
   target         = ""
   param          = ""
-  force_recreate = uuid()
+#  force_recreate = uuid()
   comment        = ""
   depends_on = [
     fortimanager_object_fmg_variable.createMetadata,
