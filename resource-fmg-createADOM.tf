@@ -37,7 +37,4 @@ JSON
     prevent_destroy       = false
     create_before_destroy = true
   }
-  depends_on = [
-    fortimanager_system_global.workspace
-  ]
 }

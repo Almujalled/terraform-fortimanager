@@ -28,7 +28,7 @@ variable "cli-template-project-variables" {
 variable "workingADOM" {
   description = "ADOMs"
   type        = string
-  default     = "root"
+  default     = "createdByTerraform"
 }
 
 
