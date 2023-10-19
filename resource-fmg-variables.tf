@@ -15,13 +15,13 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-lan_ip_edu" {
   name        = "lan_ip_edu"
   scopetype   = "adom"
   adom        = var.workingADOM
-  value       = "10.0.0.1" # Default value
+  value       = "10.0.0.1/24" # Default value
   dynamic_mapping {
     _scope {
       name = var.deviceInfo.name
       vdom = "global"
     }
-    value = "10.0.0.1"
+    value = "10.0.0.1/24"
   }
   depends_on = [fortimanager_json_generic_api.updateDeviceDB]
 }
@@ -31,13 +31,13 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-lan_ip_fin" {
   name        = "lan_ip_fin"
   scopetype   = "adom"
   adom        = var.workingADOM
-  value       = "11.0.0.1" # Default value
+  value       = "11.0.0.1/24" # Default value
   dynamic_mapping {
     _scope {
       name = var.deviceInfo.name
       vdom = "global"
     }
-    value = "11.0.0.1"
+    value = "11.0.0.1/24"
   }
   depends_on = [fortimanager_object_fmg_variable.makeMetadata-lan_ip_edu]
 
@@ -48,13 +48,13 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-mpls_wan_ip" {
   name        = "mpls_wan_ip"
   scopetype   = "adom"
   adom        = var.workingADOM
-  value       = "12.0.0.1" # Default value
+  value       = "12.0.0.1/24" # Default value
   dynamic_mapping {
     _scope {
       name = var.deviceInfo.name
       vdom = "global"
     }
-    value = "12.0.0.1"
+    value = "12.0.0.1/24"
   }
   depends_on = [fortimanager_object_fmg_variable.makeMetadata-lan_ip_fin]
 
@@ -116,13 +116,13 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-loopback" {
   name        = "loopback"
   scopetype   = "adom"
   adom        = var.workingADOM
-  value       = "1.1.1.1"
+  value       = "1.1.1.1/32"
   dynamic_mapping {
     _scope {
       name = var.deviceInfo.name
       vdom = "global"
     }
-    value = "1.1.1.1"
+    value = "1.1.1.1/32"
   }
   depends_on = [fortimanager_object_fmg_variable.makeMetadata-region]
 
@@ -150,13 +150,13 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-mpls_wan_gateway" {
   name        = "mpls_wan_gateway"
   scopetype   = "adom"
   adom        = var.workingADOM
-  value       = "2.2.2.2"
+  value       = "2.2.2.2/32"
   dynamic_mapping {
     _scope {
       name = var.deviceInfo.name
       vdom = "global"
     }
-    value = "2.2.2.2"
+    value = "2.2.2.2/32"
   }
   depends_on = [fortimanager_object_fmg_variable.makeMetadata-inbandwidth]
 

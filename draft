@@ -1,0 +1,2 @@
+2023-10-19 15:34:28 Request [gui forward:7193:480fc039-f5a3-4520-8fcc-2e3568ec455b]:
+2023-10-19 15:34:28 { "client": "gui forward:7193", "id": "480fc039-f5a3-4520-8fcc-2e3568ec455b", "keep_session_idle": 1, "method": "get", "params": [{ "option": ["scope member", "extra info"], "target start": 2, "url": "\/pm\/config\/adom\/createdByTerraform\/obj\/cli\/template"}], "session": 54195}
