@@ -26,10 +26,6 @@ resource "fortimanager_json_generic_api" "authDevice" {
 JSON
 }
 
-#output authDevice {
-#  value       = jsondecode(fortimanager_json_generic_api.authDevice.response)
-#}
-
 
 
 #resource "fortimanager_dvm_cmd_add_device" "authDevice" {
