@@ -8,7 +8,6 @@ resource "fortimanager_object_fmg_variable" "createMetadata" {
     ignore_changes = all
   }
   depends_on = [
-    fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM
   ]
 }

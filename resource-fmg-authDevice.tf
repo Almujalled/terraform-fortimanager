@@ -24,7 +24,6 @@ resource "fortimanager_json_generic_api" "authDevice" {
   ]
 }
 JSON
-  depends_on   = [fortimanager_json_generic_api.createADOM] # Add a dep to check if there are unauth devices in root ADOM
 }
 
 #output authDevice {
