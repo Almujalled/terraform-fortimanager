@@ -6,6 +6,6 @@ output "DeviceDB" {
   value = jsondecode(fortimanager_json_generic_api.updateDeviceDB.response)
 }
 #
-#output test3 {
-#  value       = jsondecode(fortimanager_json_generic_api.test3.response)
-#}
+output Edge-Template {
+  value       = fortimanager_object_cli_templategroup.Edge-Template.member
+}

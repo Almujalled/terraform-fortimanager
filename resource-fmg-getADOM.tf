@@ -5,7 +5,7 @@ resource "fortimanager_json_generic_api" "getADOM" {
   "params": [
     {
       "option": "{option}",
-      "url": "/dvmdb/adom/${var.provADOM}"
+      "url": "/dvmdb/adom/${var.workingADOM}"
     }
   ]
 }

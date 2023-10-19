@@ -6,6 +6,7 @@ resource "fortimanager_object_fmg_variable" "createMetadata" {
   scopetype   = "adom"
   adom        = var.workingADOM
   depends_on = [
-    fortimanager_exec_workspace_action.lockADOM
+    fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_json_generic_api.createADOM
   ]
 }

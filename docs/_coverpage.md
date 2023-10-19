@@ -1,6 +1,6 @@
 ![logo](_media/evinylogo.png)
 
-# Velkommen kjære kunde "Doughnut Worry" til din SDN Løsning! <small>ver 1.0</small>
+# Velkommen kjære kunde "Donut Worry" til din SDN Løsning! <small>ver 1.0</small>
 
 > This is a magical documentation site generator!
 

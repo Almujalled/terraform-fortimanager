@@ -26,7 +26,7 @@ resource "fortimanager_json_generic_api" "authDevice" {
   "params": [
     {
       "data": {
-        "adom": "${var.provADOM}",
+        "adom": "${var.workingADOM}",
         "device": {
           "device action": "promote_unreg",
           "name": "${var.deviceInfo.platform_str}",
