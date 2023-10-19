@@ -10,7 +10,7 @@ resource "fortimanager_object_cli_template" "Project" {
   #  ignore_changes = all
   #}
   depends_on = [
-    fortimanager_object_fmg_variable.createMetadata
+    fortimanager_object_fmg_variable.makeMetadata-outbandwidth
   ]
 }
 
