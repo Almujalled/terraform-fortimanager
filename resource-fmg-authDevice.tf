@@ -24,11 +24,10 @@ resource "fortimanager_json_generic_api" "authDevice" {
   ]
 }
 JSON
+  depends_on = [
+    fortimanager_exec_workspace_action.lockADOM
+  ]
 }
-
-#output authDevice {
-#  value       = jsondecode(fortimanager_json_generic_api.authDevice.response)
-#}
 
 
 
