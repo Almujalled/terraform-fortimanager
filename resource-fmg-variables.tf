@@ -4,9 +4,6 @@ resource "fortimanager_object_fmg_variable" "createMetadata" {
   name        = each.value
   scopetype   = "adom"
   adom        = var.workingADOM
-  lifecycle {
-    ignore_changes = all
-  }
   depends_on = [
     fortimanager_exec_workspace_action.lockADOM
   ]

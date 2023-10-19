@@ -33,7 +33,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
 }
 JSON
   depends_on = [
-    fortimanager_dvm_cmd_update_device.refreshDevice,
+    fortimanager_json_generic_api.authDevice,
     fortimanager_exec_workspace_action.lockADOM
   ]
 }
