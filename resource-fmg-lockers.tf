@@ -10,7 +10,7 @@ resource "fortimanager_exec_workspace_action" "lockADOM" {
   param          = ""
   force_recreate = uuid()
   comment        = ""
-  depends_on     = [fortimanager_json_generic_api.createADOM]
+#  depends_on     = [fortimanager_json_generic_api.createADOM]
 }
 
 resource "fortimanager_exec_workspace_action" "unlockADOM" {

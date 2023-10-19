@@ -6,6 +6,9 @@ resource "fortimanager_object_cli_template" "Project" {
   script      = file("projects/Project.dualreg.nocert.j2")
   type        = "jinja"
   variables   = var.cli-template-project-variables
+    lifecycle {
+    ignore_changes = all
+  }
   depends_on = [
     fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
@@ -124,6 +127,9 @@ resource "fortimanager_object_cli_templategroup" "Edge-Template" {
   name        = "Edge-Template"
   scopetype   = "adom"
   adom        = var.workingADOM
+    lifecycle {
+    ignore_changes = all
+  }
   depends_on = [
     fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
@@ -140,6 +146,9 @@ resource "fortimanager_object_cli_templategroup" "Hub-Template" {
   name        = "Hub-Template"
   scopetype   = "adom"
   adom        = var.workingADOM
+    lifecycle {
+    ignore_changes = all
+  }
   depends_on = [
     fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
