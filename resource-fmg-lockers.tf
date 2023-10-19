@@ -8,7 +8,7 @@ resource "fortimanager_exec_workspace_action" "lockADOM" {
   action         = "lockbegin"
   target         = ""
   param          = ""
-#  force_recreate = uuid()
+  force_recreate = uuid()
   comment        = ""
   depends_on     = [fortimanager_json_generic_api.createADOM]
 }
@@ -19,14 +19,15 @@ resource "fortimanager_exec_workspace_action" "unlockADOM" {
   action         = "lockend"
   target         = ""
   param          = ""
-#  force_recreate = uuid()
+  force_recreate = uuid()
   comment        = ""
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
     fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_object_cli_templategroup.Edge-Template,
     fortimanager_object_cli_templategroup.Hub-Template
-#    fortimanager_json_generic_api.updateDeviceDB
+    #    fortimanager_json_generic_api.updateDeviceDB
   ]
 }
 #resource "fortimanager_exec_workspace_action" "lockDevice" {

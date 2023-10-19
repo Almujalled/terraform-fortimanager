@@ -33,6 +33,10 @@ resource "fortimanager_json_generic_api" "createADOM" {
   ]
 }
 JSON
+  lifecycle {
+    prevent_destroy       = false
+    create_before_destroy = true
+  }
   depends_on = [
     fortimanager_system_global.workspace
   ]

@@ -7,6 +7,7 @@ resource "fortimanager_object_cli_template" "Project" {
   type        = "jinja"
   variables   = var.cli-template-project-variables
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
     fortimanager_object_fmg_variable.createMetadata
   ]
@@ -20,7 +21,9 @@ resource "fortimanager_object_cli_template" "Edge-Underlay" {
   script      = file("cli-templates/01-Edge-Underlay.j2")
   type        = "jinja"
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project
   ]
 }
@@ -33,7 +36,9 @@ resource "fortimanager_object_cli_template" "Hub-Underlay" {
   script      = file("cli-templates/01-Hub-Underlay.j2")
   type        = "jinja"
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project
   ]
 }
@@ -46,7 +51,9 @@ resource "fortimanager_object_cli_template" "Edge-Overlay" {
   script      = file("cli-templates/02-Edge-Overlay.j2")
   type        = "jinja"
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project
   ]
 }
@@ -59,7 +66,9 @@ resource "fortimanager_object_cli_template" "Hub-Overlay" {
   script      = file("cli-templates/02-Hub-Overlay.j2")
   type        = "jinja"
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project
   ]
 }
@@ -72,7 +81,9 @@ resource "fortimanager_object_cli_template" "Edge-Routing" {
   script      = file("cli-templates/03-Edge-Routing.j2")
   type        = "jinja"
   depends_on = [
+      fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project
   ]
 }
@@ -85,7 +96,9 @@ resource "fortimanager_object_cli_template" "Hub-Routing" {
   script      = file("cli-templates/03-Hub-Routing.j2")
   type        = "jinja"
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project
   ]
 }
@@ -98,7 +111,9 @@ resource "fortimanager_object_cli_template" "Hub-MultiRegion" {
   script      = file("cli-templates/04-Hub-MultiRegion.j2")
   type        = "jinja"
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
     fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project
   ]
 }
@@ -110,10 +125,12 @@ resource "fortimanager_object_cli_templategroup" "Edge-Template" {
   scopetype   = "adom"
   adom        = var.workingADOM
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
+    fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Edge-Overlay,
     fortimanager_object_cli_template.Edge-Routing,
-    fortimanager_object_cli_template.Edge-Underlay,
-    fortimanager_exec_workspace_action.lockADOM
+    fortimanager_object_cli_template.Edge-Underlay
   ]
 }
 
@@ -124,10 +141,12 @@ resource "fortimanager_object_cli_templategroup" "Hub-Template" {
   scopetype   = "adom"
   adom        = var.workingADOM
   depends_on = [
+    fortimanager_json_generic_api.createADOM,
+    fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Hub-Overlay,
     fortimanager_object_cli_template.Hub-Routing,
     fortimanager_object_cli_template.Hub-Underlay,
-    fortimanager_object_cli_template.Hub-MultiRegion,
-    fortimanager_exec_workspace_action.lockADOM,
+    fortimanager_object_cli_template.Hub-MultiRegion
   ]
 }
