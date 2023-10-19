@@ -6,7 +6,7 @@ resource "fortimanager_object_fmg_variable" "createMetadata" {
   adom        = var.workingADOM
   value       = ""
   depends_on = [
-    fortimanager_json_generic_api.createADOM
+    fortimanager_exec_workspace_action.lockADOM
   ]
 }
 
@@ -23,7 +23,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-lan_ip_edu" {
     }
     value = "10.0.0.1"
   }
-  depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_json_generic_api.updateDeviceDB]
 }
 
 resource "fortimanager_object_fmg_variable" "makeMetadata-lan_ip_fin" {
@@ -39,7 +39,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-lan_ip_fin" {
     }
     value = "11.0.0.1"
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-lan_ip_edu]
 
 }
 
@@ -56,7 +56,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-mpls_wan_ip" {
     }
     value = "12.0.0.1"
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-lan_ip_fin]
 
 }
 
@@ -73,7 +73,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-hostname" {
     }
     value = var.deviceInfo.name
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-mpls_wan_ip]
 
 }
 
@@ -90,7 +90,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-profile" {
     }
     value = "Gold"
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-hostname]
 
 }
 
@@ -107,7 +107,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-region" {
     }
     value = "West"
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-profile]
 
 }
 
@@ -124,7 +124,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-loopback" {
     }
     value = "1.1.1.1"
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-region]
 
 }
 
@@ -141,7 +141,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-inbandwidth" {
     }
     value = "5"
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-loopback]
 
 }
 
@@ -158,7 +158,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-mpls_wan_gateway" {
     }
     value = "2.2.2.2"
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-inbandwidth]
 
 }
 
@@ -175,7 +175,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-shaping_profile" {
     }
     value = "Silver"
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-mpls_wan_gateway]
 
 }
 
@@ -192,6 +192,5 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-outbandwidth" {
     }
     value = "10"
   }
-    depends_on = [ fortimanager_json_generic_api.updateDeviceDB ]
-
+  depends_on = [fortimanager_object_fmg_variable.makeMetadata-shaping_profile]
 }

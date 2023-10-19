@@ -33,8 +33,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
 }
 JSON
   depends_on = [
-    fortimanager_dvm_cmd_update_device.refreshDevice
-  ]
+  fortimanager_dvm_cmd_update_device.refreshDevice]
 }
 
 ## Ref: Reverse engineer a GUI request via CLI debug:
