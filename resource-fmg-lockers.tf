@@ -96,7 +96,7 @@ resource "fortimanager_exec_workspace_action" "unlockProVars" {
   force_recreate = uuid()
   comment        = ""
   depends_on = [ 
-#    fortimanager_object_fmg_variable.createMetadata
+#    # fortimanager_object_fmg_variable.createMetadata
    ]
 }
 

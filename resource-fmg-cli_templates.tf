@@ -10,7 +10,7 @@ resource "fortimanager_object_cli_template" "Project" {
   #  ignore_changes = all
   #}
   depends_on = [
-#    fortimanager_object_fmg_variable.createMetadata,
+#    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_exec_workspace_action.lockADOM
   ]
 }
@@ -23,7 +23,7 @@ resource "fortimanager_object_cli_template" "Edge-Underlay" {
   script      = file("cli-templates/01-Edge-Underlay.j2")
   type        = "jinja"
   depends_on = [
-    fortimanager_object_fmg_variable.createMetadata,
+    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_exec_workspace_action.lockADOM
   ]
@@ -37,7 +37,7 @@ resource "fortimanager_object_cli_template" "Hub-Underlay" {
   script      = file("cli-templates/01-Hub-Underlay.j2")
   type        = "jinja"
   depends_on = [
-    fortimanager_object_fmg_variable.createMetadata,
+    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_exec_workspace_action.lockADOM
   ]
@@ -51,7 +51,7 @@ resource "fortimanager_object_cli_template" "Edge-Overlay" {
   script      = file("cli-templates/02-Edge-Overlay.j2")
   type        = "jinja"
   depends_on = [
-    fortimanager_object_fmg_variable.createMetadata,
+    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_exec_workspace_action.lockADOM
   ]
@@ -65,7 +65,7 @@ resource "fortimanager_object_cli_template" "Hub-Overlay" {
   script      = file("cli-templates/02-Hub-Overlay.j2")
   type        = "jinja"
   depends_on = [
-    fortimanager_object_fmg_variable.createMetadata,
+    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_exec_workspace_action.lockADOM
   ]
@@ -79,7 +79,7 @@ resource "fortimanager_object_cli_template" "Edge-Routing" {
   script      = file("cli-templates/03-Edge-Routing.j2")
   type        = "jinja"
   depends_on = [
-    fortimanager_object_fmg_variable.createMetadata,
+    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_exec_workspace_action.lockADOM
   ]
@@ -93,7 +93,7 @@ resource "fortimanager_object_cli_template" "Hub-Routing" {
   script      = file("cli-templates/03-Hub-Routing.j2")
   type        = "jinja"
   depends_on = [
-    fortimanager_object_fmg_variable.createMetadata,
+    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_exec_workspace_action.lockADOM
   ]
@@ -107,7 +107,7 @@ resource "fortimanager_object_cli_template" "Hub-MultiRegion" {
   script      = file("cli-templates/04-Hub-MultiRegion.j2")
   type        = "jinja"
   depends_on = [
-    fortimanager_object_fmg_variable.createMetadata,
+    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_exec_workspace_action.lockADOM
   ]
@@ -123,7 +123,7 @@ resource "fortimanager_object_cli_templategroup" "Edge-Template" {
     fortimanager_object_cli_template.Edge-Overlay,
     fortimanager_object_cli_template.Edge-Routing,
     fortimanager_object_cli_template.Edge-Underlay,
-    fortimanager_object_fmg_variable.createMetadata,
+    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_exec_workspace_action.lockADOM
   ]
@@ -140,7 +140,7 @@ resource "fortimanager_object_cli_templategroup" "Hub-Template" {
     fortimanager_object_cli_template.Hub-Routing,
     fortimanager_object_cli_template.Hub-Underlay,
     fortimanager_object_cli_template.Hub-MultiRegion,
-    fortimanager_object_fmg_variable.createMetadata,
+    # fortimanager_object_fmg_variable.createMetadata,
     fortimanager_object_cli_template.Project,
     fortimanager_exec_workspace_action.lockADOM
   ]
