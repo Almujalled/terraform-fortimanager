@@ -1,11 +1,11 @@
-resource "fortimanager_dvm_cmd_update_device" "refreshDevice" {
-  fmgadom = var.workingADOM
-  device  = var.deviceInfo.platform_str
-  flags   = ["create_task", "nonblocking"]
-  depends_on = [
-    fortimanager_json_generic_api.authDevice
-  ]
-}
+#resource "fortimanager_dvm_cmd_update_device" "refreshDevice" {
+#  fmgadom = var.workingADOM
+#  device  = var.deviceInfo.platform_str
+#  flags   = ["create_task", "nonblocking"]
+#  depends_on = [
+#    fortimanager_json_generic_api.authDevice
+#  ]
+#}
 
 resource "fortimanager_json_generic_api" "updateDeviceDB" {
   json_content = <<JSON
@@ -33,7 +33,8 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
 }
 JSON
   depends_on = [
-  fortimanager_dvm_cmd_update_device.refreshDevice]
+  fortimanager_dvm_cmd_add_device.authDevice
+  ]
 }
 
 ## Ref: Reverse engineer a GUI request via CLI debug:
