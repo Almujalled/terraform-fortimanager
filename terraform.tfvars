@@ -19,7 +19,7 @@ cli-template-project-variables = [
 ]
 
 deviceInfo = {
-  name         = "FortiGate-VM64-KVM"
+  name         = "authByTerraform"
   adm_usr      = "admin"
   adm_pass     = ""
   platform_str = "FortiGate-VM64-KVM"
