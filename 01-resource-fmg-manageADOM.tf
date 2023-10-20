@@ -10,13 +10,13 @@ resource "fortimanager_dvmdb_adom" "manageADOM" {
   mig_mr                     = 4
   mig_os_ver                 = "0.0"
   mode                       = "gms"
-  mr                         = 4
+  mr                         = 2
   name                       = "${var.workingADOM}"
   os_ver                     = "7.0"
   restricted_prds = [
     "fos",
   ]
-  state          = 1
+#  state          = 1
   workspace_mode = 1
 }
 

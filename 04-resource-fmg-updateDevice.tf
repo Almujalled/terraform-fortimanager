@@ -27,7 +27,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
         },
         "name": "${var.deviceInfo.name}"
       },
-      "url": "/dvmdb/adom/${var.workingADOM}/device/${var.deviceInfo.platform_str}"
+      "url": "/dvmdb/adom/${var.workingADOM}/device/${var.deviceInfo.name}"
     }
   ]
 }

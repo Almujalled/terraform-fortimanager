@@ -105,9 +105,7 @@ resource "fortimanager_object_cli_templategroup" "Edge-Template" {
   scopetype   = "adom"
   adom        = var.workingADOM
   depends_on = [
-    fortimanager_object_cli_template.Edge-Overlay,
-    fortimanager_object_cli_template.Edge-Routing,
-    fortimanager_object_cli_template.Edge-Underlay,
+    fortimanager_object_cli_template.Hub-MultiRegion
   ]
 }
 
@@ -118,9 +116,6 @@ resource "fortimanager_object_cli_templategroup" "Hub-Template" {
   scopetype   = "adom"
   adom        = var.workingADOM
   depends_on = [
-    fortimanager_object_cli_template.Hub-Overlay,
-    fortimanager_object_cli_template.Hub-Routing,
-    fortimanager_object_cli_template.Hub-Underlay,
-    fortimanager_object_cli_template.Hub-MultiRegion,
+    fortimanager_object_cli_templategroup.Edge-Template
   ]
 }
