@@ -27,9 +27,6 @@ JSON
   depends_on = [
     fortimanager_exec_workspace_action.lockADOM
   ]
-  lifecycle {
-    ignore_changes = [ true ]
-  }
 }
 
 
