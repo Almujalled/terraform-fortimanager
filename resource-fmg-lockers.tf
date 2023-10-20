@@ -30,8 +30,8 @@ resource "fortimanager_exec_workspace_action" "unlockADOM" {
     #  fortimanager_object_cli_template.Hub-Routing,
     #  fortimanager_object_cli_template.Hub-Underlay,
     #  fortimanager_object_cli_template.Project,
-      fortimanager_object_cli_templategroup.Edge-Template,
-      fortimanager_object_cli_templategroup.Hub-Template,
+    fortimanager_object_cli_templategroup.Edge-Template,
+    fortimanager_object_cli_templategroup.Hub-Template,
     #  fortimanager_exec_workspace_action.unlockDevice,
     #  fortimanager_exec_workspace_action.unlockProVars
     #  fortimanager_object_fmg_variable.makeMetadata-outbandwidth
