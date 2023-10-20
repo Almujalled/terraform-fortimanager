@@ -21,7 +21,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-lan_ip_edu" {
       name = var.deviceInfo.name
       vdom = "global"
     }
-    value = "10.0.0.1/24"
+    value = "10.0.0.1/20"
   }
   depends_on = [fortimanager_json_generic_api.updateDeviceDB]
 }
