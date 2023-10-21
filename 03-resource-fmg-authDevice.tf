@@ -31,18 +31,22 @@
 
 
 
+#resource "fortimanager_dvm_cmd_add_device" "authDevice" {
+#  fmgadom = var.workingADOM
+#  flags   = ["create_task"]
+#  device {
+#    deviceaction = "promote_unreg"
+#    adm_usr      = var.deviceInfo.adm_usr
+#    adm_pass     = var.deviceInfo.adm_pass
+#    name         = var.deviceInfo.platform_str
+#    platform_str = var.deviceInfo.platform_str # Needed for VM type FGTs! 
+#    sn           = var.deviceInfo.sn
+#  }
+#  depends_on = [
+#    fortimanager_exec_workspace_action.lockADOM
+#  ]
+#}
+
+
 resource "fortimanager_dvm_cmd_add_device" "authDevice" {
-  fmgadom = var.workingADOM
-  flags   = ["create_task"]
-  device {
-    deviceaction = "promote_unreg"
-    adm_usr      = var.deviceInfo.adm_usr
-    adm_pass     = var.deviceInfo.adm_pass
-    name         = var.deviceInfo.platform_str
-    platform_str = var.deviceInfo.platform_str # Needed for VM type FGTs! 
-    sn           = var.deviceInfo.sn
-  }
-  depends_on = [
-    fortimanager_exec_workspace_action.lockADOM
-  ]
 }
