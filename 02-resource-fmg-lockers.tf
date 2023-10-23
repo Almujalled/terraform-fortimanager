@@ -54,3 +54,25 @@
 ##
 #target - Lock an entire ADOM: keep the argument empty, a device: dev, a specific object : obj or a specific package: pkg.
 #param - the target param will be locked or unlocked.
+
+
+
+#resource "fortimanager_exec_workspace_action" "lockBegin" {
+#    scopetype = "adom"
+#    adom = var.workingADOM
+#    target = ""
+#    action = "lockbegin"
+#    force_recreate = uuid()
+#    depends_on = [ ]
+#}
+#
+#resource "fortimanager_exec_workspace_action" "lockEnd" {
+#    scopetype = "adom"
+#    adom = var.workingADOM
+#    target = ""
+#    action = "lockend"
+#    force_recreate = uuid()
+#    depends_on = [ 
+#        fortimanager_dvm_cmd_update_device.updateDeviceADOM
+#    ]
+#}

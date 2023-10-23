@@ -48,5 +48,5 @@
 #}
 
 
-resource "fortimanager_dvm_cmd_add_device" "authDevice" {
-}
+#resource "fortimanager_dvm_cmd_add_device" "authDevice" {
+#}
