@@ -56,3 +56,13 @@ variable "createADOM" {
 variable "createDevice" {
   type = bool
 }
+
+variable "methodAPI" {
+  type = list(string)
+    default = [
+    "get",
+    "add",
+    "set",
+    "update",
+  ]
+}
