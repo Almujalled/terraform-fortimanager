@@ -53,10 +53,10 @@ variable "deviceInfo" {
 }
 
 variable "methodAPI" {
-  type = string
+  type        = string
   description = ""
-  default = "add"
-  
+  default     = "add"
+
 }
 #variable "mgmt_mode" {
 #  type        = string

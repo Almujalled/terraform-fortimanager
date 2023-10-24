@@ -11,7 +11,7 @@ resource "fortimanager_dvmdb_adom" "manageADOM" {
   mig_os_ver                 = "7.0"
   mode                       = "gms"
   mr                         = 2
-  name                       = "${var.workingADOM}"
+  name                       = var.workingADOM
   os_ver                     = "7.0"
   restricted_prds = [
     "fos",
@@ -19,10 +19,10 @@ resource "fortimanager_dvmdb_adom" "manageADOM" {
   state          = 1
   tz             = 0
   workspace_mode = 1
-    lifecycle {
-        ignore_changes = [create_time, os_ver, mig_os_ver]
+  lifecycle {
+    ignore_changes = [create_time, os_ver, mig_os_ver]
   }
-  depends_on = [ ]
+  depends_on = []
 }
 
 
