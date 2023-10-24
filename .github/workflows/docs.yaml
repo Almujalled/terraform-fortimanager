@@ -20,7 +20,7 @@ jobs:
     - name: Render terraform docs inside the terraform-docs.md and push changes back to PR branch
       uses: terraform-docs/gh-actions@v1.0.0
       with:
-        working-dir: /home/gal/terraform-fortimanager/docs/
+        working-dir: .
         output-file: terraform-docs.md
         output-method: inject
         git-push: "true"
