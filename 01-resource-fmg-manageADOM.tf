@@ -62,10 +62,10 @@
 #JSON
 #}
 
-resource "fortimanager_json_generic_api" "createADOM" {
+resource "fortimanager_json_generic_api" "manageADOM" {
   json_content = <<JSON
 {
-  "method": "${var.operationADOM}",
+  "method": "${var.methodAPI}",
   "params": [
     {
       "data": [

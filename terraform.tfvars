@@ -18,15 +18,21 @@ cli-template-project-variables = [
   "outbandwidth",
 ]
 
+workingADOM = "managedByTerraform"
+
 deviceInfo = {
-  name         = "authByTerraform"
+  name         = "ManagedByTerraform"
   adm_usr      = "admin"
   adm_pass     = ""
   platform_str = "FortiGate-VM64-KVM"
   sn           = "FGVMEVDNB1HFA86B"
+  mgmt_mode    = "fmg"
+  deviceaction = "add_model"
+  os_type      = "fos"
+  os_ver       = "7.0"
 }
 
-workingADOM = "createdByTerraform"
+#createADOM   = true
+#createDevice = true
 
-createADOM   = true
-createDevice = true
+methodAPI = "add"

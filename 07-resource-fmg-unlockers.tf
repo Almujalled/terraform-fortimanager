@@ -1,27 +1,30 @@
-#resource "fortimanager_exec_workspace_action" "unlockADOM" {
-#  scopetype      = "adom"
-#  adom           = var.workingADOM
-#  action         = "lockend"
-#  target         = ""
-#  param          = ""
-#  force_recreate = uuid()
-#  comment        = ""
-#  depends_on = [
-#    #  fortimanager_object_cli_template.Edge-Overlay,
-#    #  fortimanager_object_cli_template.Edge-Routing,
-#    #  fortimanager_object_cli_template.Edge-Underlay,
-#    #  fortimanager_object_cli_template.Hub-MultiRegion,
-#    #  fortimanager_object_cli_template.Hub-Overlay,
-#    #  fortimanager_object_cli_template.Hub-Routing,
-#    #  fortimanager_object_cli_template.Hub-Underlay,
-#    #  fortimanager_object_cli_template.Project,
-#    # fortimanager_object_cli_templategroup.Edge-Template,
-#    fortimanager_object_cli_templategroup.Hub-Template
-#    #  fortimanager_exec_workspace_action.unlockDevice,
-#    #  fortimanager_exec_workspace_action.unlockProVars
-#    #  fortimanager_object_fmg_variable.makeMetadata-outbandwidth
-#  ]
-#}
+resource "fortimanager_exec_workspace_action" "unlockADOM" {
+  scopetype      = "adom"
+  adom           = var.workingADOM
+  action         = "lockend"
+  target         = ""
+  param          = ""
+  force_recreate = uuid()
+  comment        = ""
+  depends_on = [
+    #  fortimanager_object_cli_template.Edge-Overlay,
+    #  fortimanager_object_cli_template.Edge-Routing,
+    #  fortimanager_object_cli_template.Edge-Underlay,
+    #  fortimanager_object_cli_template.Hub-MultiRegion,
+    #  fortimanager_object_cli_template.Hub-Overlay,
+    #  fortimanager_object_cli_template.Hub-Routing,
+    #  fortimanager_object_cli_template.Hub-Underlay,
+    #  fortimanager_object_cli_template.Project,
+    # fortimanager_object_cli_templategroup.Edge-Template,
+    # fortimanager_object_cli_templategroup.Hub-Template
+    #  fortimanager_exec_workspace_action.unlockDevice,
+    #  fortimanager_exec_workspace_action.unlockProVars
+    #  fortimanager_object_fmg_variable.makeMetadata-outbandwidth,
+    fortimanager_json_generic_api.manageADOM,
+    fortimanager_dvm_cmd_add_device.addDeviceROOT,
+    fortimanager_json_generic_api.updateDeviceDB
+  ]
+}
 ##resource "fortimanager_exec_workspace_action" "unlockDevice" {
 ##  scopetype      = "adom"
 ##  adom           = var.workingADOM

@@ -1,15 +1,14 @@
 
-#resource "fortimanager_exec_workspace_action" "lockADOM" {
-#  #count     = var.createADOM ? 0 : 1
-#  scopetype      = "adom"
-#  adom           = var.workingADOM
-#  action         = "lockbegin"
-#  target         = ""
-#  param          = ""
-#  force_recreate = uuid()
-#  comment        = ""
-#  depends_on     = []
-#}
+resource "fortimanager_exec_workspace_action" "lockADOM" {
+  scopetype      = "adom"
+  adom           = var.workingADOM
+  action         = "lockbegin"
+  target         = ""
+  param          = ""
+  force_recreate = uuid()
+  comment        = ""
+  depends_on     = [fortimanager_json_generic_api.manageADOM]
+}
 
 
 #resource "fortimanager_exec_workspace_action" "lockDevice" {
