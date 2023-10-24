@@ -6,8 +6,8 @@ on:
   pull_request:
 permissions:
   contents: read  # This is required for actions/checkout
-  issues: read
-  pull-requests: read
+  issues: write
+  pull-requests: write
 jobs:
   docs:
     runs-on: auto01
