@@ -1,9 +1,20 @@
 name: Generate terraform docs
 on:
-  - pull_request
+  push:
+    branches:
+      - main
+  pull_request:
+permissions:
+  contents: read  # This is required for actions/checkout
+  issues: read
+  pull-requests: read
 jobs:
   docs:
     runs-on: auto01
+    defaults:
+      run:
+        shell: bash
+        working-directory: /home/gal/terraform-fortimanager
     steps:
     - uses: actions/checkout@v3
       with:
