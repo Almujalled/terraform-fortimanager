@@ -33,7 +33,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
 }
 JSON
   depends_on = [
-  fortimanager_dvm_cmd_add_device.addDevice
+    fortimanager_dvm_cmd_add_device.addDevice
   ]
 }
 

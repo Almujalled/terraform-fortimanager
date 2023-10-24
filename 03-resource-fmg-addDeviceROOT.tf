@@ -11,7 +11,7 @@ resource "fortimanager_dvm_cmd_add_device" "addDevice" {
     platform_str = var.deviceInfo.platform_str
     sn           = var.deviceInfo.sn
   }
-  depends_on = [ fortimanager_exec_workspace_action.lockADOM ]
+  depends_on = [fortimanager_exec_workspace_action.lockADOM]
 }
 
 #resource "fortimanager_dvm_cmd_add_device" "addDeviceROOT" {
