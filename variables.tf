@@ -28,9 +28,14 @@ variable "cli-template-project-variables" {
 variable "workingADOM" {
   description = "ADOMs"
   type        = string
-  default     = "createdByTerraform"
+  default     = "ManagedByTerraform"
 }
 
+#variable "provADOM" {
+#  description = "ADOMs"
+#  type        = string
+#  default     = "createdByTerraform"
+#}
 
 variable "deviceInfo" {
   type = object({
@@ -39,20 +44,84 @@ variable "deviceInfo" {
     adm_pass     = string
     platform_str = string
     sn           = string
+    mgmt_mode    = string
+    deviceaction = string
+    os_type      = string
+    os_ver       = string
   })
   sensitive = false
 }
 
-variable "pkg" {
-  description = "Package Details"
-  type        = string
-  default     = "managedByTerraform"
+variable "methodAPI" {
+  type = string
+  description = ""
+  default = "add"
+  
 }
+#variable "mgmt_mode" {
+#  type        = string
+#  description = "add real and model device. Valid values: unreg, fmg, faz, fmgfaz."
+#  default = [
+#    "unreg",
+#    "fmg",
+#    "faz",
+#    "fmgfaz",
+#  ]
+#}
+#variable "deviceaction" {
+#  type        = list(string)
+#  description = "Specify add device operations, or leave blank to add real device"
+#  default = [
+#    "add_model",
+#    "promote_unreg",
+#  ]
+#}
+#variable "os_ver" {
+#  type        = list(string)
+#  description = " add model device only"
+#  default = [
+#    "unknown",
+#    "fos",
+#    "fsw",
+#    "foc",
+#    "fml",
+#    "faz",
+#    "fwb",
+#    "fch",
+#    "fct",
+#    "log",
+#    "fmg",
+#    "fsa",
+#    "fdd",
+#    "fac",
+#    "fpx",
+#    "fna",
+#  ]
+#}
 
-variable "createADOM" {
-  type = bool
-}
 
-variable "createDevice" {
-  type = bool
-}
+#variable "pkg" {
+#  description = "Package Details"
+#  type        = string
+#  default     = "managedByTerraform"
+#}
+
+#variable "createADOM" {
+#  type = bool
+#}
+#
+#variable "createDevice" {
+#  type = bool
+#}
+
+#variable "methodAPI" {
+#  type        = list(string)
+#  description = ""
+#  default = [
+#    "get",
+#    "add",
+#    "set",
+#    "update",
+#  ]
+#}
+

@@ -4,10 +4,6 @@ terraform {
       source  = "fortinetdev/fortimanager"
       version = "1.9.0"
     }
-    random = {
-      source  = "hashicorp/random"
-      version = "3.5.1"
-    }
   }
 }
 provider "fortimanager" {
@@ -18,8 +14,4 @@ provider "fortimanager" {
   scopetype  = "adom"
   logsession = true
   presession = ""
-}
-
-provider "random" {
-  # Configuration options
 }
