@@ -10,7 +10,7 @@
 resource "fortimanager_json_generic_api" "updateDeviceDB" {
   json_content = <<JSON
 {
-  "method": "${var.methodAPI}",
+  "method": "update",
   "params": [
     {
       "data": {
@@ -22,7 +22,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
         "meta fields": {
           "Address": "Fjøsangerveien 65",
           "Company/Organization": "Eviny Digital AS",
-          "Contact Email": "ghaith.almujalled@verja.no",
+          "Contact Email": "ghaith.almujalled@eviny.no",
           "Contact Phone Number": "+4745402619"
         },
         "name": "${var.deviceInfo.name}"
@@ -33,7 +33,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
 }
 JSON
   depends_on = [
-  fortimanager_dvm_cmd_add_device.addDeviceROOT
+  fortimanager_dvm_cmd_add_device.addDevice
   ]
 }
 
