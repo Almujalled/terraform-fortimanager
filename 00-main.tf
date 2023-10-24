@@ -15,7 +15,3 @@ provider "fortimanager" {
   logsession = true
   presession = ""
 }
-
-provider "random" {
-  # Configuration options
-}
