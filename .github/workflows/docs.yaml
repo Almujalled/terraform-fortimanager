@@ -1,8 +1,5 @@
 name: Generate Docs
 on:
-  push:
-    branches:
-      - main
   pull_request:
 permissions:
   contents: read  # This is required for actions/checkout
@@ -20,10 +17,10 @@ jobs:
       with:
         ref: ${{ github.event.pull_request.head.ref }}
 
-    - name: Render terraform docs inside the README.md and push changes back to PR branch
+    - name: Render terraform docs inside the terraform-docs.md and push changes back to PR branch
       uses: terraform-docs/gh-actions@v1.0.0
       with:
-        working-dir: .
+        working-dir: /home/gal/terraform-fortimanager
         output-file: terraform-docs.md
         output-method: inject
         git-push: "true"
