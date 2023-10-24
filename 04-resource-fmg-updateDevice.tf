@@ -16,7 +16,7 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
       "data": {
         "adm_pass": "${var.deviceInfo.adm_pass}",
         "adm_usr": "${var.deviceInfo.adm_usr}",
-        "desc": "TEST?",
+        "desc": "Changed from Github?",
         "latitude": 60.37309404359674,
         "longitude": 5.33920881412722,
         "meta fields": {
