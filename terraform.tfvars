@@ -18,7 +18,7 @@ cli-template-project-variables = [
   "outbandwidth",
 ]
 
-workingADOM = "managedByTerraform"
+workingADOM = "Kunde01"
 
 deviceInfo = {
   name         = "ManagedByTerraform"
