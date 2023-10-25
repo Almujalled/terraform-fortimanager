@@ -18,10 +18,10 @@ cli-template-project-variables = [
   "outbandwidth",
 ]
 
-workingADOM = "Kunde01"
+workingADOM = "Tilbords AS"
 
 device01Info = {
-  name         = "Hub01"
+  name         = "Oslo"
   adm_usr      = "admin"
   adm_pass     = ""
   platform_str = "FortiGate-VM64-KVM"
@@ -33,7 +33,7 @@ device01Info = {
 }
 
 device02Info = {
-  name         = "Branch01"
+  name         = "storsenter-1"
   adm_usr      = "admin"
   adm_pass     = ""
   platform_str = "FortiGate-VM64-KVM"
@@ -45,7 +45,7 @@ device02Info = {
 }
 
 device03Info = {
-  name         = "Branch02"
+  name         = "storsenter-2"
   adm_usr      = "admin"
   adm_pass     = ""
   platform_str = "FortiGate-VM64-KVM"
