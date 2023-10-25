@@ -6,9 +6,9 @@ resource "fortimanager_object_cli_template" "Project" {
   script      = file("projects/Project.dualreg.nocert.j2")
   type        = "jinja"
   variables   = var.cli-template-project-variables
-  #  lifecycle {
-  #  ignore_changes = all
-  #}
+  lifecycle {
+    ignore_changes = [variables]
+  }
   depends_on = [
     fortimanager_object_fmg_variable.makeMetadata-outbandwidth
   ]
