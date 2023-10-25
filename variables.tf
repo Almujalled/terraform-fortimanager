@@ -7,6 +7,118 @@ variable "resource_tags" {
   }
 }
 
+
+#variable "adomVARS" {
+#  description = "Metadata Vars per ADOM (Customer)"
+#  type = map(object({
+#    name = string
+#    description = string
+#    scopetype = string
+#    adom      = string
+#    default_value     = string
+#    dynamic_mapping = object({
+#      _scope = object({
+#        name = string
+#        vdom = string
+#      })
+#    value = string
+#    })
+#  }))
+#}
+
+variable "device" {
+  type = map(object({
+    type         = string
+    count        = number
+    name         = string
+    adm_usr      = string
+    adm_pass     = string
+    platform_str = string
+    sn           = string
+    mgmt_mode    = string
+    deviceaction = string
+    os_type      = string
+    os_ver       = string
+    description  = string
+    latitude     = string
+    longitude    = string
+    metadata = object(
+      {
+        address = string
+        org     = string
+        email   = string
+        phone   = string
+    })
+  }))
+  # default = {
+  #   Hub01 = {
+  #     type         = "hub"
+  #     name         = "Oslo-Hub"
+  #     adm_usr      = "admin"
+  #     adm_pass     = ""
+  #     platform_str = "FortiGate-VM64-KVM"
+  #     sn           = "FGVMEVDNB1HFA86B"
+  #     mgmt_mode    = "fmg"
+  #     deviceaction = "add_model"
+  #     os_type      = "fos"
+  #     os_ver       = "7.0"
+  #     description  = "Managed By Terraform"
+  #     latitude     = "60.37309"
+  #     longitude    = "5.339208"
+  #     metadata = (
+  #       {
+  #         address = "Fjøsangerveien 65"
+  #         org     = "Eviny Digital AS"
+  #         email   = "ghaith.almujalled@eviny.no"
+  #         phone   = "+4745402619"
+  #     })
+  #   }
+  #   Spoke01 = {
+  #     type         = "spoke"
+  #     name         = "storsenter-1"
+  #     adm_usr      = "admin"
+  #     adm_pass     = ""
+  #     platform_str = "FortiGate-VM64-KVM"
+  #     sn           = "FGVMEVYBU0WTJJC0"
+  #     mgmt_mode    = "fmg"
+  #     deviceaction = "add_model"
+  #     os_type      = "fos"
+  #     os_ver       = "7.0"
+  #     description  = "Managed By Terraform"
+  #     latitude     = "60.37309"
+  #     longitude    = "5.339208"
+  #     metadata = (
+  #       {
+  #         address = "Fjøsangerveien 65"
+  #         org     = "Eviny Digital AS"
+  #         email   = "ghaith.almujalled@eviny.no"
+  #         phone   = "+4745402619"
+  #     })
+  #   }
+  #   Spoke02 = {
+  #     type         = "spoke"
+  #     name         = "storsenter-2"
+  #     adm_usr      = "admin"
+  #     adm_pass     = ""
+  #     platform_str = "FortiGate-VM64-KVM"
+  #     sn           = "FGVMEVUPTJZQIMF7"
+  #     mgmt_mode    = "fmg"
+  #     deviceaction = "add_model"
+  #     os_type      = "fos"
+  #     os_ver       = "7.0"
+  #     description  = "Managed By Terraform"
+  #     latitude     = "60.37309"
+  #     longitude    = "5.339208"
+  #     metadata = (
+  #       {
+  #         address = "Fjøsangerveien 65"
+  #         org     = "Eviny Digital AS"
+  #         email   = "ghaith.almujalled@eviny.no"
+  #         phone   = "+4745402619"
+  #     })
+  #   }
+  # }
+}
 variable "cli-template-project-variables" {
   description = "Project Variables"
   type        = list(string)
@@ -24,68 +136,10 @@ variable "cli-template-project-variables" {
     "outbandwidth",
   ]
 }
-
 variable "workingADOM" {
-  description = "ADOMs"
-  type        = string
-  default     = "ManagedByTerraform"
+  type = string
 }
 
-#variable "provADOM" {
-#  description = "ADOMs"
-#  type        = string
-#  default     = "createdByTerraform"
-#}
-
-variable "device01Info" {
-  type = object({
-    name         = string
-    adm_usr      = string
-    adm_pass     = string
-    platform_str = string
-    sn           = string
-    mgmt_mode    = string
-    deviceaction = string
-    os_type      = string
-    os_ver       = string
-  })
-  sensitive = false
-}
-
-variable "device02Info" {
-  type = object({
-    name         = string
-    adm_usr      = string
-    adm_pass     = string
-    platform_str = string
-    sn           = string
-    mgmt_mode    = string
-    deviceaction = string
-    os_type      = string
-    os_ver       = string
-  })
-  sensitive = false
-}
-variable "device03Info" {
-  type = object({
-    name         = string
-    adm_usr      = string
-    adm_pass     = string
-    platform_str = string
-    sn           = string
-    mgmt_mode    = string
-    deviceaction = string
-    os_type      = string
-    os_ver       = string
-  })
-  sensitive = false
-}
-variable "methodAPI" {
-  type        = string
-  description = ""
-  default     = "add"
-
-}
 #variable "mgmt_mode" {
 #  type        = string
 #  description = "add real and model device. Valid values: unreg, fmg, faz, fmgfaz."
@@ -152,4 +206,3 @@ variable "methodAPI" {
 #    "update",
 #  ]
 #}
-
