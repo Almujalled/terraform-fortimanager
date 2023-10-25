@@ -71,7 +71,7 @@ device = {
       {
         address = "Fjøsangerveien 65"
         org     = "Eviny Digital AS"
-        email   = "ghaith.almujalled@eviny.no"
+        email   = "ghaith.almujalled@verja.no"
         phone   = "+4745402619"
     })
   }
