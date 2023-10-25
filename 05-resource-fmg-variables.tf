@@ -76,7 +76,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-hostname" {
   scopetype   = "adom"
   adom        = var.workingADOM
   value       = "FGT" # Default value
- dynamic "dynamic_mapping" {
+  dynamic "dynamic_mapping" {
     for_each = var.device
     content {
       _scope {
@@ -96,7 +96,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-profile" {
   scopetype   = "adom"
   adom        = var.workingADOM
   value       = "Gold" # Default value
- dynamic "dynamic_mapping" {
+  dynamic "dynamic_mapping" {
     for_each = var.device
     content {
       _scope {
@@ -116,7 +116,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-region" {
   scopetype   = "adom"
   adom        = var.workingADOM
   value       = "East" # Default value
- dynamic "dynamic_mapping" {
+  dynamic "dynamic_mapping" {
     for_each = var.device
     content {
       _scope {
@@ -156,7 +156,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-inbandwidth" {
   scopetype   = "adom"
   adom        = var.workingADOM
   value       = "5"
- dynamic "dynamic_mapping" {
+  dynamic "dynamic_mapping" {
     for_each = var.device
     content {
       _scope {
@@ -176,7 +176,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-mpls_wan_gateway" {
   scopetype   = "adom"
   adom        = var.workingADOM
   value       = "2.2.2.2/32"
- dynamic "dynamic_mapping" {
+  dynamic "dynamic_mapping" {
     for_each = var.device
     content {
       _scope {
@@ -196,7 +196,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-shaping_profile" {
   scopetype   = "adom"
   adom        = var.workingADOM
   value       = "Gold"
- dynamic "dynamic_mapping" {
+  dynamic "dynamic_mapping" {
     for_each = var.device
     content {
       _scope {
@@ -216,7 +216,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-outbandwidth" {
   scopetype   = "adom"
   adom        = var.workingADOM
   value       = "10"
- dynamic "dynamic_mapping" {
+  dynamic "dynamic_mapping" {
     for_each = var.device
     content {
       _scope {
