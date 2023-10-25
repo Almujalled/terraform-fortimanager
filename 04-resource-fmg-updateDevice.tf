@@ -7,15 +7,15 @@
 #  ]
 #}
 
-resource "fortimanager_json_generic_api" "updateDeviceDB" {
+resource "fortimanager_json_generic_api" "updateDevice01DB" {
   json_content = <<JSON
 {
   "method": "update",
   "params": [
     {
       "data": {
-        "adm_pass": "${var.deviceInfo.adm_pass}",
-        "adm_usr": "${var.deviceInfo.adm_usr}",
+        "adm_pass": "${var.device01Info.adm_pass}",
+        "adm_usr": "${var.device01Info.adm_usr}",
         "desc": "It seems to work!",
         "latitude": 60.37309404359674,
         "longitude": 5.33920881412722,
@@ -25,18 +25,75 @@ resource "fortimanager_json_generic_api" "updateDeviceDB" {
           "Contact Email": "ghaith.almujalled@eviny.no",
           "Contact Phone Number": "+4745402619"
         },
-        "name": "${var.deviceInfo.name}"
+        "name": "${var.device01Info.name}"
       },
-      "url": "/dvmdb/adom/${var.workingADOM}/device/${var.deviceInfo.name}"
+      "url": "/dvmdb/adom/${var.workingADOM}/device/${var.device01Info.name}"
     }
   ]
 }
 JSON
   depends_on = [
-    fortimanager_dvm_cmd_add_device.addDevice
+    fortimanager_dvm_cmd_add_device.addDevice03
   ]
 }
 
+resource "fortimanager_json_generic_api" "updateDevice02DB" {
+  json_content = <<JSON
+{
+  "method": "update",
+  "params": [
+    {
+      "data": {
+        "adm_pass": "${var.device02Info.adm_pass}",
+        "adm_usr": "${var.device02Info.adm_usr}",
+        "desc": "It seems to work!",
+        "latitude": 60.37309404359674,
+        "longitude": 5.33920881412722,
+        "meta fields": {
+          "Address": "Fjøsangerveien 65",
+          "Company/Organization": "Eviny Digital AS",
+          "Contact Email": "ghaith.almujalled@eviny.no",
+          "Contact Phone Number": "+4745402619"
+        },
+        "name": "${var.device02Info.name}"
+      },
+      "url": "/dvmdb/adom/${var.workingADOM}/device/${var.device02Info.name}"
+    }
+  ]
+}
+JSON
+  depends_on = [
+fortimanager_json_generic_api.updateDevice01DB  ]
+}
+resource "fortimanager_json_generic_api" "updateDevice03DB" {
+  json_content = <<JSON
+{
+  "method": "update",
+  "params": [
+    {
+      "data": {
+        "adm_pass": "${var.device03Info.adm_pass}",
+        "adm_usr": "${var.device03Info.adm_usr}",
+        "desc": "It seems to work!",
+        "latitude": 60.37309404359674,
+        "longitude": 5.33920881412722,
+        "meta fields": {
+          "Address": "Fjøsangerveien 65",
+          "Company/Organization": "Eviny Digital AS",
+          "Contact Email": "ghaith.almujalled@eviny.no",
+          "Contact Phone Number": "+4745402619"
+        },
+        "name": "${var.device03Info.name}"
+      },
+      "url": "/dvmdb/adom/${var.workingADOM}/device/${var.device03Info.name}"
+    }
+  ]
+}
+JSON
+  depends_on = [
+    fortimanager_json_generic_api.updateDevice02DB
+  ]
+}
 ## Ref: Reverse engineer a GUI request via CLI debug:
 #{
 #  "client": "gui json:11231",

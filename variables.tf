@@ -37,7 +37,7 @@ variable "workingADOM" {
 #  default     = "createdByTerraform"
 #}
 
-variable "deviceInfo" {
+variable "device01Info" {
   type = object({
     name         = string
     adm_usr      = string
@@ -52,6 +52,34 @@ variable "deviceInfo" {
   sensitive = false
 }
 
+variable "device02Info" {
+  type = object({
+    name         = string
+    adm_usr      = string
+    adm_pass     = string
+    platform_str = string
+    sn           = string
+    mgmt_mode    = string
+    deviceaction = string
+    os_type      = string
+    os_ver       = string
+  })
+  sensitive = false
+}
+variable "device03Info" {
+  type = object({
+    name         = string
+    adm_usr      = string
+    adm_pass     = string
+    platform_str = string
+    sn           = string
+    mgmt_mode    = string
+    deviceaction = string
+    os_type      = string
+    os_ver       = string
+  })
+  sensitive = false
+}
 variable "methodAPI" {
   type        = string
   description = ""
