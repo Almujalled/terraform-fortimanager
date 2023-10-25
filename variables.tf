@@ -7,9 +7,29 @@ variable "resource_tags" {
   }
 }
 
+
+#variable "adomVARS" {
+#  description = "Metadata Vars per ADOM (Customer)"
+#  type = map(object({
+#    name = string
+#    description = string
+#    scopetype = string
+#    adom      = string
+#    default_value     = string
+#    dynamic_mapping = object({
+#      _scope = object({
+#        name = string
+#        vdom = string
+#      })
+#    value = string
+#    })
+#  }))
+#}
+
 variable "device" {
   type = map(object({
     type         = string
+    count        = number
     name         = string
     adm_usr      = string
     adm_pass     = string
@@ -33,7 +53,7 @@ variable "device" {
   # default = {
   #   Hub01 = {
   #     type         = "hub"
-  #     name         = "Oslo"
+  #     name         = "Oslo-Hub"
   #     adm_usr      = "admin"
   #     adm_pass     = ""
   #     platform_str = "FortiGate-VM64-KVM"
@@ -117,19 +137,9 @@ variable "cli-template-project-variables" {
   ]
 }
 variable "workingADOM" {
-  description = "ADOMs"
-  type        = string
-  default     = "ManagedByTerraform"
+  type = string
 }
 
-
-
-variable "methodAPI" {
-  type        = string
-  description = ""
-  default     = "add"
-
-}
 #variable "mgmt_mode" {
 #  type        = string
 #  description = "add real and model device. Valid values: unreg, fmg, faz, fmgfaz."
@@ -196,9 +206,3 @@ variable "methodAPI" {
 #    "update",
 #  ]
 #}
-
-variable "x" {
-  type = number
-  default = 2
-  
-}
