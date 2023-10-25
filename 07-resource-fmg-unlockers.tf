@@ -20,9 +20,9 @@ resource "fortimanager_exec_workspace_action" "unlockADOM" {
     #  fortimanager_exec_workspace_action.unlockDevice,
     #  fortimanager_exec_workspace_action.unlockProVars
     #  fortimanager_object_fmg_variable.makeMetadata-outbandwidth,
-    fortimanager_dvmdb_adom.manageADOM,
-    fortimanager_dvm_cmd_add_device.addDevice,
-    fortimanager_json_generic_api.updateDeviceDB,
+    #fortimanager_dvmdb_adom.manageADOM,
+    #fortimanager_dvm_cmd_add_device.addDevice,
+fortimanager_json_generic_api.updateDevice03DB
   ]
 }
 ##resource "fortimanager_exec_workspace_action" "unlockDevice" {
