@@ -3,7 +3,7 @@ output "creationTime" {
 }
 
 output "devices" {
-  value = [ for device in fortimanager_dvm_cmd_add_device.addDevice : var.device ]
+  value = [for device in fortimanager_dvm_cmd_add_device.addDevice : var.device]
 }
 #
 #output "DeviceDB" {
