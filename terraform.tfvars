@@ -4,7 +4,7 @@ resource_tags = {
   owner       = "ghaith.almujalled@eviny.no"
 }
 
-workingADOM = "DEMO"
+workingADOM = "Tilbords_AS"
 device = {
   hub = {
     type         = "hub"
@@ -29,52 +29,52 @@ device = {
         phone   = "+4745402619"
     })
   }
-  spoke01 = {
-    type         = "spoke"
-    count        = 1
-    name         = "storsenter-1"
-    adm_usr      = "admin"
-    adm_pass     = ""
-    platform_str = "FortiGate-VM64-KVM"
-    sn           = "FGVMEVYBU0WTJJC0"
-    mgmt_mode    = "fmg"
-    deviceaction = "add_model"
-    os_type      = "fos"
-    os_ver       = "7.0"
-    description  = "Managed By Terraform"
-    latitude     = "60.37309"
-    longitude    = "5.339208"
-    metadata = (
-      {
-        address = "Fjøsangerveien 65"
-        org     = "Eviny Digital AS"
-        email   = "ghaith.almujalled@eviny.no"
-        phone   = "+4745402619"
-    })
-  }
-  spoke02 = {
-    type         = "spoke"
-    count        = 1
-    name         = "storsenter-2"
-    adm_usr      = "admin"
-    adm_pass     = ""
-    platform_str = "FortiGate-VM64-KVM"
-    sn           = "FGVMEVUPTJZQIMF7"
-    mgmt_mode    = "fmg"
-    deviceaction = "add_model"
-    os_type      = "fos"
-    os_ver       = "7.0"
-    description  = "Managed By Terraform"
-    latitude     = "60.37309"
-    longitude    = "5.339208"
-    metadata = (
-      {
-        address = "Fjøsangerveien 65"
-        org     = "Eviny Digital AS"
-        email   = "ghaith.almujalled@verja.no"
-        phone   = "+4745402619"
-    })
-  }
+# spoke01 = {
+#   type         = "spoke"
+#   count        = 1
+#   name         = "storsenter-1"
+#   adm_usr      = "admin"
+#   adm_pass     = ""
+#   platform_str = "FortiGate-VM64-KVM"
+#   sn           = "FGVMEVYBU0WTJJC0"
+#   mgmt_mode    = "fmg"
+#   deviceaction = "add_model"
+#   os_type      = "fos"
+#   os_ver       = "7.0"
+#   description  = "Managed By Terraform"
+#   latitude     = "60.37309"
+#   longitude    = "5.339208"
+#   metadata = (
+#     {
+#       address = "Fjøsangerveien 65"
+#       org     = "Eviny Digital AS"
+#       email   = "ghaith.almujalled@eviny.no"
+#       phone   = "+4745402619"
+#   })
+# }
+# spoke02 = {
+#   type         = "spoke"
+#   count        = 1
+#   name         = "storsenter-2"
+#   adm_usr      = "admin"
+#   adm_pass     = ""
+#   platform_str = "FortiGate-VM64-KVM"
+#   sn           = "FGVMEVUPTJZQIMF7"
+#   mgmt_mode    = "fmg"
+#   deviceaction = "add_model"
+#   os_type      = "fos"
+#   os_ver       = "7.0"
+#   description  = "Managed By Terraform"
+#   latitude     = "60.37309"
+#   longitude    = "5.339208"
+#   metadata = (
+#     {
+#       address = "Fjøsangerveien 65"
+#       org     = "Eviny Digital AS"
+#       email   = "ghaith.almujalled@verja.no"
+#       phone   = "+4745402619"
+#   })
+# }
 }
 
 
