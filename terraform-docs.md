@@ -57,5 +57,8 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_creationTime"></a> [creationTime](#output\_creationTime) | n/a |
+| <a name="output_devices"></a> [devices](#output\_devices) | n/a |
 <!-- END_TF_DOCS -->
