@@ -1,7 +1,7 @@
 resource "fortimanager_dvmdb_adom" "manageADOM" {
   create_time                = 0
   flags                      = []
-  lock_override              = 1
+  lock_override              = 0
   log_db_retention_hours     = 1440
   log_disk_quota             = 0
   log_disk_quota_alert_thres = 90
