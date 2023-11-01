@@ -26,6 +26,6 @@ resource "fortimanager_json_generic_api" "updateDevice" {
 }
 JSON
   depends_on = [
-    fortimanager_dvm_cmd_add_device.addDevice
+    fortimanager_exec_workspace_action.lockDevice
   ]
 }
