@@ -11,6 +11,7 @@ resource "fortimanager_json_generic_api" "updateDevice" {
         "desc": "${each.value.description}",
         "latitude": "${each.value.latitude}",
         "longitude": "${each.value.longitude}",
+        "ip": "${each.value.ip}",
         "meta fields": {
           "Address": "${each.value.metadata.address}",
           "Company/Organization": "${each.value.metadata.org}",
