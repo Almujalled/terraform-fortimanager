@@ -3,7 +3,6 @@ resource "fortimanager_dvm_cmd_add_device" "addDevice" {
   for_each = var.device
   device {
     name         = each.value.name
-    ip           = each.value.ip
     mgmt_mode    = each.value.mgmt_mode
     mr           = "0"
     deviceaction = each.value.deviceaction
@@ -13,12 +12,12 @@ resource "fortimanager_dvm_cmd_add_device" "addDevice" {
     platform_str = each.value.platform_str
     sn           = each.value.sn
     desc         = each.value.description
-    #   metafields_map = {
-    #     "Address"              = each.value.metadata.address
-    #     "Company/Organization" = each.value.metadata.org
-    #     "Contact Email"        = each.value.metadata.email
-    #     "Contact Phone Number" = each.value.metadata.phone
-    #   }
+#      metafields_map = {
+#        "Address"              = each.value.metadata.address
+#        "Company/Organization" = each.value.metadata.org
+#        "Contact Email"        = each.value.metadata.email
+#        "Contact Phone Number" = each.value.metadata.phone
+#      }
   }
   depends_on = [fortimanager_exec_workspace_action.lockADOM]
 }
