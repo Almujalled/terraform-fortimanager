@@ -21,6 +21,7 @@ device = {
     description  = "Managed By Terraform"
     latitude     = "60.37309"
     longitude    = "5.339208"
+    ip           = "172.16.1.1"
     metadata = (
       {
         address = "Fjøsangerveien 65"
@@ -44,6 +45,7 @@ device = {
     description  = "Managed By Terraform"
     latitude     = "60.37309"
     longitude    = "5.339208"
+    ip           = "172.16.2.1"
     metadata = (
       {
         address = "Fjøsangerveien 65"
@@ -67,6 +69,7 @@ device = {
     description  = "Managed By Terraform"
     latitude     = "60.37309"
     longitude    = "5.339208"
+    ip           = "172.16.3.1"
     metadata = (
       {
         address = "Fjøsangerveien 65"
