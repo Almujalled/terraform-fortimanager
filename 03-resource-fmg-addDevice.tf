@@ -3,6 +3,7 @@ resource "fortimanager_dvm_cmd_add_device" "addDevice" {
   for_each = var.device
   device {
     name         = each.value.name
+    ip           = each.value.ip
     mgmt_mode    = each.value.mgmt_mode
     mr           = "0"
     deviceaction = each.value.deviceaction
