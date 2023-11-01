@@ -42,6 +42,7 @@ variable "device" {
     description  = string
     latitude     = string
     longitude    = string
+    ip           = string
     metadata = object(
       {
         address = string
