@@ -28,7 +28,7 @@ resource "fortimanager_object_fmg_variable" "makeMetadata-lan_ip_edu" {
       value = "10.0.0.1/24"
     }
   }
-  depends_on = [fortimanager_json_generic_api.updateDevice]
+  depends_on = [fortimanager_dvm_cmd_add_device.updateDevice]
 }
 
 resource "fortimanager_object_fmg_variable" "makeMetadata-lan_ip_fin" {
