@@ -7,42 +7,91 @@ variable "resource_tags" {
   }
 }
 
+variable "workingADOM" {
+  type = string
+}
 
-#variable "adomVARS" {
-#  description = "Metadata Vars per ADOM (Customer)"
-#  type = map(object({
-#    name = string
-#    description = string
-#    scopetype = string
-#    adom      = string
-#    default_value     = string
-#    dynamic_mapping = object({
-#      _scope = object({
-#        name = string
-#        vdom = string
-#      })
-#    value = string
-#    })
-#  }))
-#}
+variable "ProjVars" {
+  description = "Project Variables"
+  type        = list(string)
+  default = [
+    "lan_ip_edu",
+    "lan_ip_fin",
+    "mpls_wan_ip",
+    "hostname",
+    "profile",
+    "region",
+    "loopback",
+    "mpls_wan_gateway",
+    "inbandwidth",
+    "shaping_profile",
+    "outbandwidth",
+  ]
+}
+
+variable "adomVars" {
+  description = "Metadata Vars per ADOM (Customer)"
+  type = map(object({
+    name         = string
+    description  = string
+    scopetype    = string
+    defaultValue = string
+    #   dynamic_mapping = object({
+    #     _scope = object({
+    #       name = string
+    #       vdom = string
+    #     })
+    #   value = string
+    #   })
+  }))
+}
 
 variable "device" {
   type = map(object({
     type         = string
     count        = number
     name         = string
-    adm_usr      = string
-    adm_pass     = string
+    description  = string
     platform_str = string
     sn           = string
+    adm_usr      = string
+    adm_pass     = string
     mgmt_mode    = string
     deviceaction = string
     os_type      = string
     os_ver       = string
-    description  = string
+    vdom         = string
     latitude     = string
     longitude    = string
     ip           = string
+    mr           = string
+    patch        = string
+    vars = map(
+      object(
+        {
+          name  = string
+          desc  = string
+          value = string
+        }
+      )
+    )
+    #    vars = list(
+    #      string(
+    #        {
+    #          lan_ip_edu       = string
+    #          lan_ip_fin       = string
+    #          mpls_wan_ip      = string
+    #          hostname         = string
+    #          profile          = string
+    #          region           = string
+    #          loopback         = string
+    #          mpls_wan_gateway = string
+    #          inbandwidth      = string
+    #          shaping_profile  = string
+    #          outbandwidth     = string
+    #        }
+    #      )
+    #    )
     metadata = object(
       {
         address = string
@@ -120,26 +169,24 @@ variable "device" {
   #   }
   # }
 }
-variable "cli-template-project-variables" {
-  description = "Project Variables"
-  type        = list(string)
-  default = [
-    "lan_ip_edu",
-    "lan_ip_fin",
-    "mpls_wan_ip",
-    "hostname",
-    "profile",
-    "region",
-    "loopback",
-    "mpls_wan_gateway",
-    "inbandwidth",
-    "shaping_profile",
-    "outbandwidth",
-  ]
-}
-variable "workingADOM" {
-  type = string
-}
+#variable "projectVars" {
+#  description = "Project Variables"
+#  type        = list(string)
+#  default = [
+#    "lan_ip_edu",
+#    "lan_ip_fin",
+#    "mpls_wan_ip",
+#    "hostname",
+#    "profile",
+#    "region",
+#    "loopback",
+#    "mpls_wan_gateway",
+#    "inbandwidth",
+#    "shaping_profile",
+#    "outbandwidth",
+#  ]
+#}
+
 
 #variable "mgmt_mode" {
 #  type        = string

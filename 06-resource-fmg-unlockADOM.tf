@@ -7,22 +7,7 @@ resource "fortimanager_exec_workspace_action" "unlockADOM" {
   force_recreate = uuid()
   comment        = ""
   depends_on = [
-    #  fortimanager_object_cli_template.Edge-Overlay,
-    #  fortimanager_object_cli_template.Edge-Routing,
-    #  fortimanager_object_cli_template.Edge-Underlay,
-    #  fortimanager_object_cli_template.Hub-MultiRegion,
-    #  fortimanager_object_cli_template.Hub-Overlay,
-    #  fortimanager_object_cli_template.Hub-Routing,
-    #  fortimanager_object_cli_template.Hub-Underlay,
-    #  fortimanager_object_cli_template.Project,
-    # fortimanager_object_cli_templategroup.Edge-Template,
-    fortimanager_object_cli_templategroup.Hub-Template
-    #  fortimanager_exec_workspace_action.unlockDevice,
-    #  fortimanager_exec_workspace_action.unlockProVars
-    #  fortimanager_object_fmg_variable.makeMetadata-outbandwidth,
-    #fortimanager_dvmdb_adom.manageADOM,
-    #fortimanager_dvm_cmd_add_device.addDevice,
-    #fortimanager_json_generic_api.updateDevice
+    fortimanager_dvm_cmd_add_device.addDevice
   ]
 }
 ##resource "fortimanager_exec_workspace_action" "unlockDevice" {

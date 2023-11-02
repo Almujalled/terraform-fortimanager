@@ -5,12 +5,12 @@ resource "fortimanager_object_cli_template" "Project" {
   adom        = var.workingADOM
   script      = file("projects/Project.dualreg.nocert.j2")
   type        = "jinja"
-  variables   = var.cli-template-project-variables
+  variables   = var.ProjVars
   lifecycle {
     ignore_changes = [variables]
   }
   depends_on = [
-    fortimanager_object_fmg_variable.makeMetadata-outbandwidth
+    fortimanager_object_fmg_variable.makeMetadata
   ]
 }
 

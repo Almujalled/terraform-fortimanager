@@ -1,14 +1,14 @@
 
-resource "fortimanager_exec_workspace_action" "lockDevice" {
-  for_each = var.device
+resource "fortimanager_exec_workspace_action" "unlockDevice" {
+  for_each       = var.device
   scopetype      = "adom"
   adom           = var.workingADOM
-  action         = "lockbegin"
+  action         = "lockend"
   target         = "dev"
   param          = each.value.name
   force_recreate = uuid()
   comment        = ""
-  depends_on = [ fortimanager_dvm_cmd_add_device.addDevice]
+  depends_on     = [fortimanager_json_generic_api.updateDevice]
 }
 
 #resource "fortimanager_exec_workspace_action" "lockPackage" {
