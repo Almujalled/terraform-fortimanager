@@ -15,4 +15,3 @@ provider "fortimanager" {
   logsession = true
   presession = ""
 }
-

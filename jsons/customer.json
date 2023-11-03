@@ -1,6 +1,7 @@
 {
     "customer": {
-      "name": "Company XYZ",
+      "name": "Coffee AS",
+      "adom": "Coffee_AS",
       "industry": "Technology",
       "location": "Global",
       "network_requirements": {
