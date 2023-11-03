@@ -1,0 +1,47 @@
+[
+    {
+      "lan_ip_edu": "queue1",
+      "TypeName": "type1"
+    },
+    {
+      "lan_ip_fin": "queue2",
+      "TypeName": "type2"
+    },
+    {
+      "mpls_wan_ip": "queue3",
+      "TypeName": "type2"
+    },
+    {
+        "hostname": "queue1",
+        "TypeName": "type1"
+      },
+      {
+        "profile": "queue2",
+        "TypeName": "type2"
+      },
+      {
+        "region": "queue3",
+        "TypeName": "type2"
+      },
+      {
+        "loopback": "queue1",
+        "TypeName": "type1"
+      },
+      {
+        "mpls_wan_gateway": "queue1",
+        "TypeName": "type1"
+      },
+      {
+        "inbandwidth": "queue1",
+        "TypeName": "type1"
+      },
+      {
+        "shaping_profile": "queue1",
+        "TypeName": "type1"
+      },
+      {
+        "outbandwidth": "queue1",
+        "TypeName": "type1"
+      }
+  ]
+  

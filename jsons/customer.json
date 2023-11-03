@@ -1,0 +1,31 @@
+{
+    "customer": {
+      "name": "Company XYZ",
+      "industry": "Technology",
+      "location": "Global",
+      "network_requirements": {
+        "bandwidth": "High",
+        "latency": "Low",
+        "jitter": "Low",
+        "packet_loss": "Low"
+      },
+      "security_requirements": {
+        "firewall": "Yes",
+        "intrusion_prevention_system": "Yes",
+        "anti_virus": "Yes",
+        "web_filtering": "Yes",
+        "sandboxing": "Yes"
+      },
+      "fortinet_products": {
+        "fortigate": "Yes",
+        "fortimanager": "Yes",
+        "fortianalyzer": "Yes",
+        "fortisandbox": "Yes"
+      },
+      "sdwan_deployment": {
+        "number_of_sites": "Multiple",
+        "site_types": ["Headquarters", "Branch Offices", "Remote Sites"],
+        "connectivity_types": ["MPLS", "Broadband", "LTE", "5G", "Satellite"]
+      }
+    }
+  }

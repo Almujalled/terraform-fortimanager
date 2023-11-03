@@ -23,11 +23,12 @@ resource "fortimanager_object_fmg_variable" "makeMetadata" {
       _scope {
         name = dynamic_mapping.value.name
         vdom = dynamic_mapping.value.vdom
-      }
-      
-    #  value = [for element in dynamic_mapping.value.vars: values(element.value)]
-    #  value = dynamic_mapping.value.vars.lan_ip_edu.value
-      value = lookup(dynamic_mapping.value.vars, "lan_ip_edu", "ERROR")
+      } 
+#      value = [for element in dynamic_mapping.value.vars : element.value]
+
+      # value = dynamic_mapping.value.lan_ip_edu
+      # value = "${lookup(var.device["vars"], "value")}"
+      # value = dynamic_mapping.value.vars.local.projectVars[each.value.projectVars]
     }
   }
   depends_on = [fortimanager_exec_workspace_action.lockADOM]

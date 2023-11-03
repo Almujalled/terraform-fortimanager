@@ -26,13 +26,21 @@ device = {
     ip           = "11.16.1.1"
     mr           = "0"
     patch        = "0"
+    lan_ip_edu   = "10.0.0.1/24"
     vars = {
-      lan_ip_edu = {
-          name  = "lan_ip_edu"
-          desc  = "Managed By Terraform"
-          value = "10.0.0.1/24"
+      var01 = {
+        name  = "lan_ip_edu"
+        value = "10.0.0.1/24"
+      }
+      var02 = {
+        name  = "lan_ip_fin"
+        value = "10.0.1.1/24"
       }
     }
+
+    #  vars = {
+    #    lan_ip_edu = "10.0.0.1/24"
+    #  }
     #    vars = (
     #      lan_ip_edu = {
     #         description = "lan_ip_edu"

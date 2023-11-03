@@ -36,17 +36,28 @@ variable "adomVars" {
     description  = string
     scopetype    = string
     defaultValue = string
-    #   dynamic_mapping = object({
-    #     _scope = object({
-    #       name = string
-    #       vdom = string
-    #     })
-    #   value = string
-    #   })
   }))
 }
 
+#variable "adomVars" {
+#  description = "Metadata Vars per ADOM (Customer)"
+#  type = map(object({
+#    name         = string
+#    description  = string
+#    scopetype    = string
+#    defaultValue = string
+#    #   dynamic_mapping = object({
+#    #     _scope = object({
+#    #       name = string
+#    #       vdom = string
+#    #     })
+#    #   value = string
+#    #   })
+#  }))
+#}
+
 variable "device" {
+  description = "Everything Device related"
   type = map(object({
     type         = string
     count        = number
@@ -66,15 +77,11 @@ variable "device" {
     ip           = string
     mr           = string
     patch        = string
-    vars = map(
-      object(
-        {
-          name  = string
-          desc  = string
-          value = string
-        }
-      )
-    )
+    lan_ip_edu   = string
+    vars = map(object({
+      name  = string
+      value = string
+    }))
     #    vars = list(
     #      string(
     #        {
