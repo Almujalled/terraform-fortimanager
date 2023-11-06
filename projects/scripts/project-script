@@ -6,7 +6,7 @@ file_loader = FileSystemLoader('eviny/sdwan-fortinet-templates/sdn/bgp-on-loopba
 env = Environment(loader=file_loader)
 
 # Load the template
-template = env.get_template('Project.singleregion.singlehub.nocert.j2')
+template = env.get_template('Project.j2')
 
 # Load your variables from a JSON file
 with open('variables.json', 'r') as f:
@@ -16,5 +16,5 @@ with open('variables.json', 'r') as f:
 output = template.render(variables)
 
 # Write the output to a new file
-with open('output.txt', 'w') as f:
+with open('CUSTOMER-SDWAN-PROJECT.j2', 'w') as f:
     f.write(output)
