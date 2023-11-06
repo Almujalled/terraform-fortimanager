@@ -1,0 +1,32 @@
+{#_____ IMPORT PROJECT TEMPLATE _____#}
+{% import 'Project' as project with context %}
+
+{#_____ BGP ROUTING _____#}
+config router bgp
+  set as {{ project.bgp_as }}
+  set router-id {{ loopback_ip }}
+  set keepalive-timer 5
+  set holdtime-timer 15
+  set ibgp-multipath enable
+  set recursive-next-hop enable
+  set tag-resolve-mode merge
+  config neighbor
+    edit {{ project.hub_loopback_ip }}
+      set soft-reconfiguration enable
+      set advertisement-interval 1
+      set interface "loopback1"
+      set update-source "loopback1"
+      set connect-timer 1
+      set remote-as {{ project.bgp_as }}
+    next
+  end
+  config network
+    {%- for lan in project.spoke_lans %}
+    {%- if project.spoke_lans[lan].interface.ip.subnet_advertise == 'yes' %}    
+    edit {{ loop.index }}
+      set prefix {{ project.spoke_lans[lan].interface.ip.subnet }}
+    next
+    {%- endif %}
+    {% endfor %}
+  end
+end

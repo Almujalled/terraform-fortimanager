@@ -47,58 +47,56 @@ variable "adomVars" {
 }
 
 variable "device" {
-  type = map(object({
-    type         = string
-    count        = number
-    name         = string
-    description  = string
-    platform_str = string
-    sn           = string
-    adm_usr      = string
-    adm_pass     = string
-    mgmt_mode    = string
-    deviceaction = string
-    os_type      = string
-    os_ver       = string
-    vdom         = string
-    latitude     = string
-    longitude    = string
-    ip           = string
-    mr           = string
-    patch        = string
-    vars = map(
-      object(
+  type = map(object(
+    {
+      name         = string
+      description  = string
+      platform_str = string
+      sn           = string
+      adm_usr      = string
+      adm_pass     = string
+      mgmt_mode    = string
+      deviceaction = string
+      os_type      = string
+      os_ver       = string
+      vdom         = string
+      latitude     = string
+      longitude    = string
+      ip           = string
+      mr           = string
+      patch        = string
+      vars = map(object(
         {
           name  = string
           desc  = string
           value = string
         }
+        )
       )
-    )
-    #    vars = list(
-    #      string(
-    #        {
-    #          lan_ip_edu       = string
-    #          lan_ip_fin       = string
-    #          mpls_wan_ip      = string
-    #          hostname         = string
-    #          profile          = string
-    #          region           = string
-    #          loopback         = string
-    #          mpls_wan_gateway = string
-    #          inbandwidth      = string
-    #          shaping_profile  = string
-    #          outbandwidth     = string
-    #        }
-    #      )
-    #    )
-    metadata = object(
-      {
-        address = string
-        org     = string
-        email   = string
-        phone   = string
-    })
+      #    vars = list(
+      #      string(
+      #        {
+      #          lan_ip_edu       = string
+      #          lan_ip_fin       = string
+      #          mpls_wan_ip      = string
+      #          hostname         = string
+      #          profile          = string
+      #          region           = string
+      #          loopback         = string
+      #          mpls_wan_gateway = string
+      #          inbandwidth      = string
+      #          shaping_profile  = string
+      #          outbandwidth     = string
+      #        }
+      #      )
+      #    )
+      metadata = object(
+        {
+          address = string
+          org     = string
+          email   = string
+          phone   = string
+      })
   }))
   # default = {
   #   Hub01 = {

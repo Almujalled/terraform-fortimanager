@@ -7,8 +7,6 @@ resource_tags = {
 workingADOM = "Awsome-SDWAN"
 device = {
   hub = {
-    type         = "hub"
-    count        = 1
     name         = "Oslo"
     description  = "Managed By Terraform"
     platform_str = "FortiGate-VM64-KVM"
@@ -28,9 +26,9 @@ device = {
     patch        = "0"
     vars = {
       lan_ip_edu = {
-          name  = "lan_ip_edu"
-          desc  = "Managed By Terraform"
-          value = "10.0.0.1/24"
+        name  = "lan_ip_edu"
+        desc  = "Managed By Terraform"
+        value = "10.0.0.1/24"
       }
     }
     #    vars = (

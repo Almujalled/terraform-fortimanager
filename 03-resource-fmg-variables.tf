@@ -19,15 +19,13 @@ resource "fortimanager_object_fmg_variable" "makeMetadata" {
   value       = each.value.defaultValue
   dynamic "dynamic_mapping" {
     for_each = var.device
+    iterator = device
     content {
       _scope {
-        name = dynamic_mapping.value.name
-        vdom = dynamic_mapping.value.vdom
+        name = device.value.name
+        vdom = device.value.vdom
       }
-      
-    #  value = [for element in dynamic_mapping.value.vars: values(element.value)]
-    #  value = dynamic_mapping.value.vars.lan_ip_edu.value
-      value = lookup(dynamic_mapping.value.vars, "lan_ip_edu", "ERROR")
+      value = device.value.hostname
     }
   }
   depends_on = [fortimanager_exec_workspace_action.lockADOM]

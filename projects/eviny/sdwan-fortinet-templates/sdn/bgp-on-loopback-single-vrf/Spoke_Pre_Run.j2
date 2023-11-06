@@ -1,0 +1,109 @@
+{#_____ IMPORT PROJECT TEMPLATE _____#}
+{% import 'Project' as project with context %}
+
+{#_____ CHANGE DISTANCE FROM 1 TO 10 ON 4G UPLINK _____#}
+{%- if wan_mobile == 'wwan' %}
+config system interface
+    edit "wwan"
+        set distance 10
+    next
+end
+{%- endif %}
+
+{#_____ REMOVE DEFAULT POLICIES TO FREE WAN INTERFACE _____#}
+config firewall policy
+    purge
+end
+
+{#_____ REMOVE DHCP SERVER FOR DEFAULT LAN-INTERFACE _____#}
+config system dhcp server
+    delete 1
+end
+
+{#_____ ENABLE SD-WAN AND CREATE SD-WAN ZONES _____#}
+config system sdwan
+    set status enable
+    config zone
+        edit "sdwan-internet"
+        next
+    end
+    config zone
+        edit "sdwan-overlay"
+        next
+    end
+end
+config router static
+    edit 1
+        set distance 1
+        set sdwan-zone "sdwan-internet" "sdwan-overlay"
+    next
+end
+
+{#_____ DUMMY OVERLAY VPN TUNNELS _____#}
+{%- for vpn in project.vpn_overlay %}
+{%- if project.vpn_overlay[vpn].interface_spoke != 'none' %}
+config vpn ipsec phase1-interface
+    edit "{{ project.vpn_overlay[vpn].name }}"
+        set type dynamic
+        set interface "{{ project.vpn_overlay[vpn].interface_spoke }}"
+        set mode aggressive
+        set peertype any
+        set net-device disable
+        set proposal aes256-sha256
+        set psksecret 12345678
+    next
+end
+config system interface
+    edit "{{ project.vpn_overlay[vpn].name }}"
+        set vdom "root"
+        set type tunnel
+        set interface "{{ project.vpn_overlay[vpn].interface_spoke }}"
+    next
+end
+{%- endif %}
+{%- endfor %}
+
+{#_____ INTERFACE DEFAULT UNDER FORTILINK _____#}
+config system interface
+    edit "_default"
+        set vdom "root"
+        set alias "default.fortilink"
+        set switch-controller-feature default-vlan
+        set interface "fortilink"
+        set vlanid 1
+    next
+end
+
+{#_____ DUMMY LAN INTERFACES AND ZONES _____#}
+{%- for lan in project.spoke_lans %}
+config system interface
+    edit "{{ project.spoke_lans[lan].interface.name }}"
+        set vdom "root"
+        set mode dhcp
+        set device-identification enable
+        {%- if project.spoke_lans[lan].interface.loopback == 'yes' %}        
+        set type loopback
+        {%- endif %}
+        set role lan
+        {%- if project.spoke_lans[lan].interface.vlan_id != 'na' %}
+        set interface "{{ project.spoke_lans[lan].interface.main_interface }}"
+        set vlanid {{ project.spoke_lans[lan].interface.vlan_id }}
+        {%- endif %}
+    next
+end
+{%- if project.spoke_lans[lan].zone.status == 'enable' %}
+config system zone
+    edit "{{ project.spoke_lans[lan].zone.name }}"
+        set interface "{{ project.spoke_lans[lan].interface.name }}"
+    next
+end
+{%- endif %}
+{%- endfor %}
+
+{#_____ DUMMY MANAGEMENT LOOPBACK1 INTERFACE _____#}
+config system interface
+    edit "loopback1"
+        set vdom "root"
+        set type loopback
+    next
+end

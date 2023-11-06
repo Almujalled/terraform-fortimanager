@@ -1,0 +1,105 @@
+{#_____ IMPORT PROJECT TEMPLATE _____#}
+{% import 'Project' as project with context %}
+
+{#_____ SYSTEM SETTINGS _____#}
+config system global
+    set admin-port 1080
+    set admin-sport 1443
+    set admin-ssh-port 2222
+    set admin-telnet-port 1023
+    set admintimeout 30
+    set hostname "{{ hostname }}"
+    set timezone 26
+    set gui-firmware-upgrade-warning disable
+end
+config system settings
+    set gui-dns-database enable
+    set gui-dynamic-routing enable
+    set default-voip-alg-mode kernel-helper-based
+end
+config system dns
+    set primary 9.9.9.9
+    set secondary 149.112.112.112
+    set protocol cleartext
+    set interface-select-method sdwan
+end
+config system ntp
+    set type custom
+    config ntpserver
+        edit 1
+            set server "ntp.bkkb.no"
+            set interface-select-method sdwan
+        next
+    end
+end
+config system console
+    set output standard
+end
+config log memory filter
+    set severity information
+end
+config system central-management
+    set interface-select-method sdwan
+end
+config log fortianalyzer setting
+    set status enable
+    set server "fortianalyzer.front.eviny.no"
+    set serial "FAZ-VMTM22002702"
+    set interface-select-method sdwan
+    set reliable enable
+end
+config system fortiguard
+    set interface-select-method sdwan
+end
+config vpn certificate setting
+    set interface-select-method sdwan
+end
+config application list
+    edit "default"
+        set options allow-dns allow-quic
+    next
+end
+config switch-controller storm-control
+    set rate 1000
+    set unknown-unicast enable
+    set unknown-multicast enable
+    set broadcast enable
+end
+config voip profile
+    edit "default"
+        config sip
+            set status disable
+        end
+        config sccp
+            set status disable
+        end
+    next
+end
+
+{#_____ LOCAL SYSTEM ADMIN _____#}
+config system accprofile
+    edit "ping"
+    next
+end
+config system admin
+    edit "{{ project.eviny_admin }}"
+        set trusthost1 82.134.64.10 255.255.255.255
+        set trusthost2 82.134.11.30 255.255.255.255
+        set trusthost3 82.134.112.11 255.255.255.255
+        set trusthost4 82.134.112.218 255.255.255.255
+        set accprofile "super_admin"
+        set vdom "root"
+        set password ENC {{ project.eviny_admin_pw_hash }}
+    next
+    edit "ping"
+        set accprofile "ping"
+        set vdom "root"
+        set password ENC SH2q9aWMhR+YIe2EAC8huMbh6kN78OcdhVV9zx5Tg5ygV8kXBhFJuIjCdgElqo=
+    next
+    edit "admin"
+        set trusthost1 172.31.255.255 255.255.255.255
+        set accprofile "admin_no_access"
+        set vdom "root"
+        set password ENC SH2jUSCvRQCu/1c97jMtKDjbBdcKLSCz1VJoWE+Kmm0e5rF02zA+kR+Eme3a0E=
+    next
+end

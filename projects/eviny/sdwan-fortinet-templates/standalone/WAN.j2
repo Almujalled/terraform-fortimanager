@@ -1,0 +1,49 @@
+{#_____ WAN_PRIMARY _____#}
+config system interface
+    edit "{{ wan_primary }}"
+        set mode dhcp
+        set allowaccess ping https ssh snmp fgfm
+        set monitor-bandwidth enable
+        set dns-server-override disable
+    next
+end
+
+{#_____ IPV6 ON WAN_PRIMARY IF NOT 4G BACKUP _____#}
+{%- if wan_mobile == 'none' and wan_primary_ipv6_linknet != '::/0' %}
+config system global
+    set gui-ipv6 enable
+end
+config system interface
+    edit "{{ wan_primary }}"
+        config ipv6
+            set ip6-allowaccess ping
+            set ip6-address {{ wan_primary_ipv6_linknet | ipaddr('net') | ipaddr('2') | ipaddr('address') }}/{{ wan_primary_ipv6_linknet | ipaddr('prefix') }}
+        end
+    next
+end
+{%- endif %}
+
+{#_____ WAN_SECONDARY _____#}
+{%- if wan_secondary != 'none' %}
+config system interface
+    edit "{{ wan_secondary }}"
+        set mode dhcp
+        set allowaccess ping https ssh snmp fgfm
+        set monitor-bandwidth enable
+        set dns-server-override disable
+    next
+end
+{%- endif %}
+
+{#_____ WAN_MOBILE _____#}
+{%- if wan_mobile != 'none' %}
+config system interface
+    edit "{{ wan_mobile }}"
+        set mode dhcp
+        set distance 10
+        set allowaccess ping https ssh snmp fgfm
+        set monitor-bandwidth enable
+        set dns-server-override disable
+    next
+end
+{%- endif %}

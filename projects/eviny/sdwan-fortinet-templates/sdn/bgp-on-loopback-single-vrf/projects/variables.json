@@ -1,0 +1,17 @@
+{
+    "eviny_admin": "gal",
+    "eviny_admin_pw_hash": "SH2oNn0cajJrvloCnvRqIlRHLaHOceUBLIneuQWfNCVqY9OxTF9vZtbLGZ2E74=",
+
+    "psksecret_hash": "SH2oNn0cajJrvloCnvRqIlRHLaHOceUBLIneuQWfNCVqY9OxTF9vZtbLGZ2E74=",
+    "hub_wan_primary_ip": "62.97.204.125",
+    "hub_wan_secondary_ip": "",
+
+    "bgp_as": "64512",
+    "hub_loopback_ip": "172.27.1.1",
+    "loopback_summary": "172.27.1.0/24",
+    "lan_summary": "10.1.11.0/24",
+
+    "psksecret_hash_mgmt": "SH2oNn0cajJrvloCnvRqIlRHLaHOceUBLIneuQWfNCVqY9OxTF9vZtbLGZ2E74=",
+    "mgmt_remote_gw_primary_ip": "82.134.94.162",
+    "mgmt_remote_gw_secondary_ip": "82.134.41.210"
+}

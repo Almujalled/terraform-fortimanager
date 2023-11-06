@@ -1,0 +1,88 @@
+{#_____ IMPORT PROJECT TEMPLATE _____#}
+{% import 'Project' as project with context %}
+
+{#_____ FORTILINK INTERFACE _____#}
+config system interface
+    edit "fortilink"
+        set auto-auth-extension-device enable
+    next
+    edit "_default"
+        set vdom "root"
+        set alias "default.fortilink"
+        set switch-controller-feature default-vlan
+        set interface "fortilink"
+        set vlanid 1
+    next
+end
+
+{#_____ HUB LANS _____#}
+{%- for lan in project.hub_lans %}
+config system interface
+    edit "{{ project.hub_lans[lan].interface.name }}"
+        set vdom "root"
+        set mode static
+        set ip {{ project.hub_lans[lan].interface.ip.address }} {{ project.hub_lans[lan].interface.ip.subnet_mask }}
+        set allowaccess {{ project.hub_lans[lan].interface.allowaccess }}
+        {%- if project.hub_lans[lan].interface.loopback == 'yes' %}        
+        set type loopback
+        {%- endif %}
+        set alias "{{ project.hub_lans[lan].interface.alias }}"
+        set device-identification enable
+        set role lan
+        {%- if project.hub_lans[lan].interface.block_intra_vlan == 'yes' %}
+        set switch-controller-access-vlan enable
+        {%- elif project.hub_lans[lan].interface.block_intra_vlan == 'no' %}
+        set switch-controller-access-vlan disable
+        {%- endif %}
+        {%- if project.hub_lans[lan].interface.vlan_id != 'na' %}
+        set interface "{{ project.hub_lans[lan].interface.main_interface }}"
+        set vlanid {{ project.hub_lans[lan].interface.vlan_id }}
+        {%- endif %}
+        {%- if project.hub_lans[lan].dhcp_relay.status == 'enable' %}
+        set dhcp-relay-service enable
+        set dhcp-relay-ip {{ project.hub_lans[lan].dhcp_relay.ip1 }} {{ project.hub_lans[lan].dhcp_relay.ip2 }}
+        {%- endif %}
+    next
+end
+
+{%- if project.hub_lans[lan].zone.status == 'enable' %}
+config system zone
+    edit {{ project.hub_lans[lan].zone.name }}
+        set interface {{ project.hub_lans[lan].interface.name }}
+    next
+end
+{%- endif %}
+
+{%- if project.hub_lans[lan].dhcp_server.status == 'enable' %}
+config system dhcp server
+    edit {{ project.hub_lans[lan].dhcp_server.scope_id }}
+        set lease-time {{ project.hub_lans[lan].dhcp_server.lease_time }}
+        set dns-service {{ project.|[lan].dhcp_server.dns_service }}
+        {%- if project.hub_lans[lan].dhcp_server.dns_service == 'specify' %}
+        set dns-server1 {{ project.hub_lans[lan].dhcp_server.dns_server1 }}
+        {%- if project.hub_lans[lan].dhcp_server.dns_server2 != '' %}
+        set dns-server2 {{ project.hub_lans[lan].dhcp_server.dns_server2 }}
+        {%- endif %}
+        {%- endif %}
+        set default-gateway {{ project.hub_lans[lan].interface.ip.address }}
+        set netmask {{ project.hub_lans[lan].interface.ip.subnet_mask }}
+        set interface "{{ project.hub_lans[lan].interface.name }}"
+        config ip-range
+            edit 1
+                set start-ip {{ project.hub_lans[lan].dhcp_server.start_ip }}
+                set end-ip {{ project.hub_lans[lan].dhcp_server.end_ip }}
+            next
+        end
+    next
+end
+{%- endif %}
+
+{%- if project.hub_lans[lan].dhcp_server.dns_service == 'local' %}
+config system dns-server
+    edit "{{ project.hub_lans[lan].interface.name }}"
+        set mode forward-only
+    next
+end
+{%- endif %}
+
+{%- endfor %}

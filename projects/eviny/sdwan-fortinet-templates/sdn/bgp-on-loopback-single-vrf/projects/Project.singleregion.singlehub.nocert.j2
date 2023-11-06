@@ -1,0 +1,195 @@
+{#_____ PROJECT TEMPLATE _____#}
+
+{#_____ GLOBAL VARIABLES _____#}
+{% set eviny_admin = {{ eviny_admin }} %}    {# Eviny firewall admin user #}
+{% set eviny_admin_pw_hash = {{ eviny_admin_pw_hash }} %}    {# Password hash Eviny firewall admin user #}
+
+{% set psksecret_hash = {{ psksecret_hash }} %}    {# IPsec VPN PSK hash OLT_HS_xx VPN tunnels #}
+{% set hub_wan_primary_ip = {{ hub_wan_primary_ip }} %}    {# Primary WAN IP on hub firewall #}
+{% set hub_wan_secondary_ip = {{ hub_wan_secondary_ip }} %}    {# Secondary WAN IP on hub firewall #}
+
+{% set bgp_as = {{ bgp_as }} %}        {# BGP AS number #}
+{% set hub_loopback_ip = {{ hub_loopback_ip }} %}        {# Loopback IP on hub firewall #}
+{% set loopback_summary = {{ loopback_summary }} %}        {# Summary IP range for loopback IPs #}
+{% set lan_summary = {{ lan_summary }} %}        {# Summary IP range for all LAN subnets #}
+
+{% set psksecret_hash_mgmt = {{ psksecret_hash_mgmt }} %}    {# IPsec VPN PSK hash FW_MGMT_xx VPN tunnels #}
+{% set mgmt_remote_gw_primary_ip = {{ mgmt_remote_gw_primary_ip }} %}    {# Primary WAN IP FW-VPN-HMG9 #}
+{% set mgmt_remote_gw_secondary_ip = {{ mgmt_remote_gw_secondary_ip }} %}   {# Secondary WAN IP FW-VPN-HMG9 #}
+
+{#_____ UNDERLAY WAN LINKS _____#}
+{% set underlays = {
+    'primary': {
+        'name': wan_primary,
+        'ipv4_linknet': wan_primary_ipv4_linknet,
+        'ipv4_address': wan_primary_ipv4_address,
+        'ipv4_gateway': wan_primary_ipv4_gateway,
+        'distance': ''
+    },
+    'secondary': {
+        'name': wan_secondary,
+        'ipv4_linknet': wan_secondary_ipv4_linknet,
+        'ipv4_address': wan_secondary_ipv4_address,
+        'ipv4_gateway': wan_secondary_ipv4_gateway,
+        'distance': ''
+    },
+    'mobile': {
+        'name': wan_mobile,
+        'ipv4_linknet': wan_mobile_ipv4_linknet,
+        'ipv4_address': wan_mobile_ipv4_address,
+        'ipv4_gateway': wan_mobile_ipv4_gateway,
+        'distance': '10'
+    },
+    'mpls': {
+        'name': wan_mpls,
+        'ipv4_linknet': wan_mpls_ipv4_linknet,
+        'ipv4_address': wan_mpls_ipv4_address,
+        'ipv4_gateway': wan_mpls_ipv4_gateway,
+        'distance': ''
+    }
+  }
+%}
+
+{#_____ OVERLAY VPN TUNNELS _____#}
+{% set vpn_overlay = {
+    'OLT_HS_PP': {
+      'name': 'OLT_HS_PP',
+      'network_id': '1',
+      'interface_hub': wan_primary,
+      'interface_spoke': wan_primary,
+      'hub_wan_ip': hub_wan_primary_ip
+    },
+    'OLT_HS_SP': {
+      'name': 'OLT_HS_SP',
+      'network_id': '2',
+      'interface_hub': wan_secondary,
+      'interface_spoke': wan_primary,
+      'hub_wan_ip': hub_wan_secondary_ip
+    },
+    'OLT_HS_PS': {
+      'name': 'OLT_HS_PS',
+      'network_id': '3',
+      'interface_hub': wan_primary,
+      'interface_spoke': wan_mobile,
+      'hub_wan_ip': hub_wan_primary_ip
+    },
+    'OLT_HS_SS': {
+      'name': 'OLT_HS_SS',
+      'network_id': '4',
+      'interface_hub': wan_secondary,
+      'interface_spoke': wan_mobile,
+      'hub_wan_ip': hub_wan_secondary_ip
+    }
+  }
+%}
+
+{#_____ MANAGEMENT VPN TUNNELS _____#}
+{% set vpn_mgmt = {
+    'FW_MGMT_PP': {
+      'name': 'FW_MGMT_PP',
+      'network_id': '1',
+      'interface': wan_primary,
+      'mgmt_remote_gw_ip': mgmt_remote_gw_primary_ip
+    },
+    'FW_MGMT_SP': {
+      'name': 'FW_MGMT_SP',
+      'network_id': '2',
+      'interface': wan_primary,
+      'mgmt_remote_gw_ip': mgmt_remote_gw_secondary_ip
+    },
+    'FW_MGMT_PS': {
+      'name': 'FW_MGMT_PS',
+      'network_id': '3',
+      'interface': wan_secondary,
+      'mgmt_remote_gw_ip': mgmt_remote_gw_primary_ip
+    },
+    'FW_MGMT_SS': {
+      'name': 'FW_MGMT_SS',
+      'network_id': '4',
+      'interface': wan_secondary,
+      'mgmt_remote_gw_ip': mgmt_remote_gw_secondary_ip
+    }
+  }
+%}
+
+{#_____ HUB LANS _____#}
+{% set hub_lans = {
+    '<_default/vlanX>': {
+      'interface': {
+        'name': '<_default/vlanX>',
+        'alias': '<alias>',
+        'allowaccess': 'ping',
+        'block_intra_vlan': 'na',
+        'main_interface': 'fortilink',
+        'vlan_id': '<na|vlan_id>',
+        'loopback': 'no',
+        'ip': {
+          'address': '<x.x.>' ~ site_id ~ '.1',
+          'subnet': '<x.x.>' ~ site_id ~ '.0/24',
+          'subnet_mask': '255.255.255.0',
+          'subnet_advertise': 'yes'
+        }
+      },
+      'zone': {
+        'status': 'enable',
+        'name': '<zone-xxxx>'
+      },
+      'dhcp_server': {
+        'status': 'enable',
+        'scope_id': '<scope_id>',
+        'lease_time': '86400',
+        'dns_service': 'local',
+        'dns_server1': '',
+        'dns_server2': '',
+        'start_ip': '<x.x.>' ~ site_id ~ '.2',
+        'end_ip': '<x.x.>' ~ site_id ~ '.254'      
+      },
+      'dhcp_relay': {
+        'status': 'disable',
+        'ip_1': '',
+        'ip_2': ''
+      }
+    }
+  }
+%}
+
+{#_____ SPOKE LANS _____#}
+{% set spoke_lans = {
+    '<_default/vlanX>': {
+      'interface': {
+        'name': '<_default/vlanX>',
+        'alias': '<alias>',
+        'allowaccess': 'ping',
+        'block_intra_vlan': 'na',
+        'main_interface': 'fortilink',
+        'vlan_id': '<na|vlan_id>',
+        'loopback': 'no',
+        'ip': {
+          'address': '<x.x.>' ~ site_id ~ '.1',
+          'subnet': '<x.x.>' ~ site_id ~ '.0/24',
+          'subnet_mask': '255.255.255.0',
+          'subnet_advertise': 'yes'
+        }
+      },
+      'zone': {
+        'status': 'enable',
+        'name': '<zone-xxxx>'
+      },
+      'dhcp_server': {
+        'status': 'enable',
+        'scope_id': '<scope_id>',
+        'lease_time': '86400',
+        'dns_service': 'local',
+        'dns_server1': '',
+        'dns_server2': '',
+        'start_ip': '<x.x.>' ~ site_id ~ '.2',
+        'end_ip': '<x.x.>' ~ site_id ~ '.254'      
+      },
+      'dhcp_relay': {
+        'status': 'disable',
+        'ip_1': '',
+        'ip_2': ''
+      }
+    }
+  }
+%}

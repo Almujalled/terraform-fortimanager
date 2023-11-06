@@ -1,0 +1,68 @@
+{#_____ INTERFACE FORTILINK _____#}
+config system interface
+    edit "fortilink"
+        set auto-auth-extension-device enable
+    next
+    edit "_default"
+        set vdom "root"
+        set alias "default.fortilink"
+        set switch-controller-feature default-vlan
+        set interface "fortilink"
+        set vlanid 1
+    next
+    edit "quarantine"
+        set vdom "root"
+        set alias "quarantine.fortilink"
+        set interface "fortilink"
+        set vlanid 4093
+    next
+end
+
+{#_____ LAN IPV4 _____#}
+config system interface
+    edit "{{ lan_interface }}"
+        set ip {{ lan_ipv4_subnet | ipaddr('net') | ipaddr('1') | ipaddr('address') }} {{ lan_ipv4_subnet | ipaddr('netmask') }}
+        set device-identification enable
+        set allowaccess ping fabric
+    next
+end
+config system dns-server
+    edit "{{ lan_interface }}"
+        set mode forward-only
+    next
+end
+config system dhcp server
+    edit 1
+        set dns-service local
+        set lease-time 86400
+        set default-gateway {{ lan_ipv4_subnet | ipaddr('net') | ipaddr('1') | ipaddr('address') }}
+        set netmask {{ lan_ipv4_subnet | ipaddr('netmask') }}
+        set interface "{{ lan_interface }}"
+        config ip-range
+            edit 1
+                set start-ip {{ lan_ipv4_subnet | ipaddr('net') | ipaddr('50') | ipaddr('address') }}
+                set end-ip {{ lan_ipv4_subnet | ipaddr('net') | ipaddr('254') | ipaddr('address') }}
+            next
+        end
+        set timezone-option default
+    next
+end
+
+{#_____ LAN IPV6 IF NOT 4G BACKUP _____#}
+{%- if wan_mobile == 'none' and lan_ipv6_subnet != '::/0' %}
+config system interface
+    edit "{{ lan_interface }}"
+        config ipv6
+            set ip6-allowaccess ping
+            set ip6-address {{ lan_ipv6_subnet | ipaddr('net') | ipaddr('1') | ipaddr('address') }}/{{ lan_ipv6_subnet | ipaddr('prefix') }}
+            set ip6-send-adv enable
+            config ip6-prefix-list
+                edit {{ lan_ipv6_subnet }}
+                    set autonomous-flag enable
+                    set onlink-flag enable
+                next
+            end
+        end
+    next
+end
+{%- endif %}

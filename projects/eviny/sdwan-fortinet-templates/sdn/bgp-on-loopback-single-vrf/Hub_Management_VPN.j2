@@ -1,0 +1,42 @@
+{#_____ IMPORT PROJECT TEMPLATE _____#}
+{% import 'Project' as project with context %}
+
+{#_____ MANAGEMENT VPN TUNNELS _____#}
+{%- for vpn in project.vpn_mgmt %}
+{%- if project.vpn_mgmt[vpn].interface|length %}
+config vpn ipsec phase1-interface
+    edit "{{ project.vpn_mgmt[vpn].name }}"
+        set type static
+        set interface "{{ project.vpn_mgmt[vpn].interface }}"
+        set ike-version 2
+        set peertype any
+        set net-device disable
+        set proposal aes256-sha256
+        set dpd on-idle
+        set dhgrp 14
+        set network-overlay enable
+        set network-id {{ project.vpn_mgmt[vpn].network_id }}
+        set remote-gw {{ project.vpn_mgmt[vpn].mgmt_remote_gw_ip }}
+        set psksecret ENC {{ project.psksecret_hash_mgmt }}
+        set dpd-retrycount 2
+        set dpd-retryinterval 5
+    next
+end
+config vpn ipsec phase2-interface
+    edit "{{ project.vpn_mgmt[vpn].name }}"
+        set phase1name "{{ project.vpn_mgmt[vpn].name }}"
+        set proposal aes256-sha256
+        set dhgrp 14
+        set src-subnet {{ project.loopback_summary }}
+    next
+end
+config system interface
+    edit "{{ project.vpn_mgmt[vpn].name }}"
+        set vdom "root"
+        set type tunnel
+        set tcp-mss 1350
+        set interface "{{ project.vpn_mgmt[vpn].interface }}"
+    next
+end
+{%- endif %}
+{%- endfor %}

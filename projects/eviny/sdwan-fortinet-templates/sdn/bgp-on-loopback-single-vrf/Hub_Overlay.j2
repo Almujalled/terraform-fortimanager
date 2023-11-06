@@ -1,0 +1,48 @@
+{#_____ IMPORT PROJECT TEMPLATE _____#}
+{% import 'Project' as project with context %}
+
+config system settings
+    set tcp-session-without-syn enable
+end
+
+{#_____ HUB OVERLAY VPN TUNNELS _____#}
+{%- for vpn in project.vpn_overlay %}
+{%- if project.vpn_overlay[vpn].interface_hub  != 'none' %}
+config vpn ipsec phase1-interface
+    edit "{{ project.vpn_overlay[vpn].name }}"
+        set type dynamic
+        set interface "{{ project.vpn_overlay[vpn].interface_hub }}"
+        set ike-version 2
+        set psksecret ENC {{ project.psksecret_hash }}
+        set peertype any
+        set proposal aes256-sha256
+        set dhgrp 14
+        set auto-discovery-sender enable
+        set exchange-ip-addr4 {{ loopback_ip }}
+        set add-route disable
+        set network-overlay enable
+        set network-id {{ project.vpn_overlay[vpn].network_id }}
+        set dpd-retrycount 2
+        set dpd-retryinterval 5
+        set dpd on-idle
+    next
+end
+config vpn ipsec phase2-interface
+    edit "{{ project.vpn_overlay[vpn].name }}"
+        set phase1name "{{ project.vpn_overlay[vpn].name }}"
+        set proposal aes256-sha256
+        set dhgrp 14
+        set keepalive enable
+        set add-route disable
+    next
+end
+config system interface
+    edit "{{ project.vpn_overlay[vpn].name }}"
+        set vdom "root"
+        set type tunnel
+        set tcp-mss 1350
+        set interface "{{ project.vpn_overlay[vpn].interface_hub }}"
+    next
+end
+{%- endif %}
+{%- endfor %}

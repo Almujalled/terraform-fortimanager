@@ -1,0 +1,35 @@
+{#_____ CHANGE DISTANCE FROM 1 TO 10 ON 4G UPLINK _____#}
+{%- if wan_mobile == 'wwan' %}
+config system interface
+    edit "wwan"
+        set distance 10
+    next
+end
+{%- endif %}
+
+{#_____ REMOVE DEFAULT POLICIES TO FREE WAN INTERFACE _____#}
+config firewall policy
+    purge
+end
+
+{#_____ CREATE LAN ZONE _____#}
+config system zone
+    edit "zone-lan"
+        set interface "{{ lan_interface }}"
+    next
+end
+
+{#_____ ENABLE SD-WAN AND CREATE SD-WAN ZONES _____#}
+config system sdwan
+    set status enable
+    config zone
+        edit "sdwan-internet"
+        next
+    end
+end
+config router static
+    edit 1
+        set distance 1
+        set sdwan-zone "sdwan-internet"
+    next
+end

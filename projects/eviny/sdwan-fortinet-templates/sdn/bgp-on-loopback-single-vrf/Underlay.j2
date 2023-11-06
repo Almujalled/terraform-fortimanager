@@ -1,0 +1,36 @@
+{#_____ IMPORT PROJECT TEMPLATE _____#}
+{% import 'Project' as project with context %}
+
+{#_____ UNDERLAY WAN INTERFACES _____#}
+{%- for wan in project.underlays %}
+{%- if project.underlays[wan].name != 'none' %}
+config system interface
+    edit "{{ project.underlays[wan].name }}"
+        {%- if project.underlays[wan].ipv4_linknet != '0.0.0.0/0' %}
+        set mode static
+        set ip {{ project.underlays[wan].ipv4_address }} {{ project.underlays[wan].ipv4_linknet | ipaddr('netmask') }}
+        {%- else %}
+        set mode dhcp
+        {%- endif %}
+        {%- if project.underlays[wan].distance|length %}
+        set distance {{ project.underlays[wan].distance }}
+        {%- endif %}
+        set allowaccess ping https ssh snmp fgfm
+        set monitor-bandwidth enable
+        set dns-server-override disable
+    next
+end
+{%- endif %}
+{%- endfor %}
+
+{#_____ MANAGEMENT LOOPBACK _____#}
+{%- if loopback_ip != '0.0.0.0' %}
+config system interface
+    edit "loopback1"
+        set vdom "root"
+        set ip {{ loopback_ip }} 255.255.255.255
+        set allowaccess ping https ssh
+        set type loopback
+    next
+end
+{%- endif %}

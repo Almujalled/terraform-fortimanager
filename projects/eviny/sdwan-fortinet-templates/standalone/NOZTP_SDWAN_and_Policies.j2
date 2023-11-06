@@ -1,0 +1,200 @@
+{#_____ SDWAN AND POLICIES 4G BACKUP _____#}
+{%- if wan_mobile != 'none' and wan_secondary == 'none' %}
+config system sdwan
+    set status enable
+    config zone
+        edit "virtual-wan-link"
+        next
+        edit "sdwan-internet"
+        next
+    end
+    config members
+        edit 1
+            set interface "{{ wan_primary }}"
+            set zone "sdwan-internet"
+        next
+        edit 2
+            set interface "{{ wan_mobile }}"
+            set zone "sdwan-internet"
+        next
+    end
+    config health-check
+        edit "ping_internet"
+            set server "9.9.9.9" "8.8.8.8"
+            set interval 1000
+            set members 1
+        next
+    end
+    config service
+        edit 1
+            set name "internet"
+            set dst "all"
+            set src "all"
+            set priority-members 1
+        next
+    end
+end
+config firewall policy
+    edit 1
+        set name "lan_to_internet"
+        set srcintf "zone_lan"
+        set dstintf "sdwan-internet"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set application-list "default"
+        set nat enable
+    next
+end
+{%- endif %}
+
+{#_____ SDWAN AND POLICIES DUAL WAN _____#}
+{%- if wan_secondary != 'none' and wan_mobile == 'none' %}
+config system sdwan
+    set status enable
+    config zone
+        edit "virtual-wan-link"
+        next
+        edit "sdwan-internet"
+        next
+    end
+    config members
+        edit 1
+            set interface "{{ wan_primary }}"
+            set zone "sdwan-internet"
+            set gateway6 {{ wan_primary_ipv6_linknet | ipaddr('net') | ipaddr('1') }}
+        next
+        edit 1
+            set interface "{{ wan_secondary }}"
+            set zone "sdwan-internet"
+            set gateway6 {{ wan_secondary_ipv6_linknet | ipaddr('net') | ipaddr('1') }}
+        next
+    end
+    config health-check
+        edit "ping_internet"
+            set server "9.9.9.9" "8.8.8.8"
+            set interval 1000
+            set members 1
+        next
+    end
+    config service
+        edit 1
+            set name "internet"
+            set dst "all"
+            set src "all"
+            set priority-members 1
+        next
+        edit 2
+            set name "internet_ipv6"
+            set addr-mode ipv6
+            set priority-members 1
+            set dst6 "all"
+            set src6 "all"
+        next
+    end
+end
+config firewall policy
+    edit 1
+        set name "lan_to_internet"
+        set srcintf "zone_lan"
+        set dstintf "sdwan-internet"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set application-list "default"
+        set nat enable
+    next
+    edit 2
+        set name "ipv6_lan_to_internet"
+        set srcintf "zone_lan"
+        set dstintf "sdwan-internet"
+        set action accept
+        set srcaddr6 "all"
+        set dstaddr6 "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set application-list "default"
+    next
+end
+{%- endif %}
+
+{#_____ SDWAN AND POLICIES DEFAULT _____#}
+{%- if wan_mobile == 'none' and wan_secondary == 'none' %}
+config system sdwan
+    set status enable
+    config zone
+        edit "virtual-wan-link"
+        next
+        edit "sdwan-internet"
+        next
+    end
+    config members
+        edit 1
+            set interface "{{ wan_primary }}"
+            set zone "sdwan-internet"
+            set gateway6 {{ wan_primary_ipv6_linknet | ipaddr('net') | ipaddr('1') }}
+        next
+    end
+    config health-check
+        edit "ping_internet"
+            set server "9.9.9.9" "8.8.8.8"
+            set interval 1000
+            set members 1
+        next
+    end
+    config service
+        edit 1
+            set name "internet"
+            set dst "all"
+            set src "all"
+            set priority-members 1
+        next
+        edit 2
+            set name "internet_ipv6"
+            set addr-mode ipv6
+            set priority-members 1
+            set dst6 "all"
+            set src6 "all"
+        next
+    end
+end
+config firewall policy
+    edit 1
+        set name "lan_to_internet"
+        set srcintf "zone_lan"
+        set dstintf "sdwan-internet"
+        set action accept
+        set srcaddr "all"
+        set dstaddr "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set application-list "default"
+        set nat enable
+    next
+    edit 2
+        set name "ipv6_lan_to_internet"
+        set srcintf "zone_lan"
+        set dstintf "sdwan-internet"
+        set action accept
+        set srcaddr6 "all"
+        set dstaddr6 "all"
+        set schedule "always"
+        set service "ALL"
+        set utm-status enable
+        set ssl-ssh-profile "certificate-inspection"
+        set application-list "default"
+    next
+end
+{%- endif %}
