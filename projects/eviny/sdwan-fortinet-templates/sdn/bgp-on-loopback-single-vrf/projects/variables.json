@@ -13,5 +13,8 @@
 
     "psksecret_hash_mgmt": "SH2oNn0cajJrvloCnvRqIlRHLaHOceUBLIneuQWfNCVqY9OxTF9vZtbLGZ2E74=",
     "mgmt_remote_gw_primary_ip": "82.134.94.162",
-    "mgmt_remote_gw_secondary_ip": "82.134.41.210"
+    "mgmt_remote_gw_secondary_ip": "82.134.41.210",
+
+    "zone" : "",
+    "VLAN" : ""
 }

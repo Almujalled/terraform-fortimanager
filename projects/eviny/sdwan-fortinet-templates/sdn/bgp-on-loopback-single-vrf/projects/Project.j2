@@ -114,7 +114,7 @@
 
 {#_____ HUB LANS _____#}
 {% set hub_lans = {
-    '<_default/vlanX>': {
+    {{ VLAN}}: {
       'interface': {
         'name': '<_default/vlanX>',
         'alias': '<alias>',
@@ -173,7 +173,7 @@
       },
       'zone': {
         'status': 'enable',
-        'name': '<zone-xxxx>'
+        'name': '{{ zone}}'
       },
       'dhcp_server': {
         'status': 'enable',
