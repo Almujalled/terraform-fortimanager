@@ -1,15 +1,15 @@
 
-resource "fortimanager_exec_workspace_action" "lockDevice" {
-  for_each = var.device
-  scopetype      = "adom"
-  adom           = var.workingADOM
-  action         = "lockbegin"
-  target         = "dev"
-  param          = each.value.name
-  force_recreate = uuid()
-  comment        = ""
-  depends_on = [ fortimanager_dvm_cmd_add_device.addDevice]
-}
+#resource "fortimanager_exec_workspace_action" "lockDevice" {
+#  for_each = var.device
+#  scopetype      = "adom"
+#  adom           = var.workingADOM
+#  action         = "lockbegin"
+#  target         = "dev"
+#  param          = each.value.name
+#  force_recreate = uuid()
+#  comment        = ""
+#  depends_on = [ fortimanager_dvm_cmd_add_device.addDevice]
+#}
 
 #resource "fortimanager_exec_workspace_action" "lockPackage" {
 #  scopetype      = "adom"
