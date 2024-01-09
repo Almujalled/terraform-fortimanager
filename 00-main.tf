@@ -7,10 +7,10 @@ terraform {
   }
 }
 provider "fortimanager" {
-  hostname   = "fm01.verja.no"
+  hostname   = "fmg.tacokveld.no"
   username   = "api_user"
-  token      = "n8ru5gqzddqsypogz9g3ax87fg3j4sjz"
-  insecure   = "true"
+  token      = "3ziqufzj1nqnnrgcxc5cxu7t4ybf44gh"
+  insecure   = "false"
   scopetype  = "adom"
   logsession = true
   presession = ""
